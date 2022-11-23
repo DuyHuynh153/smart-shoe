@@ -21,7 +21,7 @@
   --biggest-font-size:2rem;
   --h2-font-size:1.25rem;
   --normal-font-size:.900rem;
-  --smaller-font-size:.800rem;
+  --smaller-font-size:.8rem;
 
   /*===== Margenes =====*/
   --mb-1: .5rem;
@@ -61,7 +61,7 @@ body {
   font-weight: var(--font-medium);
   color: var(--dark-color);
   line-height: 1.6;
-    
+      
 }
 h1,h2,h3,p,ul {
   margin:0;
@@ -142,6 +142,9 @@ img {
     background-color: var(--white-color);
     transition: .5s;
   }
+  .nav__logo img {
+    max-width: 200px;
+  }
 }
 
 .nav__item {
@@ -151,6 +154,7 @@ img {
 .nav__logo{
   font-weight: var(--font-semi-bold);
 }
+
 .nav__toggle,.nav__shop {
   font-size: 1.3rem;
   cursor: pointer;
@@ -165,16 +169,16 @@ img {
   position: relative;
 }
 /* dưới này là làm mình biết trang hiện tại là trang nào */
-.active::before {
+/* .active::before {
   content: "";
   position: absolute;
   bottom: -.5rem;
   left: 45%;
-  width: 14px;
+  width: 8px;
   height: 4px;
   background-color: var(--dark-color);
   border-radius: 50%;
-}
+} */
 
 /*Change color header*/
 .scroll-header {
@@ -266,7 +270,10 @@ img {
   background-color: var(--dark-color-lighten);
   border-radius: .5rem;
   transition: .3s;
-  
+  margin:  12px;
+}
+.shadow {
+  box-shadow: 5px 8px rgba(138,138,138,.3);
 }
 .sneaker__sale {
   position: absolute;
@@ -484,26 +491,52 @@ img {
   margin-right: 1.25rem;
 
 }
+
 /* ===== MEDIA QUERIES=====*/
 
 @media screen and (min-width:768px) {
   body {
+   
     margin:0;
+  }
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .featured{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .section {
     padding: 7rem 0;
   }
-  .section-title {
+  /* .section-title {
     width: 70px;
   }
-  .nav {
-    height: calc(--header-height) + 1.5rem;
+  .section-title::after {
     
+  } */
+  .nav {
+    
+    display: flex;
+    flex-wrap: nowrap;
+    height: calc(--header-height) + 1.5rem;
+    justify-content: space-between;
   }
-
+ 
+  .nav__logo {
+    flex:1;
+  }
   .nav__menu {
     margin-left: auto;
-
+    flex:3;
+  }
+  .nav__shop{
+    
+    flex:1;
   }
   .nav__list {
     display: flex;
@@ -524,8 +557,8 @@ img {
   }
   .home__sneaker {
     top:100px;
-   }
-  /* .bd-grid {
+  }
+  .bd-grid {
     display: flex;
     flex-wrap: wrap;
   }
@@ -533,7 +566,10 @@ img {
     width: 250px;
     margin: 1rem;
     box-shadow: 5px 5px rgba(177, 173, 173, 0.3) ;
-  }  */
+  } 
+  .nav__logo img {
+    max-width: 200px;
+  }
  
 }  
 

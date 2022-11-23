@@ -25,7 +25,7 @@ navLink.forEach(n=>n.addEventListener('click', linkAction))  // chỗ này có t
 /*===== SCROLL SECTIONS ACTIVE LINK =====*/
 const section = document.querySelectorAll('section[id]')
 
-window.addEventListener('scroll', scroolActive)
+window.addEventListener('scroll', scroolActive())
 
 function scroolActive(){
     const scrollY = window.pageYOffset
@@ -35,13 +35,16 @@ function scroolActive(){
         const sectionTop = current.offsetTop - 50
         sectionId = current.getAttribute('id')
 
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('nav__menu a[href*=' + sectionId + ']'.classList.add(active))
-        }
-        else{
-            document.querySelector('nav__menu a[href*=' + sectionId + ']'.classList.add(active))
+        // if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+        //     // document.querySelector('nav__menu a[href=#' + sectionId + ' ] '.classList.add(active))
+
+        //     document.querySelector('nav__menu a[href=#' + sectionId + ' ] ' + ' active')
+        // }
+
+        // else{
+        //     document.querySelector('nav__menu a[href=#' + sectionId + ' ] '.classList.add(active))
             
-        }
+        // }
 
 
     })
