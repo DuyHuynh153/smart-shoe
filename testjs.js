@@ -22,7 +22,7 @@ function generateCard (){
     let main = document.querySelector('.main')
     let navList = document.querySelector('nav_list')
 
-    if (navList)
+    // if (navList)
             // for (i =0 ; i< card_arr.length;i++){
             //     let mm = document.createElement('article')
         

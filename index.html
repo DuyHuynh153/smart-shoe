@@ -10,6 +10,12 @@
         <!-- ===== BOX ICONS ===== -->
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
+        <!-- copy từ cái cũ -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Smart Shoe</title>
     </head>
     <body>
@@ -56,11 +62,37 @@
                 </div>
             </section>
 
+            <!-- BRANDS -->
+            <section id ="categories">
+                <div class="body__categories">
+                    
+                    <div class="body__row">
+                        <h2 class="section-title">BRANDS</h2>
+                        <div class="box">
+                            <div id="addias" onclick="typeChange('addidas');document.getElementById('featured').scrollIntoView()">
+                                <img class="img" src="assets\img\Adidas_Logo.svg.png">
+                                <div class="overlay">ADDIDAS</div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div id="nike" onclick="typeChange('nike');document.getElementById('featured').scrollIntoView()">
+                                <img class="img" src="assets\img\web-183282388.jpg">
+                                <div class="overlay">NIKE</div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div id="jordan" onclick="typeChange('jordan');document.getElementById('featured').scrollIntoView()">
+                                <img class="img" src="assets\img\Jumpman_logo.svg.png">
+                                <div class="overlay">JORDAN</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <!--===== FEATURED =====-->
             <section class="featured section" id="featured">
                 <h2 class="section-title">FEATURED</h2>
-                <div class="feartured__container bd-grid">
-                    <article class="sneaker">
+                <div class="featured__container bd-grid" id="featured__container">
+                    <!-- <article class="sneaker">
                         <div class="sneaker__sale">Sale</div>
                         <img src="./assets/img/featured1.png" alt="" class="sneaker__img">
                         <span class="sneaker__name">Nike Jordan</span>
@@ -124,9 +156,26 @@
                         <span class="sneaker__name">Nike Jordan</span>
                         <span class="sneaker__preci">3.000.000 VND</span>
                         <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article>
+                    </article> -->
                 </div>
             </section>
+
+            <div class="pagination" id="pagination">
+                <div class="pagination__content">
+                    <div class="page">
+                        <ul>
+                            <li class="btn-prev btn-active fas fa-angle-left"></li>
+                            <div class="number-page" id="number-page">
+
+
+                            </div>
+                            <li class="btn-next fas fa-angle-right"></li>
+                        </ul>
+                    </div>
+
+
+</div>
+                </div>
 
             <!--===== COLLECTION =====-->
             <!-- <section class="collection section">
@@ -293,6 +342,6 @@
 
         <!--===== MAIN JS =====-->
         <script src="./assets/js/main.js"></script>
-        
+        <script src ="scripts\jquery-3.6.1.js"></script>
     </body>
 </html>

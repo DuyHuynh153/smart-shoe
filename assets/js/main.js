@@ -52,7 +52,193 @@ function scroolActive(){
 
 /*===== CHANGE COLOR HEADER =====*/ 
 window.onscroll = ()=> {
-    const nav = document.getElementByI('header')
+    const nav = document.getElementById('header')
     if (this.scrollY >= 200) nav.classList.add('scroll-header');
     else nav.classList.remove('scroll-header');
 }
+
+/*sản phẩm, sau thay thành localstorage */
+const product = [
+    { id: 1,brand:"addidas", image: "./assets/img/featured1.png", title: "addidas",price:"3.000.000 VND" },
+    { id: 2, brand:"nike",image: "./assets/img/featured1.png", title: "nike" ,price:"3.000.000 VND"},
+    { id: 3,brand:"jordan", image: "./assets/img/featured1.png", title: "jordan" ,price:"5.000.000 VND"},
+    {  id: 1,brand:"nike", image: "./assets/img/featured1.png", title: "nike"  ,price:"8.000.000 VND"},
+    { id: 5,brand:"yeezy", image: "./assets/img/featured1.png", title: "yeezy" ,price:"3.000.000 VND"},
+    {  id: 1,brand:"addidas", image: "./assets/img/featured1.png", title: "addidas"  ,price:"3.000.000 VND"},
+    {  id: 1,brand:"nike", image: "./assets/img/featured1.png", title: "nike",price:"2.000.000 VND"  },
+    { id: 1,brand:"jordan", image: "./assets/img/featured1.png", title: "jordan" ,price:"10.000.000 VND" },
+    {  id: 1,brand:"yeezy", image: "./assets/img/featured1.png", title: "yeezy" ,price:"4.000.000 VND" },
+]
+  
+  
+  
+  let perPage = 4;
+  let currentPage = 1;
+  let start = 0;
+  let end = perPage;
+  let productArr =product.slice(); /*mảng sản phẩm lấy từ localstorage bỏ vào */
+  let productArrFiltered = [];
+  let totalPages = Math.ceil(productArr.length / perPage);
+  const btnnext = document.querySelector(".btn-next");
+  const btnprev = document.querySelector(".btn-prev");
+  
+  //lấy sản phẩm dựa trên số trang
+  function getCurrentPage(currentPage){
+    start = (currentPage - 1) * perPage;
+    end = currentPage * perPage;
+  }
+  //làm mới li số trang sau khi đổi thể loại hoặc sau khi tìm kiếm
+  function refreshPage(array){
+    const list = document.getElementById('number-page')
+    while (list.hasChildNodes()) {
+      list.removeChild(list.firstChild);
+    }
+   totalPages = Math.ceil(array.length / perPage);
+   listPage(totalPages);
+   initChangePage();
+  }
+  //tìm kiếm theo tên (chưa làm xong, tìm được theo tên nhưng bị lỗi)
+  function searchName(name){
+    
+    let result = name;
+    if (result ==''){
+      productArrFiltered = productArr.slice();
+    }
+    if(name !== ''){
+      productArrFiltered = productArr.filter(item=>{
+        return item.title.toLowerCase().indexOf(name.toLowerCase()) > -1;
+      })
+    }
+    refreshPage(productArrFiltered);
+    listProduct(productArrFiltered);
+    initChangePage();
+  
+  }
+  //chuyển hãng
+  function typeChange(brand){
+  
+    productArr.splice(0,productArr.length);
+    if (brand =='addidas'){
+      productArr = product.filter(item =>{
+        return item.brand === brand;
+      })
+    }
+    if (brand =='nike'){
+      productArr = product.filter(item =>{
+        return item.brand === brand;
+      })
+    }
+    if (brand =='jordan'){
+      productArr = product.filter(item =>{
+        return item.brand === brand;
+      })
+    }
+    refreshPage(productArr);
+    listProduct(productArr);
+  }
+  //load sản phẩm 
+  function listProduct(productArr) {
+    html = '';
+   
+    const content = productArr.map((item, index) => {
+      if (index >= start && index < end) {
+        html += '<article class="sneaker">';
+        html += '<div class="sneaker__sale">Sale</div>';
+        html += '<img src="./assets/img/featured1.png" alt="" class="sneaker__img">';
+        html += '<span class="sneaker__name">'+item.title+'</span>';
+        html += '<span class="sneaker__preci">'+item.price+'</span>';
+        html += '<a href="" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>';
+        html += '</article>';
+        return html;
+    //     <article class="sneaker">
+    //     <div class="sneaker__sale">Sale</div>
+    //     <img src="./assets/img/featured1.png" alt="" class="sneaker__img">
+    //     <span class="sneaker__name">Nike Jordan</span>
+    //     <span class="sneaker__preci">3.000.000 VND</span>
+    //     <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
+    // </article>
+      }
+    });
+    document.getElementById('featured__container').innerHTML = html;
+  }
+  
+  //khởi tạo nút số trang
+  function listPage(totalPages) {
+    let html = '';
+    html += `<li class="current-page active"><a>${1}</a></li>`;
+    for (let i = 2; i <= totalPages; i++) {
+      html += `<li><a>${i}</a></li>`;
+    }
+    if (totalPages === 0) {
+      html = ''
+    }
+    document.getElementById('number-page').innerHTML = html;
+  }
+  //nút tiến trang
+  btnnext.addEventListener('click', () => {
+    currentPage++;
+    if (currentPage > totalPages) {
+      currentPage = totalPages;
+    }
+    if(currentPage === totalPages){
+      $('.btn-next').addClass('btn-active');
+    }
+    $('.btn-prev').removeClass('btn-active');
+    $( '.pagination .pagination__content .number-page li' ).removeClass('active');
+    $( `.pagination .pagination__content .number-page li:eq(${currentPage -1})` ).addClass('active');
+    getCurrentPage(currentPage);
+    listProduct(productArr);
+  }
+  )
+  //nút lùi trang
+  btnprev.addEventListener('click', () => {
+    currentPage--;
+    if (currentPage <= 1) {
+      currentPage = 1;
+    }
+    if(currentPage === 1){
+      $('.btn-prev').addClass('btn-active');
+    }
+    $('.btn-next').removeClass('btn-active');
+    $( '.pagination .pagination__content .number-page li' ).removeClass('active');
+    $( `.pagination .pagination__content .number-page li:eq(${currentPage -1})` ).addClass('active');
+   
+    getCurrentPage(currentPage);
+    listProduct(productArr);
+  }
+  )
+   //Thêm function đổi trang cho các nút số
+  function initChangePage(){
+    const availablePages = document.querySelectorAll('.number-page li');
+    for(let i = 0; i < availablePages.length;i++){
+      availablePages[i].addEventListener('click', ()=>{
+        let value = i + 1;
+        currentPage = value;
+        $( '.pagination .pagination__content .number-page li' ).removeClass('active');
+        availablePages[i].classList.add('active');
+        if(currentPage === 1){
+          $('.btn-prev').addClass('btn-active');
+          $('.btn-next').removeClass('btn-active');
+        }
+        if(currentPage === availablePages.length ){
+          $('.btn-next').addClass('btn-active');
+          $('.btn-prev').removeClass('btn-active');
+        }
+        if(currentPage > 1 && currentPage < availablePages.length){
+          $('.btn-prev').removeClass('btn-active');
+          $('.btn-next').removeClass('btn-active');
+        }
+        getCurrentPage(currentPage);
+        listProduct(productArr);
+      })
+    }
+  }
+  
+  function searchProduct(){
+    
+  }
+  listProduct(productArr);
+  listPage(totalPages);
+  initChangePage();
+  
+  
