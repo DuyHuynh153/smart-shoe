@@ -59,12 +59,12 @@ window.onscroll = ()=> {
 
 /*sản phẩm, sau thay thành localstorage */
 const product = [
-    { id: 1,brand:"addidas", image: "./assets/img/featured1.png", title: "addidas",price:"3.000.000 VND" },
+    { id: 1,brand:"adidas", image: "./assets/img/featured1.png", title: "adidas",price:"3.000.000 VND" },
     { id: 2, brand:"nike",image: "./assets/img/featured1.png", title: "nike" ,price:"3.000.000 VND"},
     { id: 3,brand:"jordan", image: "./assets/img/featured1.png", title: "jordan" ,price:"5.000.000 VND"},
     {  id: 1,brand:"nike", image: "./assets/img/featured1.png", title: "nike"  ,price:"8.000.000 VND"},
     { id: 5,brand:"yeezy", image: "./assets/img/featured1.png", title: "yeezy" ,price:"3.000.000 VND"},
-    {  id: 1,brand:"addidas", image: "./assets/img/featured1.png", title: "addidas"  ,price:"3.000.000 VND"},
+    {  id: 1,brand:"adidas", image: "./assets/img/featured1.png", title: "adidas"  ,price:"3.000.000 VND"},
     {  id: 1,brand:"nike", image: "./assets/img/featured1.png", title: "nike",price:"2.000.000 VND"  },
     { id: 1,brand:"jordan", image: "./assets/img/featured1.png", title: "jordan" ,price:"10.000.000 VND" },
     {  id: 1,brand:"yeezy", image: "./assets/img/featured1.png", title: "yeezy" ,price:"4.000.000 VND" },
@@ -72,34 +72,35 @@ const product = [
   
   
   
-  let perPage = 4;
+  let perPage = 6;
   let currentPage = 1;
   let start = 0;
   let end = perPage;
-  let productArr =product.slice(); /*mảng sản phẩm lấy từ localstorage bỏ vào */
-  let productArrFiltered = [];
+  let productArr = product.slice(); /*mảng sản phẩm lấy từ localstorage bỏ vào */
+  let productArrFiltered = productArr.slice();
   let totalPages = Math.ceil(productArr.length / perPage);
   const btnnext = document.querySelector(".btn-next");
   const btnprev = document.querySelector(".btn-prev");
   
   //lấy sản phẩm dựa trên số trang
-  function getCurrentPage(currentPage){
-    start = (currentPage - 1) * perPage;
-    end = currentPage * perPage;
+  function getCurrentPage(page){
+    start = (page - 1) * perPage;
+    end = page * perPage;
   }
   //làm mới li số trang sau khi đổi thể loại hoặc sau khi tìm kiếm
-  function refreshPage(array){
+  function renderPageNumbers(array){
     const list = document.getElementById('number-page')
     while (list.hasChildNodes()) {
       list.removeChild(list.firstChild);
     }
    totalPages = Math.ceil(array.length / perPage);
    listPage(totalPages);
-   initChangePage();
+   initChangePage(array);
   }
   //tìm kiếm theo tên (chưa làm xong, tìm được theo tên nhưng bị lỗi)
   function searchName(name){
-    
+    productArrFiltered.splice(0,productArrFiltered.length);
+    currentPage = 1;
     let result = name;
     if (result ==''){
       productArrFiltered = productArr.slice();
@@ -109,38 +110,31 @@ const product = [
         return item.title.toLowerCase().indexOf(name.toLowerCase()) > -1;
       })
     }
-    refreshPage(productArrFiltered);
-    listProduct(productArrFiltered);
-    initChangePage();
-  
+    getCurrentPage(currentPage);
+    renderPageNumbers(productArrFiltered);
+    initProductPage(productArrFiltered,totalPages);
+    initChangePage(productArrFiltered);
   }
   //chuyển hãng
   function typeChange(brand){
+
+    currentPage = 1;
+    productArrFiltered.splice(0,productArrFiltered.length);
+    
+      productArrFiltered = product.filter(item =>{
+        return item.brand === brand;
+  })
   
-    productArr.splice(0,productArr.length);
-    if (brand =='addidas'){
-      productArr = product.filter(item =>{
-        return item.brand === brand;
-      })
-    }
-    if (brand =='nike'){
-      productArr = product.filter(item =>{
-        return item.brand === brand;
-      })
-    }
-    if (brand =='jordan'){
-      productArr = product.filter(item =>{
-        return item.brand === brand;
-      })
-    }
-    refreshPage(productArr);
-    listProduct(productArr);
+    getCurrentPage(currentPage);
+    renderPageNumbers(productArrFiltered);
+    initProductPage(productArrFiltered,totalPages);
+    initChangePage(productArrFiltered);
   }
   //load sản phẩm 
-  function listProduct(productArr) {
+  function listProduct(array) {
     html = '';
    
-    const content = productArr.map((item, index) => {
+    const content = array.map((item, index) => {
       if (index >= start && index < end) {
         html += '<article class="sneaker">';
         html += '<div class="sneaker__sale">Sale</div>';
@@ -187,7 +181,7 @@ const product = [
     $( '.pagination .pagination__content .number-page li' ).removeClass('active');
     $( `.pagination .pagination__content .number-page li:eq(${currentPage -1})` ).addClass('active');
     getCurrentPage(currentPage);
-    listProduct(productArr);
+    listProduct(productArrFiltered);
   }
   )
   //nút lùi trang
@@ -204,7 +198,7 @@ const product = [
     $( `.pagination .pagination__content .number-page li:eq(${currentPage -1})` ).addClass('active');
    
     getCurrentPage(currentPage);
-    listProduct(productArr);
+    listProduct(productArrFiltered);
   }
   )
    //Thêm function đổi trang cho các nút số
@@ -229,16 +223,17 @@ const product = [
           $('.btn-next').removeClass('btn-active');
         }
         getCurrentPage(currentPage);
-        listProduct(productArr);
+        listProduct(array);
       })
     }
   }
   
-  function searchProduct(){
-    
+  function initProductPage(arr,page){
+    listProduct(arr);
+    listPage(page);
   }
-  listProduct(productArr);
-  listPage(totalPages);
-  initChangePage();
+  initProductPage(productArrFiltered,totalPages);
+  
+  initChangePage(productArrFiltered);
   
   
