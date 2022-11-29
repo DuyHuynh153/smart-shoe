@@ -22,7 +22,7 @@
 
         <!--===== HEADER =====-->
         <header class="l-header" id="header">
-            <nav class="nav bd-grid ">
+            <nav class="nav bd-grid no-wrap">
                 <div class="nav__toggle" id="nav-toggle">
                     <i class='bx bx-grid-alt bx-rotate-90' ></i>
                 </div>
@@ -32,11 +32,10 @@
 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link ">Home</a></li>
-                        <li class="nav__item"><a href="#featured" class="nav__link">Featured</a></li>
-                        <li class="nav__item"><a href="#women" class="nav__link">Women</a></li>
+                        <li class="nav__item sign-in"><a href="#home" class="nav__link ">Trang Chủ</a></li>
+                        <li class="nav__item sign-in"><a href="#featured" class="nav__link">Sản Phẩm</a></li>
+                        <li class="nav__item"><a href="#women" class="nav__link">Nữ</a></li>
                         <li class="nav__item"><a href="#new" class="nav__link">New</a></li>
-                        <li class="nav__item"><a href="./shop.html" class="nav__link">Shop</a></li>
                         <li class ="nav__item">
                             <a href="">Brands</a>
                             <ul class ="dropdown" id="dropdown">
@@ -44,12 +43,20 @@
 
                             </ul>
                         </li>
+                        <li class="nav__item sign-in"><a  href="./sign_in.html" class="nav__link ">Đăng Nhập</a></li>
+                        <li class="nav__item sign-up"><a href="./signup.html" class="nav__link ">Đăng Ký</a></li>
                      
                     </ul>
                 </div>
 
                 <div class="nav__shop">
-                    <i class='bx bx-shopping-bag' ></i>
+                    <form action="./test.html">
+                        <a   href="./shop.html" class="nav-shop-market">
+                             <i class='bx bx-shopping-bag'></i>
+                            </a>
+                    </form>
+                    <!-- <a type="submit"  href="./shop.html" class="nav-shop-market"><i class='bx bx-shopping-bag'></i></a> -->
+                    <a href="./sign_in.html" id="nav__user" class="nav__user"><i class="fa-solid fa-user"></i></a>
                 </div>
             </nav>
 
@@ -73,7 +80,7 @@
       
             <!--===== FEATURED =====-->
             <section class="featured section" id="featured">
-                <h2 class="section-title">FEATURED</h2>
+                <h2 class="section-title">Các Sản Phẩm</h2>
                 <div class="container" id="searchBar">
                     <form id="searchForm" >
                         <input id="searchbar" placeholder="Nhập tên sản phẩm cần tìm">
@@ -302,7 +309,7 @@
 
         <!--===== FOOTER =====-->
         <footer class="footer section">
-            <div class="footer__container bd-grid">
+            <div class="footer__container bd-grid ">
                 
                 <div class="footer__box">
                     <h3 class="footer__title">Explore</h3>
@@ -352,14 +359,7 @@
                         <li><a href="" class="footer__link">Shipping Fees</a></li>
                     </ul>
                 </div>
-                <div class="footer__box">
-                    <h3 class="footer__title">
-                        <img src="./assets/img/SmartShoe.png" alt="">
-
-                    </h3>
-                    <p class="footer__description">New Collection of Shoes 2022</p>
-                     
-                </div>
+                
             </div>
         </footer>
 

@@ -68,6 +68,9 @@ const product = [
     {  id: 1,brand:"Nike", image: "./assets/img/featured1.png", title: "Nike",price:"2.000.000 VND"  },
     { id: 1,brand:"Jordan", image: "./assets/img/featured1.png", title: "Jordan" ,price:"10.000.000 VND" },
     {  id: 1,brand:"Yeezy", image: "./assets/img/featured1.png", title: "Yeezy" ,price:"4.000.000 VND" },
+    {  id: 1,brand:"Yeezy", image: "./assets/img/featured1.png", title: "Yeezy" ,price:"4.000.000 VND" },
+    {  id: 1,brand:"Yeezy", image: "./assets/img/featured1.png", title: "Yeezy" ,price:"4.000.000 VND" },
+    {  id: 1,brand:"Yeezy", image: "./assets/img/featured1.png", title: "Yeezy" ,price:"4.000.000 VND" },
 ];
 const brand =["Adidas","Nike","Jordan",'Yeezy'];
   
@@ -246,5 +249,63 @@ html += `<li onclick ="brandChange('`+arr[i]+`');document.getElementById('featur
   initProductPage(productArrFiltered,totalPages);
   initBrandMenu(brand);
   initChangePage(productArrFiltered);
-  
+
+
+  // phần tài khoản
+
+
+  const taiKhoan = [
+    {username:"lamduy1",password:"0001"},
+    {username:"lamduy2",password:"0002"},
+    {username:"lamduy3",password:"0003"},
+    {username:"lamduy4",password:"0004"},
+    {username:"lamduy5",password:"0005"},
+
+    ]
+    const queryString = window.location.search; // queryString chứa đường link của tất cả 
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);  // dùng biến urlParams để lưu lại đường link để dễ phân tích
+    const txtusername = urlParams.get('txtusername')
+    const txtemail = urlParams.get('txtemail')
+    const txtpassword = urlParams.get('txtpassword')
+    const txtrppassword = urlParams.get('txtrppassword')
+
+    // các thành phần ở dưới lấy đc value của các giá trị từ url gán cho các input 
+    let username = document.getElementById('username');
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    let rppassword = document.getElementById('rppassword');
+
+    username.value = txtusername
+    email.value = txtemail
+    password.value = txtpassword
+    rppassword.value = txtrppassword
+
+    // duyệt mảng tìm username 
+    function duyetMang(product){
+        for (let i =0 ; i < product.length ; i++){
+            if (username.value == product[i].username){
+                return true
+            }
+            else    return false
+        }
+    }
+    function themUser (username,password,product){
+        product.push({username: username,password: password});
+    }
+    // xét nếu mảng tài khoản trống thì thêm tài khoản
+    // if (duyetMang(taiKhoan) == false){
+    //     console.log(duyetMang(taiKhoan));
+    //     themUser(username,password,taiKhoan);
+    // }
+
+
+    // function checkSync( check){
+    //   if (check.value == 1){
+    //     alert("askdjasjdksajdklsajdkls"); 
+    //   }
+    // }
+
+
+    
   

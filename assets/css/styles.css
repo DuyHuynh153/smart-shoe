@@ -15,7 +15,7 @@
   --white-color:#fff;
 
   /*===== Font and typography =====*/
-  --body-font: 'roboto',san-serif;
+  --body-font: 'Roboto',san-serif;
   --big-font-size:1.25rem;
   --bigger-font-size:1.5rem;
   --biggest-font-size:2rem;
@@ -83,6 +83,7 @@ img {
 /*===== CLASS CSS ===== */
 .section{
   padding: 5rem 0 2rem;
+  
 }
 .section-title {
   position: relative;
@@ -120,6 +121,7 @@ img {
   position: fixed;
   top: 0;
   left: 0;
+  
   z-index:var(--z-fixed);
   background-color: var(--dark-color-lighten);
 }
@@ -129,6 +131,9 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.nav__user{
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -144,6 +149,10 @@ img {
   }
   .nav__logo img {
     max-width: 200px;
+  }
+  .container{
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -161,7 +170,13 @@ img {
   cursor: pointer;
 }
 /*Show menu*/
-
+.nav__shop {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.nav__user{
+  margin-left: 2rem;
+}
 .show {
   left: 0;
 }
@@ -571,6 +586,23 @@ img {
   } 
   .nav__logo img {
     max-width: 200px;
+  }
+  .sign-in{
+    white-space: nowrap;
+  }
+  .sign-up {
+    white-space: nowrap;
+  }
+  .no-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .section {
+    display: flex;
+    justify-content: center;
+  }
+  .footer__container{
+      flex-wrap: nowrap;
   }
  
 }  
