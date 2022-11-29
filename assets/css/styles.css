@@ -133,7 +133,7 @@ img {
   align-items: center;
 }
 .nav__user{
-  display: none;
+  /* display: none; */
 }
 
 @media screen and (max-width: 768px) {
@@ -302,11 +302,12 @@ img {
   letter-spacing:.1rem ;
 }
 .sneaker__img {
-  width: 220px;
+  width: 240px;
+  height: 140px;
   margin-top:var(--mb-3);
   margin-bottom: var(--mb-6);
-  transition: var(--rotate-img);
-  transform: var(--rotate-img);
+  /* transition: var(--rotate-img);
+  transform: var(--rotate-img); */
   /* màu cho từng sp */
   filter: drop-shadow(0 12px 8px rgba(0,0,0,.2)); 
 }
@@ -689,4 +690,12 @@ img {
   z-index: 1;
   transform: translateY(0);
   transition-delay: 0s, 0s, 0.3s;
+}
+
+
+/* tìm kiếm */
+#searchbar {
+  margin: 12px;
+  padding: 6px 16px;
+  
 }
