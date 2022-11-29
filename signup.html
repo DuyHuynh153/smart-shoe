@@ -14,29 +14,28 @@
     <title>Sign up</title>
   </head>
   <body>
-    <form action="./test.html" class="wapper">
+    <div class="wapper">
       <div class="wapper-heading">
         <h1>Sign Up</h1>
       </div>
       <form>
         <div class="input__field">
-          <input name="txtusername" id="username" type="text" placeholder="User Name" />
+          <input id="username" type="text" placeholder="User Name" />
         </div>
 
         <div class="input__field">
-          <input name="txtemail" id="email" type="text" placeholder="Email" />
+          <input id="email" type="text" placeholder="Email" />
         </div>
         <div class="input__field">
-          <input name="txtpassword" id="password" type="password" placeholder="Password" />
+          <input id="password" type="password" placeholder="Password" />
         </div>
         <div class="input__field">
-          <input name="txtrppassword" id="password" type="password" placeholder="Confirm Password" />
+          <input id="password" type="password" placeholder="Confirm Password" />
         </div>
-        <a href="./sign_in.html" class="login-link">Login</a>
-        <input onclick="checkSync(1)" type="submit" value="Đăng kí" class="btn btn-signup"></input>
+        <a href="login.html" class="login-link">Login</a>
+        <button class="btn btn-signup">Sign Up</button>
       </form>
-    </form>
-    <script src="./js/main.js"></script>
-    <script src="./assets/js/main.js"></script>
+    </div>
+    <script src="./assets/js/signup.js"></script>
   </body>
 </html>
