@@ -60,11 +60,11 @@ window.onscroll = ()=> {
 /*sản phẩm, sau thay thành localstorage */
 const product = [
     { id: 1,brand:"Adidas", image: "./assets/img/featured1.png", title: "Adidas",price:"3.000.000 VND" },
-    { id: 2, brand:"Nike",image: "./assets/img/featured1.png", title: "Nike" ,price:"3.000.000 VND"},
-    { id: 3,brand:"Jordan", image: "./assets/img/featured1.png", title: "Jordan" ,price:"5.000.000 VND"},
+    { id: 2, brand:"Nike",image: "./assets/img/featured2.png", title: "Nike" ,price:"3.000.000 VND"},
+    { id: 3,brand:"Jordan", image: "./assets/img/featured3.png", title: "Jordan" ,price:"5.000.000 VND"},
     {  id: 1,brand:"Nike", image: "./assets/img/featured1.png", title: "Nike"  ,price:"8.000.000 VND"},
-    { id: 5,brand:"Yeezy", image: "./assets/img/featured1.png", title: "Yeezy" ,price:"3.000.000 VND"},
-    {  id: 1,brand:"Adidas", image: "./assets/img/featured1.png", title: "Adidas"  ,price:"3.000.000 VND"},
+    { id: 5,brand:"Yeezy", image: "./assets/img/featured2.png", title: "Yeezy" ,price:"3.000.000 VND"},
+    {  id: 1,brand:"Adidas", image: "./assets/img/featured3.png", title: "Adidas"  ,price:"3.000.000 VND"},
     {  id: 1,brand:"Nike", image: "./assets/img/featured1.png", title: "Nike",price:"2.000.000 VND"  },
     { id: 1,brand:"Jordan", image: "./assets/img/featured1.png", title: "Jordan" ,price:"10.000.000 VND" },
     {  id: 1,brand:"Yeezy", image: "./assets/img/featured1.png", title: "Yeezy" ,price:"4.000.000 VND" },
@@ -139,7 +139,7 @@ const brand =["Adidas","Nike","Jordan",'Yeezy'];
       if (index >= start && index < end) {
         html += '<article class="sneaker">';
         html += '<div class="sneaker__sale">Sale</div>';
-        html += '<img src="./assets/img/featured1.png" alt="" class="sneaker__img">';
+        html += `<img src="`+item.image+`" alt="" class="sneaker__img">`;
         html += '<span class="sneaker__name">'+item.title+'</span>';
         html += '<span class="sneaker__preci">'+item.price+'</span>';
         html += '<a href="" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>';
@@ -210,7 +210,16 @@ const brand =["Adidas","Nike","Jordan",'Yeezy'];
 html += `<li onclick ="brandChange('`+arr[i]+`');document.getElementById('featured').scrollIntoView()"><a>`+arr[i]+`</a></li>`;
     }
     document.getElementById("dropdown").innerHTML = html;
-    console.log(html);
+  
+  }
+  function initBrandOption(arr){
+    var select = document.getElementById("selectBrand");
+    for(let i = 0;i<arr.length;i++){
+      var opt = document.createElement('option');
+      opt.value = arr[i];
+      opt.innerHTML = arr[i];
+      select.appendChild(opt);
+    }
   }
    //Thêm function đổi trang cho các nút số
   function initChangePage(array){
@@ -245,6 +254,8 @@ html += `<li onclick ="brandChange('`+arr[i]+`');document.getElementById('featur
   }
   initProductPage(productArrFiltered,totalPages);
   initBrandMenu(brand);
+  initBrandOption(brand);
   initChangePage(productArrFiltered);
-  
+  window.onload =function(){
+  localStorage.setItem('sanpham',JSON.stringify(product));}
   

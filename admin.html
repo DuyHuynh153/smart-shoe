@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="./assets/css/styles.css">
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- copy từ cái cũ -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+        <title>Smart Shoe admin</title>
+    </head>
+    <body>
+
+       
+ <!-- thêm sản phẩm -->
+ <div>
+ <label>thêm sản phẩm</label>
+ <form>
+    <label>tên sản phẩm</label>
+    <input id="name"></input>
+    <label>giá</label>
+    <input id ="price"></input>
+    <label>hãng</label>
+    <label for="img">chọn ảnh:</label>
+    <input type="file" id="img" name="img" accept="image/*">
+    <select id="selectBrand">
+        
+    </select>
+    <button  onclick="addProduct()">thêm sản phẩm</button>
+ </form>
+ <div >
+    <table id = productList></table>
+ </div>
+ </div>
+ <script src="assets\js\admin.js"></script>
