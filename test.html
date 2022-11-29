@@ -7,36 +7,82 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
     <title>test generate card</title>
     <style>
-        .main {
-            margin-top: 100px;
-            border: 3px solid black;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+        
     </style>
 </head>
 <body>
 
-    <div class="nav__menu" id="nav-menu">
-        <ul class="nav__list">
-            <li class="nav__item"><a onclick="generateCard()" href="#home" class="nav__link ">Home</a></li>
-            <li class="nav__item"><a onclick="generateCard()" href="#featured" class="nav__link">Featured</a></li>
-            <li class="nav__item"><a onclick="generateCard()" href="#women" class="nav__link">Women</a></li>
-            <li class="nav__item"><a onclick="generateCard()" href="#new" class="nav__link">New</a></li>
-            <li class="nav__item"><a onclick="generateCard()" href="./shop.html" class="nav__link">Shop</a></li>
-        </ul>
-    </div>
 
-    <div class="main" id="main">
-    </div>
-    <!-- <button onclick="generateCard()">
-        click
-    </button> -->
-    <script >
-        let arr = document.querySelectorAll('nav__item a')
-        console.log(arr)
+    <a href="./index.html">lick here</a>
 
+    <form action="">
+        <label for="" id="lb1" >username: </label>
+        <input value="" type="text" name="" id="username"><br>
+        <label for="" id="lb1" >email: </label>
+        <input value="" type="text" name="" id="email"><br>
+        <label for="" id="lb1" >password: </label>
+        <input value="" type="text" name="" id="password"><br>
+        <label for="" id="lb1" >repeat password: </label>
+        <input value="" type="text" name="" id="rppassword"><br>
+        
+    </form>
+
+    <script>
+        const product = [
+        {username:"lamduy1",password:"0001"},
+        {username:"lamduy2",password:"0002"},
+        {username:"lamduy3",password:"0003"},
+        {username:"lamduy4",password:"0004"},
+        {username:"lamduy5",password:"0005"},
+    
+        ]
+        const queryString = window.location.search; // queryString chứa đường link của tất cả 
+        console.log(queryString);
+        const urlParams = new URLSearchParams(queryString);  // dùng biến urlParams để lưu lại đường link để dễ phân tích
+        const txtusername = urlParams.get('txtusername')
+        const txtemail = urlParams.get('txtemail')
+        const txtpassword = urlParams.get('txtpassword')
+        const txtrppassword = urlParams.get('txtrppassword')
+
+        // các thành phần ở dưới lấy đc value của các giá trị từ url gán cho các input 
+        let username = document.getElementById('username');
+        let email = document.getElementById('email');
+        let password = document.getElementById('password');
+        let rppassword = document.getElementById('rppassword');
+
+        username.value = txtusername
+        email.value = txtemail
+        password.value = txtpassword
+        rppassword.value = txtrppassword
+
+        // duyệt mảng tìm username 
+        function duyetMang(product){
+            for (let i =0 ; i < product.length ; i++){
+                if (username.value == product[i].username){
+                    return true
+                }
+                else    return false
+            }
+        }
+        function themUser (username,password,product){
+            product.push({username: username,password: password});
+        }
+       // if (duyetMang(product) == false){
+       //     console.log(duyetMang(product));
+            themUser(username,password,product);
+       // }
+
+
+
+      //  for (i =0 ; i< product.length ;i++){
+
+       //    console.log(product[i].password)
+           
+      //  }
+       
+        
+        
     </script>
+    
 </body>
 </html>

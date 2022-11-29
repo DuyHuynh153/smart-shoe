@@ -60,16 +60,16 @@ window.onscroll = ()=> {
 /*sản phẩm, sau thay thành localstorage */
 const product = [
     { id: 1,brand:"Adidas", image: "./assets/img/featured1.png", title: "Adidas",price:"3.000.000 VND" },
-    { id: 2, brand:"Nike",image: "./assets/img/featured2.png", title: "Nike" ,price:"3.000.000 VND"},
-    { id: 3,brand:"Jordan", image: "./assets/img/featured3.png", title: "Jordan" ,price:"5.000.000 VND"},
+    { id: 2, brand:"Nike",image: "./assets/img/featured1.png", title: "Nike" ,price:"3.000.000 VND"},
+    { id: 3,brand:"Jordan", image: "./assets/img/featured1.png", title: "Jordan" ,price:"5.000.000 VND"},
     {  id: 1,brand:"Nike", image: "./assets/img/featured1.png", title: "Nike"  ,price:"8.000.000 VND"},
-    { id: 5,brand:"Yeezy", image: "./assets/img/featured2.png", title: "Yeezy" ,price:"3.000.000 VND"},
-    {  id: 1,brand:"Adidas", image: "./assets/img/featured3.png", title: "Adidas"  ,price:"3.000.000 VND"},
+    { id: 5,brand:"Yeezy", image: "./assets/img/featured1.png", title: "Yeezy" ,price:"3.000.000 VND"},
+    {  id: 1,brand:"Adidas", image: "./assets/img/featured1.png", title: "Adidas"  ,price:"3.000.000 VND"},
     {  id: 1,brand:"Nike", image: "./assets/img/featured1.png", title: "Nike",price:"2.000.000 VND"  },
     { id: 1,brand:"Jordan", image: "./assets/img/featured1.png", title: "Jordan" ,price:"10.000.000 VND" },
     {  id: 1,brand:"Yeezy", image: "./assets/img/featured1.png", title: "Yeezy" ,price:"4.000.000 VND" },
 ];
-const brand =["Adidas","Nike","Jordan",'Yeezy'];
+const brand =["Adidas","Nike","Puma",'Vans'];
   
   
   
@@ -139,13 +139,13 @@ const brand =["Adidas","Nike","Jordan",'Yeezy'];
       if (index >= start && index < end) {
         html += '<article class="sneaker">';
         html += '<div class="sneaker__sale">Sale</div>';
-        html += `<img src="`+item.image+`" alt="" class="sneaker__img">`;
+        html += '<img src="./assets/img/featured1.png" alt="" class="sneaker__img">';
         html += '<span class="sneaker__name">'+item.title+'</span>';
         html += '<span class="sneaker__preci">'+item.price+'</span>';
         html += '<a href="" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>';
         html += '</article>';
         return html;
-    //     <article class="sneaker">
+    //     <article onclick="infor()" class="sneaker">
     //     <div class="sneaker__sale">Sale</div>
     //     <img src="./assets/img/featured1.png" alt="" class="sneaker__img">
     //     <span class="sneaker__name">Nike Jordan</span>
@@ -156,6 +156,8 @@ const brand =["Adidas","Nike","Jordan",'Yeezy'];
     });
     document.getElementById('featured__container').innerHTML = html;
   }
+
+  
   
   //khởi tạo nút số trang
   function listPage(totalPages) {
@@ -207,7 +209,7 @@ const brand =["Adidas","Nike","Jordan",'Yeezy'];
     let html = '';
     for(let i = 0;i<arr.length;i++){
       // <li onclick="brandChange('Adidas');document.getElementById('featured').scrollIntoView()"><a>test 1</a></li>
-html += `<li onclick ="brandChange('`+arr[i]+`');document.getElementById('featured').scrollIntoView()"><a>`+arr[i]+`</a></li>`;
+html += `<li class="brands" onclick ="brandChange('`+arr[i]+`');document.getElementById('featured').scrollIntoView()"><a>`+arr[i]+`</a></li>`;
     }
     document.getElementById("dropdown").innerHTML = html;
   
@@ -256,6 +258,5 @@ html += `<li onclick ="brandChange('`+arr[i]+`');document.getElementById('featur
   initBrandMenu(brand);
   initBrandOption(brand);
   initChangePage(productArrFiltered);
-  window.onload =function(){
-  localStorage.setItem('sanpham',JSON.stringify(product));}
+  
   
