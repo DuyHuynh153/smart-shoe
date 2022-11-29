@@ -59,20 +59,21 @@ window.onscroll = ()=> {
 
 /*sản phẩm, sau thay thành localstorage */
 const product = [
-    { id: 1,brand:"adidas", image: "./assets/img/featured1.png", title: "adidas",price:"3.000.000 VND" },
-    { id: 2, brand:"nike",image: "./assets/img/featured1.png", title: "nike" ,price:"3.000.000 VND"},
-    { id: 3,brand:"jordan", image: "./assets/img/featured1.png", title: "jordan" ,price:"5.000.000 VND"},
-    {  id: 1,brand:"nike", image: "./assets/img/featured1.png", title: "nike"  ,price:"8.000.000 VND"},
-    { id: 5,brand:"yeezy", image: "./assets/img/featured1.png", title: "yeezy" ,price:"3.000.000 VND"},
-    {  id: 1,brand:"adidas", image: "./assets/img/featured1.png", title: "adidas"  ,price:"3.000.000 VND"},
-    {  id: 1,brand:"nike", image: "./assets/img/featured1.png", title: "nike",price:"2.000.000 VND"  },
-    { id: 1,brand:"jordan", image: "./assets/img/featured1.png", title: "jordan" ,price:"10.000.000 VND" },
-    {  id: 1,brand:"yeezy", image: "./assets/img/featured1.png", title: "yeezy" ,price:"4.000.000 VND" },
-]
+    { id: 1,brand:"Adidas", image: "./assets/img/featured1.png", title: "Adidas",price:"3.000.000 VND" },
+    { id: 2, brand:"Nike",image: "./assets/img/featured1.png", title: "Nike" ,price:"3.000.000 VND"},
+    { id: 3,brand:"Jordan", image: "./assets/img/featured1.png", title: "Jordan" ,price:"5.000.000 VND"},
+    {  id: 1,brand:"Nike", image: "./assets/img/featured1.png", title: "Nike"  ,price:"8.000.000 VND"},
+    { id: 5,brand:"Yeezy", image: "./assets/img/featured1.png", title: "Yeezy" ,price:"3.000.000 VND"},
+    {  id: 1,brand:"Adidas", image: "./assets/img/featured1.png", title: "Adidas"  ,price:"3.000.000 VND"},
+    {  id: 1,brand:"Nike", image: "./assets/img/featured1.png", title: "Nike",price:"2.000.000 VND"  },
+    { id: 1,brand:"Jordan", image: "./assets/img/featured1.png", title: "Jordan" ,price:"10.000.000 VND" },
+    {  id: 1,brand:"Yeezy", image: "./assets/img/featured1.png", title: "Yeezy" ,price:"4.000.000 VND" },
+];
+const brand =["Adidas","Nike","Jordan",'Yeezy'];
   
   
   
-  let perPage = 6;
+  let perPage = 3;
   let currentPage = 1;
   let start = 0;
   let end = perPage;
@@ -116,7 +117,7 @@ const product = [
     initChangePage(productArrFiltered);
   }
   //chuyển hãng
-  function typeChange(brand){
+  function brandChange(brand){
 
     currentPage = 1;
     productArrFiltered.splice(0,productArrFiltered.length);
@@ -201,8 +202,18 @@ const product = [
     listProduct(productArrFiltered);
   }
   )
+  // tự động tạo menu dropdown để chọn hãng
+  function initBrandMenu(arr){
+    let html = '';
+    for(let i = 0;i<arr.length;i++){
+      // <li onclick="brandChange('Adidas');document.getElementById('featured').scrollIntoView()"><a>test 1</a></li>
+html += `<li onclick ="brandChange('`+arr[i]+`');document.getElementById('featured').scrollIntoView()"><a>`+arr[i]+`</a></li>`;
+    }
+    document.getElementById("dropdown").innerHTML = html;
+    console.log(html);
+  }
    //Thêm function đổi trang cho các nút số
-  function initChangePage(){
+  function initChangePage(array){
     const availablePages = document.querySelectorAll('.number-page li');
     for(let i = 0; i < availablePages.length;i++){
       availablePages[i].addEventListener('click', ()=>{
@@ -233,7 +244,7 @@ const product = [
     listPage(page);
   }
   initProductPage(productArrFiltered,totalPages);
-  
+  initBrandMenu(brand);
   initChangePage(productArrFiltered);
   
   

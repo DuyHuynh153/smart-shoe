@@ -149,6 +149,7 @@ img {
 
 .nav__item {
   margin-bottom: var(--mb-4);
+  position: relative;
 }
 
 .nav__logo{
@@ -575,7 +576,8 @@ img {
 }  
 /* //css phân trang */
 .pagination{
-  margin:auto;
+ position: relative;
+ left: 40%;
 }
 .pagination a {
 
@@ -587,6 +589,7 @@ img {
   margin: 4px 8px;
   text-decoration: none;
 }
+
 .pagination .pagination__content ul li a{
   color:black;
 }
@@ -610,11 +613,16 @@ img {
 
 } 
 .pagination .pagination__content .number-page .active{
-  background: #ff0000;
-  border: 1px solid #ff0000;
+  background: lightblue;
+  border: 1px solid lightblue;
+  border-radius: 5px;
 }
+.pagination li:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px; 
+} 
 .pagination .pagination__content .number-page .active a{
-  color: white;
+  color: black;
 }
 .btn-active{
   color: #c6c9cc;
@@ -622,50 +630,31 @@ img {
 }
 
 /* css phần phân loại */
-.body__row{
-  margin-top: 70px;
-  margin-left: 20%;
-  clear:both;
-  display: table;
-  
-}
-.body__row .box{
-  float: left;
-  cursor: pointer;
-  display:inline-flex ;
-  width: 33%;
-  padding:20px;
-  margin-bottom: 50px;
-  
-  
-}
-.body__row .box:hover{
-  box-shadow:  0 5px 10px black;
-  background-color: red;
-}
-.overlay {
-  position: relative;
-  bottom: 0;
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.5); /* Black see-through */
-  color: #f1f1f1;
-  width: 100%;
-  transition: .5s ease;
-  opacity:0;
-  color: white;
-  font-size: 20px;
-  padding: 20px;
-  text-align: center;
-}
-.body__row .box:hover .overlay{
-  opacity: 1 ;
-}
-.body__row div img{
-  display: block;
-  width: 100%;
-  height: 150px;
-}
 
-.body__categories{
-  margin: 70px 0;
+
+
+.dropdown{
+  background-color: white;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top:100%;
+  left: 0;
+  width: 100%;
+  transform: translateX(-3em);
+  z-index: -1;
+  transition: all 0,3s ease 0s,visibility 0s linear 0,3s, z-index 0s linear 0,01s;
+}
+.dropdown li:hover{
+  background-color: lightskyblue;
+}
+.nav__item:focus .dropdown,
+.nav__item:focus-within .dropdown,
+.nav__item:hover .dropdown{
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0);
+  transition-delay: 0s, 0s, 0.3s;
 }
