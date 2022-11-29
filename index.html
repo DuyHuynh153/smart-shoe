@@ -74,6 +74,20 @@
             <!--===== FEATURED =====-->
             <section class="featured section" id="featured">
                 <h2 class="section-title">FEATURED</h2>
+                <div class="container" id="searchBar">
+                    <form id="searchForm" >
+                        <input id="searchbar" placeholder="Nhập tên sản phẩm cần tìm">
+                        <button type="submit" id='searchSubmit'
+                            onclick="searchName(document.getElementById('searchbar').value)"><i
+                                class="fa fa-search"></i></button>
+                        <script>
+                            //ngăn làm lại trang khi submit
+                            var form = document.getElementById("searchForm");
+                            function handleForm(event) { event.preventDefault(); }
+                            form.addEventListener('submit', handleForm);
+                        </script>
+                    </form>
+                </div>
                 <div class="featured__container bd-grid" id="featured__container">
                     <!-- <article class="sneaker">
                         <div class="sneaker__sale">Sale</div>
