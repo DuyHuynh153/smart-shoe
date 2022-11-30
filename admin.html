@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="./assets/css/styles.css">
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+        <title>Smart Shoe admin</title>
+    </head>
+    <body>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#" onclick="document.getElementById('addProduct').scrollIntoView">Sản phẩm</a>
+            <a href="#">Đơn Hàng</a>
+            <a href="#">Thống kê</a>
+            <a href="#">Tài khoản</a>
+            <a href="./login.html" class = "logout">Đăng xuất</a>
+          </div>
+          <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Trang quản trị</span>
+          <script>
+            function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+            }
+            </script>
+                         
+ <!-- thêm sản phẩm -->
+ <div id ="addproduct" class ="addproduct">
+ <label>Thêm sản phẩm</label>
+ <form id = "product">
+    <label>Tên sản phẩm</label>
+    <input id="name"></input>
+    <label>Giá</label>
+    <input id ="price"></input>
+    <label for="img">Chọn ảnh:</label>
+    <input type="file" id="imgData" name="img" accept="image/*">
+    <label>Chọn hãng</label>
+    <select id="selectBrand">
+        
+    </select>
+    <button  onclick="addProduct()">thêm sản phẩm</button>
+ </form>
+ <button type="button" class="collapsible">Danh sách sản phẩm</button>
+ <div class = "collapsibleDiv">
+    <table id = productList></table>
+ </div>
+ </div>
+ <script src="assets\js\admin.js"></script>
