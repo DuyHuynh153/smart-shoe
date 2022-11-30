@@ -13,6 +13,8 @@ function initBrandOption(arr){
   function addProduct(){
     {
       
+        var img = document.getAnimations("id");
+        var imgData = getBase64Image(img);
         var title = document.getElementById("name").value;
         var price = document.getElementById("price").value;
         var brand = document.getElementById("selectBrand").value;
@@ -24,7 +26,7 @@ function initBrandOption(arr){
         localStorage.setItem('product',JSON.stringify(sanPham));
         showProductList();
         
-        
+        console.log(imgData);
     }
   }
   //khởi tạo localstorage
@@ -71,10 +73,26 @@ function initBrandOption(arr){
     // STT| TÊN SP| HÃNG| GIÁ|HÌNH|NÚT XÓA
     var tr='<tr><th>STT</th><th>Tên sản phẩm</th><th>Hãng</th><th>Giá</th><th>Hình</th><th>Nút Xóa</th></tr><br />';
     for(var i=0; i<product.length;i++){
-      tr+='<tr><td>'+i+'</td><td>'+product[i].title+'</td><td>'+product[i].brand+'</td><td>'+product[i].price+' VND </td><td><img src="'+imageURL+product[i].image+'" height = 200px width = 100px></img></td><td><button class="delete" onClick="deleteProduct(\''+product[i].id+'\')">&times;</button></td></tr>';
+      tr+='<tr><td>'+(i+1)  +'</td><td>'+product[i].title+'</td><td>'+product[i].brand+'</td><td>'+product[i].price+' VND </td><td><img src="'+imageURL+product[i].image+'" height = 200px width = 100px></img></td><td><button class="delete" onClick="deleteProduct(\''+product[i].id+'\')">&times;</button></td></tr>';
     }
     document.getElementById('productList').innerHTML=tr;
   } 
+
+  var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
   window.onload =function(){
   initBrandOption(brand);
   createProduct();

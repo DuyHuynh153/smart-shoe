@@ -20,25 +20,43 @@
     </head>
     <body>
 
-       
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#" onclick="document.getElementById('addProduct').scrollIntoView">Sản phẩm</a>
+            <a href="#">Đơn Hàng</a>
+            <a href="#">Thống kê</a>
+            <a href="#">Tài khoản</a>
+            <a href="./login.html" class = "logout">Đăng xuất</a>
+          </div>
+          <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Trang quản trị</span>
+          <script>
+            function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+            }
+            </script>
+                         
  <!-- thêm sản phẩm -->
- <div id ="addproduct">
- <label>thêm sản phẩm</label>
+ <div id ="addproduct" class ="addproduct">
+ <label>Thêm sản phẩm</label>
  <form id = "product">
-    <label>tên sản phẩm</label>
+    <label>Tên sản phẩm</label>
     <input id="name"></input>
-    <label>giá</label>
+    <label>Giá</label>
     <input id ="price"></input>
-    <label for="img">chọn ảnh:</label>
-    <input type="file" id="img" name="img" accept="image/*">
+    <label for="img">Chọn ảnh:</label>
+    <input type="file" id="imgData" name="img" accept="image/*">
     <label>Chọn hãng</label>
     <select id="selectBrand">
         
     </select>
     <button  onclick="addProduct()">thêm sản phẩm</button>
  </form>
- 
- <div >
+ <button type="button" class="collapsible">Danh sách sản phẩm</button>
+ <div class = "collapsibleDiv">
     <table id = productList></table>
  </div>
  </div>
