@@ -14,7 +14,7 @@
 <script>
 
 function createAdmin(){
-	var userArray = [];
+	var userArray = [];   // khái báo var là toàn cục 
 	var bien="khachhang";
 	
 	if(localStorage.getItem('user')==null){		
@@ -32,7 +32,7 @@ function createAdmin(){
 //----------------------show user----------------------------------
 function showUserList(){
 //alert("co vao day k");
-	if(localStorage.getItem('user')===null){
+	if(localStorage.getItem('user')==null){
 		return false;
 	}
 	userArray = JSON.parse(localStorage.getItem('user'));

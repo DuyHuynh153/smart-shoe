@@ -154,6 +154,8 @@ img {
     display: flex;
     justify-content: center;
   }
+ 
+  
 }
 
 .nav__item {
@@ -287,12 +289,13 @@ img {
   border-radius: .5rem;
   transition: .3s;
   margin:  12px;
+  cursor: pointer;
 }
 .shadow {
   box-shadow: 5px 8px rgba(138,138,138,.3);
 }
 .sneaker__sale {
-  position: absolute;
+  /* position: absolute; */
   left: .5rem;
   background-color: red;
   color: var(--white-color);
@@ -579,6 +582,7 @@ img {
   .bd-grid {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;  
   }
   .sneaker {
     width: 250px;
@@ -587,6 +591,9 @@ img {
   } 
   .nav__logo img {
     max-width: 200px;
+  }
+  #sign-in {
+    display: block;
   }
   .sign-in{
     white-space: nowrap;
@@ -605,12 +612,14 @@ img {
   .footer__container{
       flex-wrap: nowrap;
   }
+  
  
 }  
 /* //css phân trang */
 .pagination{
- position: relative;
- left: 40%;
+ 
+ display: flex;
+ justify-content: center;
 }
 .pagination a {
 
@@ -636,7 +645,7 @@ img {
 .pagination .pagination__content li{
   width: 30px;
  height: 30px;
- border-radius: 3px;
+ border-radius: 6px;
  border: 1px solid gray;
  display: flex;
  justify-content: center;
@@ -646,7 +655,7 @@ img {
 
 } 
 .pagination .pagination__content .number-page .active{
-  background: lightblue;
+  background: rgb(44, 172, 214);
   border: 1px solid lightblue;
   border-radius: 5px;
 }
@@ -694,8 +703,56 @@ img {
 
 
 /* tìm kiếm */
-#searchbar {
-  margin: 12px;
-  padding: 6px 16px;
+#searchbar{
+  width: 40%;
+}
+#searchbar,#searchSubmit {
+  margin-left: 4px;
+  padding: 16px 40px;
+}
+.searchForm {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+
+/* modal */
+
+.modal{
+  margin: auto;
+  display: none;
   
+}
+
+.modal__container {
+  position: absolute;
+  top:700px;
+  left:40%;
+  /* top:60vh;
+  left: 40%; */
+  width: 500px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  border: 3px solid black;
+  background-color: rgba(145, 134, 134, 1);
+}
+
+.img-logo {
+  width: 30%;
+  margin-right: 14px;
+}
+.img-desc p {
+  margin-top: 0;
+}
+.modal-close {
+  position: absolute;
+  top:3px;
+  right:6px;
+}
+.modal-close:hover {
+  color: rgb(183, 61, 61);
+  cursor: pointer;
 }

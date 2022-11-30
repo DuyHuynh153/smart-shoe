@@ -74,11 +74,13 @@ const product = [
     {  id: 1,brand:"Vans", image: "./assets/img/vans2.png", title: "Vans Old Skool" ,price:"4.000.000 VND" },
     {  id: 1,brand:"Puma", image: "./assets/img/puma5.png", title: "Puma Suede" ,price:"4.000.000 VND" },
 ];
+
+localStorage.setItem("product",JSON.stringify(product));
 const brand =["Adidas","Nike","Puma",'Vans'];
   
   
   
-  let perPage = 3;
+  let perPage = 4;
   let currentPage = 1;
   let start = 0;
   let end = perPage;
@@ -142,12 +144,13 @@ const brand =["Adidas","Nike","Puma",'Vans'];
    
     const content = array.map((item, index) => {
       if (index >= start && index < end) {
-        html += '<article class="sneaker">';
+        // html += '<article onclick="document.getElementById(\'modal\').style.display=\'block\'"  class="sneaker">';  // sự kiện onlick article hiển thị thông tin chi tiết
+        html += '<article   class="sneaker">';
         html += '<div class="sneaker__sale">Sale</div>';
         html += `<img src=${item.image} alt="" class="sneaker__img">`;
         html += '<span class="sneaker__name no-wrap">'+item.title+'</span>';
         html += '<span class="sneaker__preci">'+item.price+'</span>';
-        html += '<a href="" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>';
+        html += `<a href="" onclick="checkGioHang(${index})" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>`;
         html += '</article>';
         return html;
     //     <article onclick="infor()" class="sneaker">
@@ -162,7 +165,67 @@ const brand =["Adidas","Nike","Puma",'Vans'];
     document.getElementById('featured__container').innerHTML = html;
   }
 
+
   
+  var json= JSON.parse(localStorage.getItem("product"));
+  var a = json;
+  var chuoi = [];
+  function checkGioHang(index){
+    // var indexArr =[];
+
+  //   var anchors = document.getElementsByTagName("a");
+  //   for(var i = 0; i < anchors.length; i++) {
+  //     anchors[i].onclick = function() {
+  //         if (anchors[i].id == "nav-shop-market")
+  //         {
+
+  //         }
+  //     }
+  // }
+    
+    // vòng for đã tìm đc index sản phẩm cần cho vào giỏ hàng
+    for (let i=0;i<a.length;i++){
+
+      if (index == i ){
+        let temp = a[i];
+        alert("san pham " + a[index].title + " đã được thêm vào giỏ hàng");
+        chuoi.push(temp);
+        // localStorage.setItem("giohang",JSON.stringify(chuoi));
+        
+        // alert("san pham " + index + " đã được thêm vào giỏ hàng");
+
+         
+      }
+
+    }
+    // var checkShop = document.getElementById("nav-shop-market");
+    // if (checkShop.onclick)
+    // kiểm tra có nhấn vào giỏ hàng chưa
+    // var clickShop = document.getElementById("nav-shop-market")
+   
+    localStorage.setItem("giohang",JSON.stringify(chuoi));
+    // return chuoi;
+   
+  }
+ 
+  // chuoiBackup.push( JSON.parse(localStorage.getItem("chuoi")));
+  
+  function addToCart(index){
+    window.location.href = "shop.html";
+    html ='';
+    html += `<article onclick="infor()" class="sneaker">
+    <div class="sneaker__sale">Sale</div>
+    <img src=${productArrFiltered[index].image} alt="" class="sneaker__img">
+    <span class="sneaker__name">Nike Jordan</span>
+    <span class="sneaker__preci">3.000.000 VND</span>
+    <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
+</article>`;
+
+document.getElementById('featured__container').innerHTML = html;
+
+
+    
+  }
   
   //khởi tạo nút số trang
   function listPage(totalPages) {

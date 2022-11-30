@@ -19,8 +19,13 @@ btnLogin.addEventListener("click", (e) => {
   }
   if (localStorage.getItem(username.value) == json) {
     alert("dang nhap thanh cong");
+ 
     window.location.href = "index.html";
-  } else {
+
+    let signIn = document.getElementById("sign-in");
+    signIn.style.display = "none ! important";
+  } 
+  else {
     alert("dang nhap that bai");
   }
 });
