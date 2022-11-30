@@ -44,9 +44,9 @@
  <label>Thêm sản phẩm</label>
  <form id = "product">
     <label>Tên sản phẩm</label>
-    <input id="name"></input>
+    <input id="name" required></input>
     <label>Giá</label>
-    <input id ="price"></input>
+    <input id ="price" required></input>
     <label for="img">Chọn ảnh:</label>
     <input type="file" id="imgData" name="img" accept="image/*">
     <label>Chọn hãng</label>
@@ -60,4 +60,8 @@
     <table id = productList></table>
  </div>
  </div>
+  <!-- quản lý người dùng-->
+<div id ="manageuser">
+  <label>Quản lý tài khoản</label>
+  <table id = "userList"></table>
  <script src="assets\js\admin.js"></script>
