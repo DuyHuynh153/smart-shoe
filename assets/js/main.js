@@ -58,21 +58,22 @@ window.onscroll = ()=> {
 }
 
 /*sản phẩm, sau thay thành localstorage */
+const imageURL = "./assets/img/";
 const product = [
-  { id: 1,brand:"Adidas", image: "./assets/img/new1.png", title: "Adidas Yeezy",price:"3.000.000 VND" },
-  { id: 2, brand:"Nike",image: "./assets/img/nike7.png", title: "Nike Jordan 1" ,price:"2.990.000 VND"},
-  { id: 3,brand:"Nike", image: "./assets/img/nike8.png", title: "Nike Jordan 2" ,price:"5.000.000 VND"},
-  {  id: 1,brand:"Vans", image: "./assets/img/vans1.png", title: "Vans Old Skool"  ,price:"3.000.000 VND"},
-  { id: 5,brand:"Nike", image: "./assets/img/nike10.png", title: "Nike Jordan 3" ,price:"3.000.000 VND"},
-  {  id: 1,brand:"Adidas", image: "./assets/img/new2.png", title: "Adidas Yeezy 27"  ,price:"3.000.000 VND"},
-  {  id: 1,brand:"Adidas", image: "./assets/img/new3.png", title: "Adidas Yeezy 50",price:"4.000.000 VND"  },
-  { id: 1,brand:"Nike", image: "./assets/img/nike1.png", title: "Nike Pegasus " ,price:"1.000.000 VND" },
-  {  id: 1,brand:"Nike", image: "./assets/img/nike11.png", title: "Nike React" ,price:"4.000.000 VND" },
-  {  id: 1,brand:"Nike", image: "./assets/img/nike6.png", title: "Nike Air Max" ,price:"4.000.000 VND" },
-  {  id: 1,brand:"Nike", image: "./assets/img/nike2.png", title: "Nike Roshe" ,price:"4.000.000 VND" },
-  {  id: 1,brand:"Nike", image: "./assets/img/nike4.png", title: "Nike Pegasus 1" ,price:"4.000.000 VND" },
-  {  id: 1,brand:"Vans", image: "./assets/img/vans2.png", title: "Vans Old Skool" ,price:"4.000.000 VND" },
-  {  id: 1,brand:"Puma", image: "./assets/img/puma5.png", title: "Puma Suede" ,price:"4.000.000 VND" },
+  { id: 1,brand:"Adidas", image: "new1.png", title: "Adidas Yeezy",price:"3.000.000 VND" },
+  { id: 2, brand:"Nike",image: "nike7.png", title: "Nike Jordan 1" ,price:"2.990.000 VND"},
+  { id: 3,brand:"Nike", image: "nike8.png", title: "Nike Jordan 2" ,price:"5.000.000 VND"},
+  {  id: 1,brand:"Vans", image: "vans1.png", title: "Vans Old Skool"  ,price:"3.000.000 VND"},
+  { id: 5,brand:"Nike", image: "nike10.png", title: "Nike Jordan 3" ,price:"3.000.000 VND"},
+  {  id: 1,brand:"Adidas", image: "new2.png", title: "Adidas Yeezy 27"  ,price:"3.000.000 VND"},
+  {  id: 1,brand:"Adidas", image: "new3.png", title: "Adidas Yeezy 50",price:"4.000.000 VND"  },
+  { id: 1,brand:"Nike", image: "nike1.png", title: "Nike Pegasus " ,price:"1.000.000 VND" },
+  {  id: 1,brand:"Nike", image: "nike11.png", title: "Nike React" ,price:"4.000.000 VND" },
+  {  id: 1,brand:"Nike", image: "nike6.png", title: "Nike Air Max" ,price:"4.000.000 VND" },
+  {  id: 1,brand:"Nike", image: "nike2.png", title: "Nike Roshe" ,price:"4.000.000 VND" },
+  {  id: 1,brand:"Nike", image: "nike4.png", title: "Nike Pegasus 1" ,price:"4.000.000 VND" },
+  {  id: 1,brand:"Vans", image: "vans2.png", title: "Vans Old Skool" ,price:"4.000.000 VND" },
+  {  id: 1,brand:"Puma", image: "puma5.png", title: "Puma Suede" ,price:"4.000.000 VND" },
 ];
 const brand =["Adidas","Nike","Puma",'Vans'];
   
@@ -82,7 +83,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
   let currentPage = 1;
   let start = 0;
   let end = perPage;
-  let productArr = product.slice(); /*mảng sản phẩm lấy từ localstorage bỏ vào */
+  let productArr = JSON.parse(localStorage.getItem('product')); /*mảng sản phẩm lấy từ localstorage bỏ vào */
   let productArrFiltered = productArr.slice();
   let totalPages = Math.ceil(productArr.length / perPage);
   const btnnext = document.querySelector(".btn-next");
@@ -144,7 +145,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
       if (index >= start && index < end) {
         html += '<article class="sneaker">';
         html += '<div class="sneaker__sale">Sale</div>';
-        html += '<img src="'+item.image+'" alt="" class="sneaker__img">';
+        html += '<img src="'+imageURL+item.image+'" alt="" class="sneaker__img">';
         html += '<span class="sneaker__name">'+item.title+'</span>';
         html += '<span class="sneaker__preci">'+item.price+'</span>';
         html += '<a href="" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>';
@@ -152,7 +153,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
         return html;
     //     <article onclick="infor()" class="sneaker">
     //     <div class="sneaker__sale">Sale</div>
-    //     <img src="./assets/img/featured1.png" alt="" class="sneaker__img">
+    //     <img src="featured1.png" alt="" class="sneaker__img">
     //     <span class="sneaker__name">Nike Jordan</span>
     //     <span class="sneaker__preci">3.000.000 VND</span>
     //     <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
