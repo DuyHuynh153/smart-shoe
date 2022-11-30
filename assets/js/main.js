@@ -58,7 +58,7 @@ window.onscroll = ()=> {
 }
 
 /*sản phẩm, sau thay thành localstorage */
-const imageURL = "./assets/img/";
+const imageURL = "./assets/img/"
 const product = [
   { id: 1,brand:"Adidas", image: "new1.png", title: "Adidas Yeezy",price:"3.000.000 VND" },
   { id: 2, brand:"Nike",image: "nike7.png", title: "Nike Jordan 1" ,price:"2.990.000 VND"},
@@ -128,7 +128,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
     currentPage = 1;
     productArrFiltered.splice(0,productArrFiltered.length);
     
-      productArrFiltered = product.filter(item =>{
+      productArrFiltered = productArr.filter(item =>{
         return item.brand === brand;
   })
   
@@ -226,7 +226,7 @@ html += `<li class="brands" onclick ="brandChange('`+arr[i]+`');document.getElem
       var opt = document.createElement('option');
       opt.value = arr[i];
       opt.innerHTML = arr[i];
-      select.appendChild(opt);
+     
     }
   }
    //Thêm function đổi trang cho các nút số
@@ -252,6 +252,7 @@ html += `<li class="brands" onclick ="brandChange('`+arr[i]+`');document.getElem
         }
         getCurrentPage(currentPage);
         listProduct(array);
+        console.log('gay');
       })
     }
   }
@@ -260,6 +261,7 @@ html += `<li class="brands" onclick ="brandChange('`+arr[i]+`');document.getElem
     listProduct(arr);
     listPage(page);
   }
+
   initProductPage(productArrFiltered,totalPages);
   initBrandMenu(brand);
   initBrandOption(brand);
