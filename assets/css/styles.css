@@ -703,6 +703,9 @@ td, th {
   padding: 8px;
 }
 
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 
 /* tìm kiếm */
 #searchbar {
@@ -710,7 +713,4 @@ td, th {
   padding: 6px 16px;
   
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
 }
