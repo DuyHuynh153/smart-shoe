@@ -2,7 +2,15 @@ var username = document.getElementById("username");
 var password = document.getElementById("password");
 let btnLogin = document.querySelector(".btn-login");
 
-
+function createAdmin()
+{
+	if(localStorage.getItem('taikhoan')==null){		
+		var user1 = {username: 'admin', password: 'admin'};
+		userArray.push(user1);
+		console.log(userArray);
+		localStorage.setItem('taikhoan',JSON.stringify(userArray));
+	}
+}
 
 btnLogin.addEventListener("click", (e) => {
   e.preventDefault();
@@ -15,17 +23,13 @@ btnLogin.addEventListener("click", (e) => {
 		if(userArray[i].username==username.value && userArray[i].password==password.value)
 			{
         alert("dang nhap thanh cong");
-
         var userArray1 = [];
-	
 	if(localStorage.getItem('dangnhap')==null){		
 		var user1 = {username1:username.value , password1: password.value};
 		userArray1.push(user1);
 		console.log(userArray1);
 		localStorage.setItem('dangnhap',JSON.stringify(userArray1));
 	}
-
-        window.location="index.html";
       }
     else
     {
