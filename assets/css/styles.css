@@ -132,9 +132,9 @@ img {
   justify-content: space-between;
   align-items: center;
 }
-.nav__user{
-  /* display: none; */
-}
+/* .nav__user{
+  display: none;
+} */
 
 @media screen and (max-width: 768px) {
   .nav__menu{
@@ -261,6 +261,7 @@ img {
 }
 .button-light {
   display: inline-flex;
+  white-space: nowrap;
   color: var(--dark-color);
   font-weight: var(--font-semi-bold);
   align-items: center;
@@ -305,7 +306,7 @@ img {
   letter-spacing:.1rem ;
 }
 .sneaker__img {
-  width: 240px;
+  width: 260px;
   height: 140px;
   margin-top:var(--mb-3);
   margin-bottom: var(--mb-6);
