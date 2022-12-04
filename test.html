@@ -17,25 +17,64 @@
 
     <form action="">
         <label for="" id="lb1" >username: </label>
-        <input value="" type="text" name="" id="username"><br>
+        <input value="lamduy5" type="text" name="" id="username"><br>
         <label for="" id="lb1" >email: </label>
-        <input value="" type="text" name="" id="email"><br>
+        <input value="huynhlamduy" type="text" name="" id="email"><br>
         <label for="" id="lb1" >password: </label>
-        <input value="" type="text" name="" id="password"><br>
-        <label for="" id="lb1" >repeat password: </label>
-        <input value="" type="text" name="" id="rppassword"><br>
+        <input value="0005" type="text" name="" id="password"><br>
+        
         
     </form>
 
+
     <script>
+
+
         const product = [
-        {username:"lamduy1",password:"0001"},
-        {username:"lamduy2",password:"0002"},
-        {username:"lamduy3",password:"0003"},
-        {username:"lamduy4",password:"0004"},
-        {username:"lamduy5",password:"0005"},
+        {username:"lamduy1",email:"huynhlamduy" ,password:"0001"},
+        {username:"lamduy2",email:"huynhlamduy" ,password:"0002"},
+        {username:"lamduy3",email:"huynhlamduy" ,password:"0003"},
+        {username:"lamduy4",email:"huynhlamduy" ,password:"0004"},
+        {username:"lamduy5",email:"huynhlamduy" ,password:"0005"},
     
-        ]
+        ];
+        localStorage.setItem("product", JSON.stringify(product));
+
+        var json = JSON.parse(localStorage.getItem("product"));
+
+        for (i=0 ; i<json.length ; i++){
+            console.log(json[i] );
+        }
+
+        const txtusername = document.getElementById("username").value;
+        const txtemail = document.getElementById("email").value;
+        const txtpassword = document.getElementById("password").value;
+
+        for (i=0;i<json.length;i++){
+            if (txtusername == json[i].username && txtpassword == json[i].password){
+                console.log("tim thay o vi tri " +i )
+
+                break;
+            }
+            else 
+                continue;
+        }
+        
+
+
+    </script>
+
+    <!-- <script>
+        const product = [
+        {username:"lamduy1",email:"huynhlamduy" ,password:"0001"},
+        {username:"lamduy2",email:"huynhlamduy" ,password:"0002"},
+        {username:"lamduy3",email:"huynhlamduy" ,password:"0003"},
+        {username:"lamduy4",email:"huynhlamduy" ,password:"0004"},
+        {username:"lamduy5",email:"huynhlamduy" ,password:"0005"},
+    
+        ];
+        localStorage.setItem(username, JSON.stringify(product));
+
         const queryString = window.location.search; // queryString chứa đường link của tất cả 
         console.log(queryString);
         const urlParams = new URLSearchParams(queryString);  // dùng biến urlParams để lưu lại đường link để dễ phân tích
@@ -83,6 +122,6 @@
         
         
     </script>
-    
+     -->
 </body>
 </html>

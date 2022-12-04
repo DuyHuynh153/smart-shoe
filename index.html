@@ -1,103 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- ===== CSS ===== -->
-        <link rel="stylesheet" href="./assets/css/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- ===== BOX ICONS ===== -->
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
 
-        <!-- copy từ cái cũ -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- copy từ cái cũ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Smart Shoe</title>
-    </head>
-    <body>
+    <title>Smart Shoe</title>
+</head>
 
-        <!--===== HEADER =====-->
-        <header class="l-header" id="header">
-            <nav class="nav bd-grid no-wrap">
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-grid-alt bx-rotate-90' ></i>
-                </div>
-                <a href="" class="nav__logo">
-                    <img src="./assets/img/SmartShoe.png" alt="">
-                </a>
+<body>
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item sign-in"><a href="#home" class="nav__link ">Trang Chủ</a></li>
-                        <li class="nav__item sign-in"><a href="#featured" class="nav__link">Sản Phẩm</a></li>
-                        <!-- <li class="nav__item"><a href="#women" class="nav__link">Nữ</a></li>
+    <!--===== HEADER =====-->
+    <header class="l-header" id="header">
+        <nav class="nav bd-grid no-wrap">
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-grid-alt bx-rotate-90'></i>
+            </div>
+            <a href="" class="nav__logo">
+                <img src="./assets/img/SmartShoe.png" alt="">
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item sign-in"><a href="#home" class="nav__link ">Trang Chủ</a></li>
+                    <li class="nav__item sign-in"><a href="#featured" class="nav__link">Sản Phẩm</a></li>
+                    <!-- <li class="nav__item"><a href="#women" class="nav__link">Nữ</a></li>
                         <li class="nav__item"><a href="#new" class="nav__link">New</a></li> -->
-                        <li class ="nav__item">
-                            <a href="">Brands</a>
-                            <ul class ="dropdown" id="dropdown">
-                            
+                    <li class="nav__item">
+                        <a href="">Brands</a>
+                        <ul class="dropdown" id="dropdown">
 
-                            </ul>
-                        </li>
-                        <li class="nav__item sign-in"><a  href="./login.html" class="nav__link ">Đăng Nhập</a></li>
-                        <li class="nav__item sign-up"><a href="./signup.html" class="nav__link ">Đăng Ký</a></li>
-                     
-                    </ul>
-                </div>
 
-                <div class="nav__shop">
-                    <form action="./test.html">
-                        <a   href="./shop.html" class="nav-shop-market">
-                             <i class='bx bx-shopping-bag'></i>
-                            </a>
-                    </form>
-                    <!-- <a type="submit"  href="./shop.html" class="nav-shop-market"><i class='bx bx-shopping-bag'></i></a> -->
-                    <a href="./sign_in.html" id="nav__user" class="nav__user"><i class="fa-solid fa-user"></i></a>
-                    <li class="nav__item sign-up" styles="text-decoration:none"><a href="admin.html" class="nav__link ">Quản trị    </a></li>
-                </div>
-            </nav>
+                        </ul>
+                    </li>
+                    <li class="nav__item sign-in"><a id="sign-in" href="./login.html" class="nav__link ">Đăng Nhập</a>
+                    </li>
+                    <li class="nav__item sign-up"><a id="sign-up" href="./signup.html" class="nav__link ">Đăng Ký</a>
+                    </li>
 
-        </header>
+                </ul>
+            </div>
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home" id="home">
-                <div class="home__sneaker">
-                    <div class="home__shape"></div>
-                    <img src="./assets/img/imghome.png" alt="" class="home__img">
-                </div>
-                <div class="home__data">
-                    <span class="home__new">New In</span>
-                    <h1 class="home__title">YEEZY BOOST <br> SPLY - 350</h1>
-                    <p class="home__description">Explore the new collection of Sneaker</p>
-                    <a href="#" class="button">Explore now </a>
-                </div>
-            </section>
+            <div class="nav__shop">
+                <form action="./test.html">
+                    <a href="./shop.html" class="nav-shop-market" id="nav-shop-market" >
+                        <i class='bx bx-shopping-bag'></i>
+                    </a>
+                </form>
+                <!-- <a type="submit"  href="./shop.html" class="nav-shop-market"><i class='bx bx-shopping-bag'></i></a> -->
+                <a href="./login.html" id="nav__user" class="nav__user"><i class="fa-solid fa-user"></i></a>
+            </div>
+        </nav>
 
-      
-            <!--===== FEATURED =====-->
-            <section class="featured section" id="featured">
-                <h2 class="section-title">Các Sản Phẩm</h2>
-                <div class="container" id="searchBar">
-                    <form id="searchForm" >
-                        <input id="searchbar" placeholder="Nhập tên sản phẩm cần tìm">
-                        <button type="submit" id='searchSubmit'
-                            onclick="searchName(document.getElementById('searchbar').value)"><i
-                                class="fa fa-search"></i></button>
-                        <script>
-                            //ngăn làm lại trang khi submit
-                            var form = document.getElementById("searchForm");
-                            function handleForm(event) { event.preventDefault(); }
-                            form.addEventListener('submit', handleForm);
-                        </script>
-                    </form>
-                </div>
-                <div class="featured__container bd-grid" id="featured__container">
-                    <!-- <article class="sneaker">
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home" id="home">
+            <div class="home__sneaker">
+                <div class="home__shape"></div>
+                <img src="./assets/img/imghome.png" alt="" class="home__img">
+            </div>
+            <div class="home__data">
+                <span class="home__new">New In</span>
+                <h1 class="home__title">YEEZY BOOST <br> SPLY - 350</h1>
+                <p class="home__description">Explore the new collection of Sneaker</p>
+                <a href="#" class="button">Explore now </a>
+            </div>
+        </section>
+
+
+        <!--===== FEATURED =====-->
+        <section class="featured section" id="featured">
+            <h2 class="section-title">Các Sản Phẩm</h2>
+
+            <form id="searchForm" class="searchForm">
+                <input type="text" id="searchbar" placeholder="Nhập tên sản phẩm cần tìm ">
+                <button type="submit" id='searchSubmit'
+                    onclick="searchName(document.getElementById('searchbar').value)"><i
+                        class="fa fa-search"></i></button>
+                <script>
+                    //ngăn làm lại trang khi submit
+                    var form = document.getElementById("searchForm");
+                    function handleForm(event) { event.preventDefault(); }
+                    form.addEventListener('submit', handleForm);
+                </script>
+            </form>
+
+
+            <div class="featured__container bd-grid" id="featured__container">
+                <!-- <article class="sneaker">
                         <div class="sneaker__sale">Sale</div>
                         <img src="./assets/img/featured1.png" alt="" class="sneaker__img">
                         <span class="sneaker__name">Nike Jordan</span>
@@ -113,77 +117,51 @@
                         <a href="" class="button-light"><br> Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
                     </article>
 
-                    <article class="sneaker">
-                        <div class="sneaker__sale">Sale</div>
-                        <img src="./assets/img/featured3.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article>
-                    <article class="sneaker">
-                        <div class="sneaker__sale">Sale</div>
-                        <img src="./assets/img/featured3.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article>
-                    <article class="sneaker">
-                        <div class="sneaker__sale">Sale</div>
-                        <img src="./assets/img/featured3.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article>
-                    <article class="sneaker">
-                        <div class="sneaker__sale">Sale</div>
-                        <img src="./assets/img/featured3.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article>
-                    <article class="sneaker">
-                        <div class="sneaker__sale">Sale</div>
-                        <img src="./assets/img/featured3.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article>
-                    <article class="sneaker">
-                        <div class="sneaker__sale">Sale</div>
-                        <img src="./assets/img/featured3.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article>
-                    <article class="sneaker">
-                        <div class="sneaker__sale">Sale</div>
-                        <img src="./assets/img/featured3.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
                     </article> -->
-                </div>
-            </section>
+            </div>
+            <!-- modal hiển thị thông tin chi tiết -->
+            <!-- <div class="modal" id="modal">
+                <form class="modal__container">
+                    <div class="img-logo">
+                        <img src="./assets/img/new1.png" alt="">
+                    </div>
+                    <div class="img-desc">
+                        <h3 class="img-title">Adidas Yeezy</h3>
+                        <p>Sản phẩm có nguồn gốc xuất xứ từ Châu Âu <br></p>
+                        <p>Có từ vật liệu cao cấp </p>
+                        <h2 style="font: weight 500px; ;" class="size">Size: <span style="font: size 20px;">38 đến
+                                43</span> </h2>
 
-            <div class="pagination" id="pagination">
-                <div class="pagination__content">
-                    <div class="page">
-                        <ul>
-                            <li class="btn-prev btn-active fas fa-angle-left"></li>
-                            <div class="number-page" id="number-page">
-
-
-                            </div>
-                            <li class="btn-next fas fa-angle-right"></li>
-                        </ul>
+                    </div>
+                    <div class="modal-close">
+                        <i onclick="document.getElementById('modal').style.display='none'" class="fa-solid fa-x"></i>
                     </div>
 
+                </form>
+            </div> -->
+        </section>
 
-</div>
+
+
+        <div class="pagination" id="pagination">
+            <div class="pagination__content">
+                <div class="page">
+                    <ul>
+                        <li class="btn-prev btn-active fas fa-angle-left"></li>
+                        <div class="number-page" id="number-page">
+
+
+                        </div>
+                        <li class="btn-next fas fa-angle-right"></li>
+                    </ul>
                 </div>
 
-            <!--===== COLLECTION =====-->
-            <!-- <section class="collection section">
+
+            </div>
+        </div>
+
+        <!--===== COLLECTION =====-->
+        <!-- <section class="collection section">
                 <div class="collection__container bd-grid">
                     <div class="collection__card">
                          <div class="collection__data">
@@ -211,8 +189,8 @@
                 </div>
             </section> -->
 
-            <!--===== WOMEN SNEAKERS =====-->
-            <!-- <section class="women section" id="women">
+        <!--===== WOMEN SNEAKERS =====-->
+        <!-- <section class="women section" id="women">
                 <h2 class="section-title">WOMEN SNEAKERS</h2>
                 <div class="women__container bd-grid">
                     <article class="sneaker">
@@ -242,8 +220,8 @@
                 </div>
             </section> -->
 
-            <!--===== OFFER =====-->
-            <!-- <section class="offer section">
+        <!--===== OFFER =====-->
+        <!-- <section class="offer section">
                 <div class="offer__container bd-grid">
                     <div class="offer__data">
                         <h3 class="offer__title">50%</h3>
@@ -254,8 +232,8 @@
                 </div>
             </section> -->
 
-            <!--===== NEW COLLECTION =====-->
-            <!-- <section class="new section" id="new">
+        <!--===== NEW COLLECTION =====-->
+        <!-- <section class="new section" id="new">
                 <h2 class="section-title">New Collection</h2>
                 <div class="new__container bd-grid">
                     <div class="new__mens">
@@ -291,8 +269,8 @@
                 </div>
             </section> -->
 
-            <!--===== NEWSLETTER =====-->
-            <!-- <section class="newletter section">
+        <!--===== NEWSLETTER =====-->
+        <!-- <section class="newletter section">
                 <div class="newletter__container bd-grid">
                     <div>
                         <h3 class="newletter__title">Đăng ký để nhận <br> 10% Khuyến mãi</h3>
@@ -306,68 +284,71 @@
                     </form>
                 </div>
             </section> -->
-        </main>
 
-        <!--===== FOOTER =====-->
-        <footer class="footer section">
-            <div class="footer__container bd-grid ">
-                
-                <div class="footer__box">
-                    <h3 class="footer__title">Explore</h3>
-                    <ul>
-                        <li><a href="#home" class="footer__link">Home</a></li>
-                        <li><a href="#featured" class="footer__link">Featured</a></li>
-                        <li><a href="#women" class="footer__link">Women</a></li>
-                        <li><a href="#new" class="footer__link">New</a></li>
-                    </ul>                     
-                </div>
-                <div class="footer__box">
-                    <h3 class="footer__title">Support</h3>
-                    <ul>
-                        <li><a href="#" class="footer__link">Product Help</a></li>
-                        <li><a href="#" class="footer__link">Customer Care</a></li>
-                        <li><a href="#" class="footer__link">Athorized Service</a></li>
-                    </ul>                     
-                </div>
-                <div class="footer__box">
-                    <h3 class="footer__title">Contact us</h3>
-                    <a href="" class="footer__social"><i class='bx bxl-facebook' ></i></a>                   
-                    <a href="" class="footer__social"><i class='bx bxl-instagram' ></i></a>                   
-                    <a href="" class="footer__social"><i class='bx bxl-twitter' ></i></a>                   
-                    <a href="" class="footer__social"><i class='bx bxl-google' ></i></a>                   
-                </div>
-                <div class="footer__box">
-                    <h3 class="footer__title">Get to Know Us</h3>
-                    <ul>
-                        <li><a href="" class="footer__link">Career</a></li>
-                        <li><a href="" class="footer__link">Blog</a></li>
-                        <li><a href="" class="footer__link">About SmartShoe</a></li>
-                    </ul>
-                </div>
-                <div class="footer__box">
-                    <h3 class="footer__title">About Payment</h3>
-                    <ul>
-                        <li><a href="" class="footer__link">Payment Methods And Fees</a></li>
-                        <li><a href="" class="footer__link">Optional Fees</a></li>
-                        <li><a href="" class="footer__link">Cancellation Fees</a></li>
-                        <li><a href="" class="footer__link">Fees Summary</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="footer__title">Ship</h3>
-                    <ul>
-                        <li><a href="" class="footer__link">Shipping Methods</a></li>
-                        <li><a href="" class="footer__link">Shipping Fees</a></li>
-                    </ul>
-                </div>
-                
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer section">
+        <div class="footer__container bd-grid ">
+
+            <div class="footer__box">
+                <h3 class="footer__title">Explore</h3>
+                <ul>
+                    <li><a href="#home" class="footer__link">Home</a></li>
+                    <li><a href="#featured" class="footer__link">Featured</a></li>
+                    <li><a href="#women" class="footer__link">Women</a></li>
+                    <li><a href="#new" class="footer__link">New</a></li>
+                </ul>
             </div>
-        </footer>
+            <div class="footer__box">
+                <h3 class="footer__title">Support</h3>
+                <ul>
+                    <li><a href="#" class="footer__link">Product Help</a></li>
+                    <li><a href="#" class="footer__link">Customer Care</a></li>
+                    <li><a href="#" class="footer__link">Athorized Service</a></li>
+                </ul>
+            </div>
+            <div class="footer__box">
+                <h3 class="footer__title">Contact us</h3>
+                <a href="" class="footer__social"><i class='bx bxl-facebook'></i></a>
+                <a href="" class="footer__social"><i class='bx bxl-instagram'></i></a>
+                <a href="" class="footer__social"><i class='bx bxl-twitter'></i></a>
+                <a href="" class="footer__social"><i class='bx bxl-google'></i></a>
+            </div>
+            <div class="footer__box">
+                <h3 class="footer__title">Get to Know Us</h3>
+                <ul>
+                    <li><a href="" class="footer__link">Career</a></li>
+                    <li><a href="" class="footer__link">Blog</a></li>
+                    <li><a href="" class="footer__link">About SmartShoe</a></li>
+                </ul>
+            </div>
+            <div class="footer__box">
+                <h3 class="footer__title">About Payment</h3>
+                <ul>
+                    <li><a href="" class="footer__link">Payment Methods And Fees</a></li>
+                    <li><a href="" class="footer__link">Optional Fees</a></li>
+                    <li><a href="" class="footer__link">Cancellation Fees</a></li>
+                    <li><a href="" class="footer__link">Fees Summary</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer__title">Ship</h3>
+                <ul>
+                    <li><a href="" class="footer__link">Shipping Methods</a></li>
+                    <li><a href="" class="footer__link">Shipping Fees</a></li>
+                </ul>
+            </div>
 
-        <!--===== MAIN JS =====-->
-        <script src="./assets/js/main.js"></script>
-        <script src ="scripts\jquery-3.6.1.js"></script>
+        </div>
+    </footer>
 
-        
-    </body>
+    <!--===== MAIN JS =====-->
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/login.js"></script>
+    <script src="scripts\jquery-3.6.1.js"></script>
+
+
+</body>
+
 </html>

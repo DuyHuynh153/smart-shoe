@@ -1,26 +1,45 @@
-let username = document.getElementById("username");
-let email = document.getElementById("email");
-let password = document.getElementById("password");
+var username = document.getElementById("username");
+var password = document.getElementById("password");
 let btnLogin = document.querySelector(".btn-login");
 
-
+function createAdmin()
+{
+	if(localStorage.getItem('taikhoan')==null){		
+		var user1 = {username: 'admin', password: 'admin'};
+		userArray.push(user1);
+		console.log(userArray);
+		localStorage.setItem('taikhoan',JSON.stringify(userArray));
+	}
+}
 
 btnLogin.addEventListener("click", (e) => {
   e.preventDefault();
-  let user = {
-    username: username.value,
-    email: email.value,
-    password: password.value,
-  };
-  console.log(user);
-  let json = JSON.stringify(user);
-  if (!username.value || !email.value || !password.value) {
-    alert("vui long nhap day du thong tin");
-  }
-  if (localStorage.getItem(username.value) == json) {
-    alert("dang nhap thanh cong");
-    window.location.href = "index.html";
-  } else {
-    alert("dang nhap that bai");
-  }
+  var userArray = [];
+    userArray = JSON.parse(localStorage.getItem('taikhoan'));
+    if (!username.value || !password.value) {
+      alert("vui long nhap day du thong tin");
+    }
+    for(i=0;i<userArray.length;i++)
+		if(userArray[i].username==username.value && userArray[i].password==password.value)
+			{
+        alert("dang nhap thanh cong");
+        var userArray1 = [];
+	if(localStorage.getItem('dangnhap')==null){		
+		var user1 = {username1:username.value , password1: password.value};
+		userArray1.push(user1);
+		console.log(userArray1);
+		localStorage.setItem('dangnhap',JSON.stringify(userArray1));
+	}
+      }
+    else
+    {
+      alert("dang nhap khong thanh cong");
+    }
+});
+
+btnLogout.addEventListener("click", (e) => {
+  e.preventDefault();
+	var userArray = JSON.parse(localStorage.getItem('dangnhap'));
+	userArray.splice(i, 0);
+	localStorage.setItem('dangnhap',JSON.stringify(userArray));
 });
