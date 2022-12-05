@@ -1,7 +1,6 @@
 var username = document.getElementById("username");
 var password = document.getElementById("password");
 let btnLogin = document.querySelector(".btn-login");
-let btnLogout = document.querySelector(".btn-logout");
 
 function createAdmin()	
 {	
@@ -42,13 +41,10 @@ btnLogin.addEventListener("click", (e) => {
     }
 });
 
-btnLogout.addEventListener("click", (e) => {
-  e.preventDefault();
+function logout() {
   if(localStorage.getItem('dangnhap')!=null)
   {
-    var userArray2 = JSON.parse(localStorage.getItem('dangnhap'));
-	userArray2.splice(i, 0);
-	localStorage.setItem('dangnhap',JSON.stringify(userArray2));
+    localStorage.removeItem("dangnhap");
   window.location="./login.html";
   }
-});
+}
