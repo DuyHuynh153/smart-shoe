@@ -54,13 +54,7 @@ function createProduct() {
     localStorage.setItem('product', JSON.stringify(product));
   }
 }
-function createUser() {
-  if (localStorage.getItem('user') === null) {
-    var user = [{ username: "admin", password: "12345", privilege: "0", email: "admin" },
-    { username: "user1", password: "12345", privilege: "1", email: "doomofchaos@gmail.com" }];
-    localStorage.setItem('user', JSON.stringify(user));
-  }
-}
+
 //xóa sản phẩm
 function deleteProduct(productID) {
   var productArray = JSON.parse(localStorage.getItem('product'));
@@ -132,5 +126,4 @@ function deleteUser(i) {
 initBrandOption(brand);
 createProduct();
 showProductList();
-createUser();
 showUserList();
