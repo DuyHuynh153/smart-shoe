@@ -103,8 +103,34 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+function showUserList() {
+  if (localStorage.getItem('taikhoan') === null) {
+    return false;
+  }
+  var acc = JSON.parse(localStorage.getItem('taikhoan'));
+  // STT| TÊN SP| HÃNG| GIÁ|HÌNH|NÚT XÓA
+  var tr = '<tr><th>STT</th><th>Tên tài khoản</th><th>Mật khẩu</th><th>Nút Xóa</th></tr><br />';
+  for (var i = 0; i < acc.length; i++) {
+    tr += '<tr><td>' + (i + 1) + '</td><td>' + acc[i].username + '</td><td>' + acc[i].password + '</td><td><button class="delete" onClick="deleteUser(i)">&times;</button></td></tr>';
+  }
+  document.getElementById('userList').innerHTML = tr;
+}
+
+function deleteUser(i) {
+  var userArray = JSON.parse(localStorage.getItem('taikhoan'));
+  for (var j = 0; j < userArray.length; j++) {
+    if (j==i) {
+      if (confirm('Bạn có muốn xóa tài khoản này?')) {
+        userArray.splice(j, 1);
+        localStorage.setItem('taikhoan', JSON.stringify(userArray))
+      }
+    }
+  }
+  showUserList();
+}
 
 initBrandOption(brand);
 createProduct();
 showProductList();
 createUser();
+showUserList();
