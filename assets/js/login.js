@@ -23,15 +23,21 @@ btnLogin.addEventListener("click", (e) => {
 		{
       if(userArray[i].username==username.value && userArray[i].password==password.value)
 			{
-        alert("dang nhap thanh cong");
-        var userArray1 = [];
-	if(localStorage.getItem('dangnhap')==null){		
-		var user1 = {username1:username.value , password1: password.value};
-		userArray1.push(user1);
-		console.log(userArray1);
-		localStorage.setItem('dangnhap',JSON.stringify(userArray1));
-	}
-        window.location="index.html";
+        if(userArray[0].username==username.value && userArray[0].password==password.value)
+    {
+      alert("admin");
+      window.location="admin.html";
+      break;
+    }
+    alert("dang nhap thanh cong");
+    var userArray1 = [];
+if(localStorage.getItem('dangnhap')==null){		
+var user1 = {username1:username.value , password1: password.value};
+userArray1.push(user1);
+console.log(userArray1);
+localStorage.setItem('dangnhap',JSON.stringify(userArray1));
+}
+    window.location="index.html";
         break;
       }
     }
