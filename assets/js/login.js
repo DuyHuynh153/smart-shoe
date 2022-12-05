@@ -33,9 +33,10 @@ btnLogin.addEventListener("click", (e) => {
 		localStorage.setItem('dangnhap',JSON.stringify(userArray1));
 	}
         window.location="index.html";
+        break;
       }
     }
-    if(userArray[0].username!=username.value && userArray[0].password!=password.value)
+    if(i==userArray.length)
     {
       alert("dang nhap khong thanh cong");
     }
