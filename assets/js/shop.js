@@ -1,26 +1,26 @@
 
 
-var arr = [];
+
 var giohang = JSON.parse(localStorage.getItem("giohang"));
-var mangArr = giohang;
 
 
-console.log(arr);
+console.log("giohang")
+console.log(giohang);
 
 
 
-            let obj = {
-                id: json.id,
-                brand: json.brand,
-                 image:json.image,
-                 title:json.title,
-                price: json.price
-            }
-var html=   `<article onclick="infor()" class="sneaker">
-    <div class="sneaker__sale">Sale</div>
-    <img src="./assets/img/${mangArr[0].image}" alt="" class="sneaker__img">
-    <span class="sneaker__name">${mangArr[0].title}</span>
-    <span class="sneaker__preci">${mangArr[0].price}<span>
-</article>`;
+
+// --------------------------
+var html='';
+for (i=0;i<giohang.length;i++){
+    html+=  `<article  class="sneaker">
+        <div class="sneaker__sale">Sale</div>
+        <img src="./assets/img/${giohang[i].image}" alt="" class="sneaker__img">
+        <span class="sneaker__name">${giohang[i].title}</span>
+        <span class="sneaker__preci">${giohang[i].price}<span>
+    </article>`;
+
+    
+}
 
 document.getElementById("feartured__container").innerHTML = html;
