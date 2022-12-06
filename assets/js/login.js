@@ -47,13 +47,31 @@ localStorage.setItem('dangnhap',JSON.stringify(userArray1));
     }
 });
 
+function hide() {
+  if(localStorage.getItem('dangnhap')==null)
+  {
+    var x = document.getElementById("log-out");
+    x.style.display = "none";
+    var x = document.getElementById("sign-in");
+    x.style.display = "block";
+    var x = document.getElementById("sign-up");
+    x.style.display = "block";
+    var x = document.getElementById("nav-shop-market");
+    x.style.display = "none";
+  }
+  if(localStorage.getItem('dangnhap')!=null)
+  {
+    var x = document.getElementById("log-out");
+    x.style.display = "block";
+    var x = document.getElementById("sign-in");
+    x.style.display = "none";
+    var x = document.getElementById("sign-up");
+    x.style.display = "none";
+    var x = document.getElementById("nav-shop-market");
+    x.style.display = "block";
+  }
+}
 
-// nút đăng xuất
 function logout() {
-
-	if(localStorage.getItem('dangnhap')!=null)
-	{
-		localStorage.removeItem("dangnhap");
-	window.location="./login.html";
-	}
+    localStorage.removeItem("dangnhap");
 }
