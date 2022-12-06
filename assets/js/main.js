@@ -188,16 +188,25 @@ const brand =["Adidas","Nike","Puma",'Vans'];
   //         }
   //     }
   // }
-    
+
     // vòng for đã tìm đc index sản phẩm cần cho vào giỏ hàng
     for (let i=0;i<a.length;i++){
 
       if (index == i ){
+        if(localStorage.getItem('giohang')!=null){		
+          var gHang = JSON.parse(localStorage.getItem('giohang'));
+          console.log(gHang);
+          let temp = a[i];
+        alert("san pham " + a[index].title + " đã được thêm vào giỏ hàng");
+        gHang.push(temp);
+          localStorage.setItem('giohang',JSON.stringify(gHang));
+          break;
+        }	
         let temp = a[i];
         alert("san pham " + a[index].title + " đã được thêm vào giỏ hàng");
         chuoi.push(temp);
         // localStorage.setItem("giohang",JSON.stringify(chuoi));
-        
+        localStorage.setItem("giohang",JSON.stringify(chuoi));
         // alert("san pham " + index + " đã được thêm vào giỏ hàng");
 
          
@@ -209,7 +218,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
     // kiểm tra có nhấn vào giỏ hàng chưa
     // var clickShop = document.getElementById("nav-shop-market")
    
-    localStorage.setItem("giohang",JSON.stringify(chuoi));
+    
     // return chuoi;
    
   }
