@@ -49,7 +49,7 @@
                     </li>
                     <li class="nav__item sign-up"><a id="sign-up" href="./signup.html" class="nav__link ">Đăng Ký</a>
                     </li>
-                    <li class="nav__item sign-in" onclick="logout()"><a href="./login.html">Đăng Xuất</a>
+                    <li class="nav__item sign-in" onclick="logout()"><a id="log-out" href="./login.html">Đăng Xuất</a>
                     </li>
                 </ul>
             </div>
@@ -348,6 +348,12 @@
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/login.js"></script>
     <script src="scripts\jquery-3.6.1.js"></script>
+    <script>
+        window.onload=function()
+{
+	hide();
+}
+    </script>
 
 
 </body>
