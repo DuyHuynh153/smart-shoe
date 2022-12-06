@@ -60,20 +60,25 @@ window.onscroll = ()=> {
 /*sản phẩm, sau thay thành localstorage */
 const imageURL = "./assets/img/"
 const product = [
-  { id: 1,brand:"Adidas", image: "new1.png", title: "Adidas Yeezy",price:"3.000.000 VND" },
+  { id: 1,brand:"Adidas", image: "adidas1.png", title: "Adidas Yeezy",price:"3.000.000 VND" },
   { id: 2, brand:"Nike",image: "nike7.png", title: "Nike Jordan 1" ,price:"2.990.000 VND"},
-  { id: 3,brand:"Nike", image: "nike8.png", title: "Nike Jordan 2" ,price:"5.000.000 VND"},
-  {  id: 4,brand:"Vans", image: "vans1.png", title: "Vans Old Skool"  ,price:"3.000.000 VND"},
-  { id: 5,brand:"Nike", image: "nike10.png", title: "Nike Jordan 3" ,price:"3.000.000 VND"},
-  {  id: 6,brand:"Adidas", image: "new2.png", title: "Adidas Yeezy 27"  ,price:"3.000.000 VND"},
-  {  id: 7,brand:"Adidas", image: "new3.png", title: "Adidas Yeezy 50",price:"4.000.000 VND"  },
-  { id: 8,brand:"Nike", image: "nike1.png", title: "Nike Pegasus " ,price:"1.000.000 VND" },
-  {  id: 9,brand:"Nike", image: "nike11.png", title: "Nike React" ,price:"4.000.000 VND" },
-  {  id: 10,brand:"Nike", image: "nike6.png", title: "Nike Air Max" ,price:"4.000.000 VND" },
-  {  id: 11,brand:"Nike", image: "nike2.png", title: "Nike Roshe" ,price:"4.000.000 VND" },
+  { id: 3,brand:"Nike", image: "nike8.png", title: "Nike Jordan 2" ,price:"1.990.000 VND"},
+  {  id: 4,brand:"Vans", image: "vans1.png", title: "Vans Old Skool"  ,price:"3.654.000 VND"},
+  { id: 5,brand:"Nike", image: "nike10.png", title: "Nike Jordan 3" ,price:"2.545.000 VND"},
+  {  id: 6,brand:"Adidas", image: "adidas2.png", title: "Adidas Yeezy 27"  ,price:"3.500.000 VND"},
+  {  id: 7,brand:"Adidas", image: "adidas3.png", title: "Adidas Yeezy 50",price:"4.289.000 VND"  },
+  { id: 8,brand:"Nike", image: "nike1.png", title: "Nike Pegasus " ,price:"1.090.000 VND" },
+  {  id: 9,brand:"Nike", image: "nike9.png", title: "Nike React" ,price:"4.000.000 VND" },
+  {  id: 10,brand:"Nike", image: "nike6.png", title: "Nike Air Max" ,price:"4.323.000 VND" },
+  {  id: 11,brand:"Nike", image: "nike2.png", title: "Nike Roshe" ,price:"7.566.000 VND" },
   {  id: 12,brand:"Nike", image: "nike4.png", title: "Nike Pegasus 1" ,price:"4.000.000 VND" },
-  {  id: 13,brand:"Vans", image: "vans2.png", title: "Vans Old Skool" ,price:"4.000.000 VND" },
-  {  id: 14,brand:"Puma", image: "puma5.png", title: "Puma Suede" ,price:"4.000.000 VND" },
+  {  id: 13,brand:"Vans", image: "vans2.png", title: "Vans Old Skool" ,price:"2.123.000 VND" },
+  {  id: 14,brand:"Puma", image: "puma1.png", title: "Puma Suede" ,price:"5.334.000 VND" },
+  {  id: 14,brand:"Puma", image: "puma2.png", title: "Puma Suede" ,price:"5.999.000 VND" },
+  {  id: 14,brand:"Puma", image: "puma3.png", title: "Puma Suede" ,price:"4.232.000 VND" },
+  {  id: 14,brand:"Puma", image: "adidas4.png", title: "Puma Suede" ,price:"4.000.000 VND" },
+  {  id: 14,brand:"Puma", image: "adidas5.png", title: "Puma Suede" ,price:"2.200.000 VND" },
+  {  id: 14,brand:"Puma", image: "adidas6.png", title: "Puma Suede" ,price:"8.300.000 VND" },
 ];
 
 localStorage.setItem("product",JSON.stringify(product));

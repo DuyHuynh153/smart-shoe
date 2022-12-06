@@ -134,9 +134,9 @@ img {
   justify-content: space-between;
   align-items: center;
 }
-/* .nav__user{
-  display: none;
-} */
+.nav__user{
+    cursor: default;
+}
 
 @media screen and (max-width: 768px) {
   .nav__menu{
