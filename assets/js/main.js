@@ -190,6 +190,13 @@ const brand =["Adidas","Nike","Puma",'Vans'];
   // }
 
     // vòng for đã tìm đc index sản phẩm cần cho vào giỏ hàng
+
+    if(localStorage.getItem('dangnhap')==null)
+    {
+      alert("Phai dang nhap moi duoc mua hang! ");
+      return 0;
+    }
+
     for (let i=0;i<a.length;i++){
 
       if (index == i ){
