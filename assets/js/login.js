@@ -50,6 +50,8 @@ localStorage.setItem('dangnhap',JSON.stringify(userArray1));
 function hide() {
   if(localStorage.getItem('dangnhap')==null)
   {
+    var x = document.getElementById("nav__user");
+    x.style.display = "none";
     var x = document.getElementById("log-out");
     x.style.display = "none";
     var x = document.getElementById("sign-in");
@@ -61,6 +63,8 @@ function hide() {
   }
   if(localStorage.getItem('dangnhap')!=null)
   {
+    userArray = JSON.parse(localStorage.getItem('dangnhap'));
+    document.getElementById("nav__user").innerHTML=userArray[0].username1;
     var x = document.getElementById("log-out");
     x.style.display = "block";
     var x = document.getElementById("sign-in");
