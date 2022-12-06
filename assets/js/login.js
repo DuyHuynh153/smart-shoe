@@ -47,10 +47,13 @@ localStorage.setItem('dangnhap',JSON.stringify(userArray1));
     }
 });
 
+
+// nút đăng xuất
 function logout() {
-  if(localStorage.getItem('dangnhap')!=null)
-  {
-    localStorage.removeItem("dangnhap");
-  window.location="./login.html";
-  }
+
+	if(localStorage.getItem('dangnhap')!=null)
+	{
+		localStorage.removeItem("dangnhap");
+	window.location="./login.html";
+	}
 }
