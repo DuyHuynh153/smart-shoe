@@ -8,13 +8,10 @@
         <link rel="stylesheet" href="./assets/css/styles.css">
 
         <!-- ===== BOX ICONS ===== -->
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/6b0fd150ee.js" crossorigin="anonymous"></script>
     
         <title>Smart Shoe admin</title>
     </head>
@@ -22,13 +19,13 @@
 
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#" onclick="document.getElementById('addProduct').scrollIntoView">Sản phẩm</a>
+            <a href="#addproduct" >Sản phẩm</a>
             <a href="#">Đơn Hàng</a>
             <a href="#">Thống kê</a>
-            <a href="#">Tài khoản</a>
+            <a href="#manageuser" >Tài khoản</a>
             <a href="./login.html" class = "logout">Đăng xuất</a>
           </div>
-          <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Trang quản trị</span>
+          <span style="font-size:30px;cursor:pointer;position: sticky;top:0;background-color: lightblue" onclick="openNav()">&#9776; Trang quản trị</span>
           <script>
             function openNav() {
               document.getElementById("mySidenav").style.width = "250px";
@@ -39,29 +36,70 @@
             }
             </script>
                          
- <!-- thêm sản phẩm -->
+ <!-- thêm sản phẩm --><br>
+ <button type="button" class="collapsible">Thêm sản phẩm</button>
+ <div class = "collapsibleDiv">
  <div id ="addproduct" class ="addproduct">
  <label>Thêm sản phẩm</label>
- <form id = "product">
+ <form id = "product" class ="form-container">
     <label>Tên sản phẩm</label>
-    <input id="name" required></input>
+    <input type ="text"id="name" required></input>
     <label>Giá</label>
-    <input id ="price" required></input>
+    <input id ="price" type ="text" required></input>
     <label for="img">Chọn ảnh:</label>
-    <input type="file" id="imgData" name="img" accept="image/*">
+    <input type="file" id="imgData" name="img" accept="image/*" onchange="getImgName(this)">
     <label>Chọn hãng</label>
-    <select id="selectBrand">
+    <select id="selectBrand" class ="selectBrand">
         
-    </select>
-    <button  onclick="addProduct()">thêm sản phẩm</button>
- </form>
+    </select><br>
+    <button  onclick="addProduct()" id="add" class="btn">Thêm sản phẩm</button>
+  </form>
+</div>
+</div>
  <button type="button" class="collapsible">Danh sách sản phẩm</button>
  <div class = "collapsibleDiv">
     <table id = productList></table>
  </div>
  </div>
+
   <!-- quản lý người dùng-->
 <div id ="manageuser">
   <label>Quản lý tài khoản</label>
   <table id = "userList"></table>
  <script src="assets\js\admin.js"></script>
+ <script src="scripts\jquery-3.6.1.js"></script>
+
+
+
+
+  <div class="form-popup" id="myForm">
+  <form class="form-container">
+    <h1>Sửa sản phẩm</h1>
+    <label for ="id">Mã Sản phẩm</label>
+    <input type="text"  name="sp" id ="productID" class="productID" disabled size ="50">
+    <label for ="Brand">Hãng</label>
+    <select id="newBrand" name="Brand">
+        
+    </select><br>
+    <script>$('#selectBrand option').clone().appendTo('#newBrand');
+    </script>
+    
+     <label for="img">Chọn ảnh:</label>
+    <input type="file" id="newImg" name="img" accept="image/*"><br>
+
+    <label for="sp"><b>Tên sản phẩm</b></label>
+    <input type="text" placeholder="Nhập tên sản phẩm" name="sp" id ="newName" required>
+
+    <label for="price"><b>Giá sản phẩm</b></label>
+    <input type="text" placeholder="Nhập giá sản phẩm" name="newPrice" id ="newPrice" required>
+
+    <button type="button" onclick="updateProduct(document.getElementById('productID').value)" class="btn">Xác Nhận</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Huỷ</button>
+  </form>
+</div>
+</div>
+<script>
+  //Sửa sản phẩm
+
+
+</script>

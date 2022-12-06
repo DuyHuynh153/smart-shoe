@@ -1,37 +1,3 @@
-const brand = ["Adidas", "Nike", "Jordan", 'Yeezy'];
-const imageURL = "./assets/img/";
-function initBrandOption(arr) {
-  var select = document.getElementById("selectBrand");
-  for (let i = 0; i < arr.length; i++) {
-    var opt = document.createElement('option');
-    opt.value = arr[i];
-    opt.innerHTML = arr[i];
-    select.appendChild(opt);
-  }
-}
-// https://stackoverflow.com/questions/19183180/how-to-save-an-image-to-localstorage-and-display-it-on-the-next-page
-//thêm sản phẩm
-function addProduct() {
-  {
-    var imgpath = document.getElementById("imgData").value;
-    var img = imgpath.replace("C:\\fakepath\\", "");
-
-    var title = document.getElementById("name").value;
-    var price = Number(document.getElementById("price").value);
-    var price1 = price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
-    console.log(price1);
-
-    var brand = document.getElementById("selectBrand").value;
-
-    var sanPham = JSON.parse(localStorage.getItem('product'));
-    var product = { id: sanPham.length + 1, brand: brand, image: img, title: title, price: price1 };
-    sanPham.push(product);
-
-    localStorage.setItem('product', JSON.stringify(sanPham));
-    showProductList();
-
-  }
-}
 //khởi tạo localstorage
 function createProduct() {
   if (localStorage.getItem('product') === null) {
@@ -54,33 +20,81 @@ function createProduct() {
     localStorage.setItem('product', JSON.stringify(product));
   }
 }
+const brand = ["Adidas", "Nike", "Vans", 'Puma'];
+const imageURL = "./assets/img/";
+function initBrandOption(arr) {
+  var select = document.getElementById("selectBrand");
+  for (let i = 0; i < arr.length; i++) {
+    var opt = document.createElement('option');
+    opt.value = arr[i];
+    opt.innerHTML = arr[i];
+    select.appendChild(opt);
+  }
+}
+
+//thêm sản phẩm
+function addProduct() {
+  {
+    var img ='';
+    if(document.getElementById('newImg').value == ''){
+      img = "noimage.png";
+    }else{
+  
+      var imgPath = document.getElementById("newImg").value;
+       img = imgPath.replace("C:\\fakepath\\", "");
+    }
+
+    var title = document.getElementById("name").value;
+    var price = Number(document.getElementById("price").value);
+    var priceVND = price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+
+    var brand = document.getElementById("selectBrand").value;
+
+    var sanPham = JSON.parse(localStorage.getItem('product'));
+    var product = { id: sanPham.length + 1, brand: brand, image: img, title: title, price: priceVND };
+    sanPham.push(product);
+
+    localStorage.setItem('product', JSON.stringify(sanPham));
+    showProductList();
+
+  }
+}
+function getImgName(input){
+  let file = input.files[0];
+  return file.name;
+}
 
 //xóa sản phẩm
 function deleteProduct(productID) {
   var productArray = JSON.parse(localStorage.getItem('product'));
   for (var i = 0; i < productArray.length; i++) {
     if (productArray[i].id == productID) {
+      console.log(i);
       if (confirm('Bạn có muốn xóa sản phẩm này?')) {
         productArray.splice(i, 1);
         localStorage.setItem('product', JSON.stringify(productArray))
+        
       }
     }
   }
   showProductList();
 }
+
 //load danh sách san phẩm
 function showProductList() {
   if (localStorage.getItem('product') === null) {
     return false;
   }
   var product = JSON.parse(localStorage.getItem('product'));
-  // STT| TÊN SP| HÃNG| GIÁ|HÌNH|NÚT XÓA
-  var tr = '<tr><th>STT</th><th>Tên sản phẩm</th><th>Hãng</th><th>Giá</th><th>Hình</th><th>Nút Xóa</th></tr><br />';
+  // STT| TÊN SP| HÃNG| GIÁ|HÌNH|XÓA|SỬA
+  var tr = '<tr><th>STT</th><th>Tên sản phẩm</th><th>Hãng</th><th>Giá</th><th>Hình</th><th>Xóa</th><th>Sửa</th></tr><br />';
   for (var i = 0; i < product.length; i++) {
-    tr += '<tr><td>' + (i + 1) + '</td><td>' + product[i].title + '</td><td>' + product[i].brand + '</td><td>' + product[i].price + '</td><td><img src="' + imageURL + product[i].image + '" height = 200px width = 100px></img></td><td><button class="delete" onClick="deleteProduct(\'' + product[i].id + '\')">&times;</button></td></tr>';
+    tr += '<tr><td>' + (i + 1) + '</td><td>' + product[i].title + '</td><td>' + product[i].brand + '</td><td>' + product[i].price + '</td><td><img src="' + imageURL + product[i].image + '" height = 200px width = 100px></img></td><td><button class="delete" onClick="deleteProduct(\'' + product[i].id + '\')"><i class="fa fa-trash"></i></button></td><td><button class="update" onClick="openForm(\'' + product[i].id + '\')"><i class="fa  fa-pencil"></i></button></td></tr>';
   }
   document.getElementById('productList').innerHTML = tr;
+  
 }
+
 
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -105,7 +119,7 @@ function showUserList() {
   // STT| TÊN SP| HÃNG| GIÁ|HÌNH|NÚT XÓA
   var tr = '<tr><th>STT</th><th>Tên tài khoản</th><th>Mật khẩu</th><th>Nút Xóa</th></tr><br />';
   for (var i = 0; i < acc.length; i++) {
-    tr += '<tr><td>' + (i + 1) + '</td><td>' + acc[i].username + '</td><td>' + acc[i].password + '</td><td><button class="delete" onClick="deleteUser(i)">&times;</button></td></tr>';
+    tr += '<tr><td>' + (i + 1) + '</td><td>' + acc[i].username + '</td><td>' + acc[i].password + '</td><td><button class="delete" onClick="deleteUser(i)"><i class="fa fa-trash"></i></button></td></tr>';
   }
   document.getElementById('userList').innerHTML = tr;
 }
@@ -121,6 +135,54 @@ function deleteUser(i) {
     }
   }
   showUserList();
+}
+
+//Sửa sản phẩm
+function updateProduct(productID) {
+  var newImage = '';
+  var newName = document.getElementById('newName').value;
+  var newPrice = Number(document.getElementById('newPrice').value.replace( /^\D+/g, ''));
+  var newPriceVND = newPrice.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+  if(document.getElementById('newImg').value == ''){
+    newImage = "noimage.png";
+  }else{
+
+    var img = document.getElementById("newImg").value;
+     newImage = img.replace("C:\\fakepath\\", "");
+  }
+    var newBrand = document.getElementById('newBrand').value;
+  let newProduct ={
+    id : productID,
+    brand:newBrand,
+    image:newImage,
+    title: newName,
+    price:newPriceVND
+  }
+  var productArray = JSON.parse(localStorage.getItem('product'));
+  for (var i = 0; i < productArray.length; i++) {
+    if (productArray[i].id == productID) {
+      productArray[i] = newProduct;
+      localStorage.setItem('product',JSON.stringify(productArray));
+    }
+  }
+  showProductList();
+}
+//Mở popup sửa sản phẩm
+function openForm(productID) {
+  document.getElementById("myForm").style.display = "block";
+  var productArray = JSON.parse(localStorage.getItem('product'));
+  for( var i = 0;i<productArray.length;i++){
+    if(productArray[i].id == productID){
+      document.getElementById('productID').value = productArray[i].id
+      $('#newBrand').val(productArray[i].brand).change();
+        document.getElementById('newName').value = productArray[i].title;
+        document.getElementById('newPrice').value = productArray[i].price;
+    }
+  }
+}
+//đóng popup
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
 }
 
 initBrandOption(brand);
