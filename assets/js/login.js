@@ -1,7 +1,6 @@
 var username = document.getElementById("username");
 var password = document.getElementById("password");
 let btnLogin = document.querySelector(".btn-login");
-let btnLogout = document.querySelector(".btn-logout");
 
 function createAdmin()	
 {	
@@ -20,29 +19,38 @@ btnLogin.addEventListener("click", (e) => {
     if (!username.value || !password.value) {
       alert("vui long nhap day du thong tin");
     }
-    for(i=0;i<userArray.length;i++){
-		if(userArray[i].username==username.value && userArray[i].password==password.value)
-				{
-			alert("dang nhap thanh cong");
-			var userArray1 = [];
-			if(localStorage.getItem('dangnhap')==null){		
-				var user1 = {username1:username.value , password1: password.value};
-				userArray1.push(user1);
-				console.log(userArray1);
-				localStorage.setItem('dangnhap',JSON.stringify(userArray1));
-			}
-			window.location="index.html";
-		}
+    for(i=0;i<userArray.length;i++)
+		{
+      if(userArray[i].username==username.value && userArray[i].password==password.value)
+			{
+        if(userArray[0].username==username.value && userArray[0].password==password.value)
+    {
+      alert("admin");
+      window.location="admin.html";
+      break;
     }
-    if(userArray[0].username!=username.value && userArray[0].password!=password.value)
+    alert("dang nhap thanh cong");
+    var userArray1 = [];
+if(localStorage.getItem('dangnhap')==null){		
+var user1 = {username1:username.value , password1: password.value};
+userArray1.push(user1);
+console.log(userArray1);
+localStorage.setItem('dangnhap',JSON.stringify(userArray1));
+}
+    window.location="index.html";
+        break;
+      }
+    }
+    if(i==userArray.length)
     {
       alert("dang nhap khong thanh cong");
     }
 });
 
-btnLogout.addEventListener("click", (e) => {
-  e.preventDefault();
-	var userArray2 = JSON.parse(localStorage.getItem('dangnhap'));
-	userArray2.splice(i, 0);
-	localStorage.setItem('dangnhap',JSON.stringify(userArray2));
-});
+function logout() {
+  if(localStorage.getItem('dangnhap')!=null)
+  {
+    localStorage.removeItem("dangnhap");
+  window.location="./login.html";
+  }
+}
