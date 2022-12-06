@@ -78,4 +78,5 @@ function hide() {
 
 function logout() {
     localStorage.removeItem("dangnhap");
+    localStorage.removeItem("giohang");
 }

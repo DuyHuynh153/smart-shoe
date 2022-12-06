@@ -281,16 +281,17 @@ img {
 }
 
 .home__shape {
-  width: 220px;
-  height: 220px;
-  background-color: var(--dark-color);
+  margin-top: .5rem;
+  width: 300px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 1);
   border-radius: 50%;
 }
 .home__img {
   position: absolute;
-  top: 1.5rem;
+  top: 2rem;
   max-width: initial;
-  width: 275px;
+  width: 350px;
   transform: var(--rotate-img);
 }
 .home__new  {
@@ -649,6 +650,7 @@ img {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;  
+    
   }
   .sneaker {
     width: 250px;
@@ -802,7 +804,10 @@ tr:nth-child(even) {
 
 .modal{
   margin: auto;
-  display: none;
+  position: relative;
+  top:-600px;
+  left: -600px;
+  /* display: none; */
   
 
 }
@@ -813,7 +818,7 @@ tr:nth-child(even) {
   left:40%;
   /* top:60vh;
   left: 40%; */
-  width: 500px;
+  width: 500px; 
   height: auto;
   display: flex;
   flex-direction: row;

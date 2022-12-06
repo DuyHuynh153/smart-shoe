@@ -150,14 +150,33 @@ const brand =["Adidas","Nike","Puma",'Vans'];
    
     const content = array.map((item, index) => {
       if (index >= start && index < end) {
-        // html += '<article onclick="document.getElementById(\'modal\').style.display=\'block\'"  class="sneaker">';  // sự kiện onlick article hiển thị thông tin chi tiết
-        html += '<article   class="sneaker">';
+        // html += `<article onclick="document.getElementById("modal${index}").styles.display="block""  class="sneaker">`;  // sự kiện onlick article hiển thị thông tin chi tiết
+        html += `<article  onclick="infoProduct(${index})" class="sneaker">`;
+        html+= `<div class="modal" id="modal${index}" style="display:none">
+        <form class="modal__container">
+            <div class="img-logo">
+                <img src="./assets/img/${item.image}" alt="">
+            </div>
+            <div class="img-desc">
+                <h3 class="img-title">${item.title}</h3>
+                <p>Sản phẩm có nguồn gốc xuất xứ từ Châu Âu <br></p>
+                <p>Có từ vật liệu cao cấp </p>
+                <h2 style="font: weight 500px; ;" class="size">Size: <span style="font: size 20px;">38 đến
+                        43</span> </h2>
+
+            </div>
+            <button onclick="close_sp(${index})"  class="modal-close" id= "modal-close" type="button" >
+                <i  class="fa-solid fa-x"></i>
+            </button>
+
+        </form>
+    </div>`;
         html += '<div class="sneaker__sale">Sale</div>';
         html += '<img src="'+imageURL+item.image+'" alt="" class="sneaker__img">';
         html += '<span class="sneaker__name">'+item.title+'</span>';
         html += '<span class="sneaker__preci">'+item.price+'</span>';
         html += `<a type="button" href="" onclick="checkGioHang(${index})" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>`;
-        html += '</article>';
+        html += '</article> ';
         return html;
     //     <article onclick="infor()" class="sneaker">
     //     <div class="sneaker__sale">Sale</div>
@@ -170,6 +189,33 @@ const brand =["Adidas","Nike","Puma",'Vans'];
     });
     document.getElementById('featured__container').innerHTML = html;
   }
+
+  // click vào sản phẩm để xem thông tin chi tiết
+  // function infoProduct(array) {
+  //   html = '';
+   
+  //   const content = array.map((item, index) => {
+  //     if (index >= start && index < end) {
+  //       html += '<article onclick="document.getElementById(\'modal\').style.display=\'block\'"  class="sneaker">';  // sự kiện onlick article hiển thị thông tin chi tiết
+  //       // html += '<article   class="sneaker">';
+  //       html += '<div class="sneaker__sale">Sale</div>';
+  //       html += '<img src="'+imageURL+item.image+'" alt="" class="sneaker__img">';
+  //       html += '<span class="sneaker__name">'+item.title+'</span>';
+  //       html += '<span class="sneaker__preci">'+item.price+'</span>';
+  //       html += `<a type="button" href="" onclick="checkGioHang(${index})" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>`;
+  //       html += '</article> ';
+  //       return html;
+  //   //     <article onclick="infor()" class="sneaker">
+  //   //     <div class="sneaker__sale">Sale</div>
+  //   //     <img src="featured1.png" alt="" class="sneaker__img">
+  //   //     <span class="sneaker__name">Nike Jordan</span>
+  //   //     <span class="sneaker__preci">3.000.000 VND</span>
+  //   //     <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
+  //   // </article>
+  //     }
+  //   });
+  //   document.getElementById('featured__container').innerHTML = html;
+  // }
 
 
   
@@ -220,33 +266,38 @@ const brand =["Adidas","Nike","Puma",'Vans'];
       }
 
     }
-    // var checkShop = document.getElementById("nav-shop-market");
-    // if (checkShop.onclick)
-    // kiểm tra có nhấn vào giỏ hàng chưa
-    // var clickShop = document.getElementById("nav-shop-market")
    
-    
-    // return chuoi;
    
   }
  
-  // chuoiBackup.push( JSON.parse(localStorage.getItem("chuoi")));
   
-  function addToCart(index){
-    window.location.href = "shop.html";
-    html ='';
-    html += `<article onclick="infor()" class="sneaker">
-    <div class="sneaker__sale">Sale</div>
-    <img src=${productArrFiltered[index].image} alt="" class="sneaker__img">
-    <span class="sneaker__name">Nike Jordan</span>
-    <span class="sneaker__preci">3.000.000 VND</span>
-    <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-</article>`;
+  // thông tin từng sản phẩm khi click vào
+  
+  function infoProduct (index){
+    for (let i=0;i<product.length;i++){
 
-document.getElementById('featured__container').innerHTML = html;
+      if (index == i ){
+        let sp = document.getElementById("modal"+i);
+        sp.style.display="block";
+         
+      }
+      
 
+    }
 
-    
+  }
+  function close_sp (index){
+    for (let i=0;i<product.length;i++){
+
+      if (index == i ){
+        let close_sp = document.getElementById("modal"+i);
+        close_sp.style.display="none";
+         
+      }
+      
+
+    }
+
   }
   
   //khởi tạo nút số trang
