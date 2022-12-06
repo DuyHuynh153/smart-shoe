@@ -12,7 +12,9 @@
   --dark-color:#141414;
   --dark-color-light:#8A8A8A;
   --dark-color-lighten:#f2f2f2;
-  --white-color:#fff;
+  /* --dark-color-lighten:#048ef822; */
+
+  --white-color:rgb(255, 255, 255);
 
   /*===== Font and typography =====*/
   --body-font: 'Roboto',san-serif;
@@ -214,10 +216,12 @@ img {
 }
 .home__sneaker {
   position: relative;
+  top:50px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .home__shape {
   width: 220px;
   height: 220px;
@@ -264,7 +268,7 @@ img {
   white-space: nowrap;
   color: var(--dark-color);
   font-weight: var(--font-semi-bold);
-  align-items: center;
+  align-items: end;
 }
 .button-icon {
   font-size: 2rem;
@@ -535,6 +539,9 @@ img {
   .section {
     padding: 7rem 0;
   }
+ 
+  
+  
   /* .section-title {
     width: 70px;
   }
