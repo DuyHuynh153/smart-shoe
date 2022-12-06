@@ -151,7 +151,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
         html += '<img src="'+imageURL+item.image+'" alt="" class="sneaker__img">';
         html += '<span class="sneaker__name">'+item.title+'</span>';
         html += '<span class="sneaker__preci">'+item.price+'</span>';
-        html += `<a href="" onclick="checkGioHang(${index})" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>`;
+        html += `<a type="button" href="" onclick="checkGioHang(${index})" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>`;
         html += '</article>';
         return html;
     //     <article onclick="infor()" class="sneaker">
