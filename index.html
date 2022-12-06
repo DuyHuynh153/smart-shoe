@@ -18,6 +18,21 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Smart Shoe</title>
+
+    <style>
+        .slide-1 {
+            
+            background-image: url("./assets/img/logo1.png");
+            
+            
+          }
+          .slide-2 {
+            background-image: url("./assets/img/logo2.png");
+          }
+          .slide-3 {
+            background-image: url("./assets/img/logo3.png");
+          }
+    </style>
 </head>
 
 <body>
@@ -61,7 +76,7 @@
                     </a>
                 </form>
                 <!-- <a type="submit"  href="./shop.html" class="nav-shop-market"><i class='bx bx-shopping-bag'></i></a> -->
-                <div  id="nav__user" class="nav__user"><i class="fa-solid fa-user"></i></div>
+                <div  id="nav__user" class="nav__user"><i class="fa-solid fa-user"></i></a>
             </div>
         </nav>
 
@@ -70,16 +85,44 @@
     <main class="l-main">
         <!--===== HOME =====-->
         <section class="home" id="home">
+            
             <div class="home__sneaker">
                 <div class="home__shape"></div>
                 <img src="./assets/img/imghome.png" alt="" class="home__img">
+
+                
+                
             </div>
             <div class="home__data">
                 <span class="home__new">Mẫu Mới</span>
                 <h1 class="home__title">YEEZY BOOST <br> SPLY - 350</h1>
                 <p class="home__description">Khám Phá Bộ Sưu Tập Mới Của Sneaker</p>
                 <a href="#" class="button">Khám Phá Ngay </a>
+                
+
+                <div class="slider-container ">
+                    <div class="menu">
+                      <label for="slide-dot-1"></label>
+                      <label for="slide-dot-2"></label>
+                      <label for="slide-dot-3"></label> 
+                    </div>
+                    
+                    <input id="slide-dot-1" type="radio" name="slides" checked>
+                      <div class="slide slide-1"></div>
+                    
+                    <input id="slide-dot-2" type="radio" name="slides">
+                      <div class="slide slide-2"></div>
+                    
+                    <input id="slide-dot-3" type="radio" name="slides">
+                      <div class="slide slide-3"></div>
+                </div>
             </div>
+            
+            
+            
+                
+                
+           
         </section>
 
 
