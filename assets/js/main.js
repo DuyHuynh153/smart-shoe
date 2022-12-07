@@ -165,9 +165,6 @@ const brand =["Adidas","Nike","Puma",'Vans'];
                         43</span> </h2>
 
             </div>
-            <button onclick="close_sp(${index})"  class="modal-close" id= "modal-close" type="button" >
-                <i  class="fa-solid fa-x"></i>
-            </button>
 
         </form>
     </div>`;
@@ -277,21 +274,12 @@ const brand =["Adidas","Nike","Puma",'Vans'];
     for (let i=0;i<product.length;i++){
 
       if (index == i ){
-        let sp = document.getElementById("modal"+i);
-        sp.style.display="block";
-         
-      }
-      
-
-    }
-
-  }
-  function close_sp (index){
-    for (let i=0;i<product.length;i++){
-
-      if (index == i ){
-        let close_sp = document.getElementById("modal"+i);
-        close_sp.style.display="none";
+        let x = document.getElementById("modal"+i);
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
          
       }
       
