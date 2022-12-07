@@ -51,7 +51,8 @@
                 </div>
             </section>
             <div class="thanhToan">
-                <div class="thanhTien" id="thanhTien"> Thành Tiền: </div>
+                <div class="thanhTien" id="thanhTien"></div>
+                <button onclick="tongSoTien()">Thành Tiền</button>
                 <button type="submit" class="thanhToan__btn " onclick="document.getElementById('id01').style.display='block'" >Thanh toán</button>
             </div>
         </main>
@@ -73,11 +74,11 @@
                 <label for="email"><b>Địa chỉ</b></l    abel>
                 <input type="text" placeholder="Enter Email" name="email" class="thongtin" required>
                 
-                <label style="margin-top:8px" for="psw"><b>Tổng Tiền</b></label>
+                <label style="margin-top:8px" for="psw"><b>Tổng Tiền: </b></label>
                 <label style="margin-top:8px"type="password" id="tongTienThanhToan" name="tongtien" value="" required></label>
                 
                 <div class="thanhToan_Huy">
-                    <button id="thanhToanXong"  type="button" class="sign-in-btn">Thanh Toán</button>
+                    <button onclick="thanhToanXong()" class="sign-in-btn">Thanh Toán</button>
                     <button type="button" class="cancelbtn" onclick="document.getElementById('id01').style.display='none'">Hủy</button>
                 </div>
         
@@ -100,7 +101,12 @@
         <!--===== MAIN JS =====-->
         <script src="./assets/js/main.js"></script>
         <script src="./assets/js/shop.js"></script>
-        
+        <script>
+            window.onload=function()
+            {
+                tongSoTien();
+            }
+        </script>
 
     </body>
 </html>
