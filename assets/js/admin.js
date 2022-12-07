@@ -49,7 +49,7 @@ function addProduct() {
     var brand = document.getElementById("selectBrand").value;
 
     var sanPham = JSON.parse(localStorage.getItem('product'));
-    var product = { id: sanPham.length + 1, brand: brand, image: img, title: title, price: price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' }) };
+    var product = { id: sanPham.length + 1, brand: brand, image: img, title: title, price: price };
     sanPham.push(product);
 
     localStorage.setItem('product', JSON.stringify(sanPham));
