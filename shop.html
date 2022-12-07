@@ -44,58 +44,69 @@
         </header>
 
         <main class="l-main">
-            <section class="featured section" id="shop">
-                <h2 class="section-title">All Product</h2>
-                <div class="feartured__container bd-grid" id="feartured__container">
-                    <!-- <article class="sneaker">
-                        <img src="./assets/img/featured1.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article>
-
-                    <article class="sneaker">
-                        <img src="./assets/img/featured2.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Free</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br> Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article>
-
-                    <article class="sneaker">
-                        <img src="./assets/img/featured3.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article> -->
+            <section class="featured shop-featured__element " id="shop">
+                <h2 class="section-title">Các sản phẩm đã đặt</h2>
+                <div class="feartured__container" id="feartured__container">
+                    
                 </div>
             </section>
+            <div class="thanhToan">
+                <div class="thanhTien" id="thanhTien"></div>
+                <button onclick="tongSoTien()">Thành Tiền</button>
+                <button type="submit" class="thanhToan__btn " onclick="document.getElementById('id01').style.display='block'" >Thanh toán</button>
+            </div>
         </main>
 
-        <!--===== FOOTER =====-->
+        <div id="id01" class="module">
+        
+            <!-- close X -->
+        <div onclick="document.getElementById('id01').style.display='none'"
+            class="module-close" title="Close Modal">&times;</div>
+                
+        <form  method="post" class="module-content">
+            <!-- <div class="imgcontainer__form ">
+                <img  src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
+            </div> -->
+        
+            <div class="form-container">
+                <label for="hoten"><b>Họ và Tên</b></label>
+                <input type="text" placeholder="Enter Email" name="email"class="thongtin" required>
+                <label for="email"><b>Địa chỉ</b></l    abel>
+                <input type="text" placeholder="Enter Email" name="email" class="thongtin" required>
+                
+                <label style="margin-top:8px" for="psw"><b>Tổng Tiền: </b></label>
+                <label style="margin-top:8px"type="password" id="tongTienThanhToan" name="tongtien" value="" required></label>
+                
+                <div class="thanhToan_Huy">
+                    <button onclick="thanhToanXong()" class="sign-in-btn">Thanh Toán</button>
+                    <button type="button" class="cancelbtn" onclick="document.getElementById('id01').style.display='none'">Hủy</button>
+                </div>
+        
+                
+                
+            </div>
+        
+           
+        </form>
+    </div>
+
+        <!-- <form action="">
+            
+            <input type="number" name="" id="soLuong" placeholder="Số lượng">
+        </form> -->
+
+        
         
 
         <!--===== MAIN JS =====-->
         <script src="./assets/js/main.js"></script>
         <script src="./assets/js/shop.js"></script>
-        <!-- <script>
-            let json = JSON.parse(localStorage.getItem("chuoi"));
-            let obj = {
-                id: 1,
-                brand: json.brand,
-                 image:json.image,
-                 title:json.title,
-                price: json.price
+        <script>
+            window.onload=function()
+            {
+                tongSoTien();
             }
-            var html=   `<article onclick="infor()" class="sneaker">
-                <div class="sneaker__sale">Sale</div>
-                <img src="./assets/img/featured1.png" alt="" class="sneaker__img">
-                <span class="sneaker__name">Nike Jordan</span>
-                <span class="sneaker__preci">3.000.000 VND</span>
-                <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-            </article>`;
-
-            document.getElementById("featured__container").innerHTML = html;
-        </script> -->
+        </script>
 
     </body>
 </html>

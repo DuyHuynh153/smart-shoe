@@ -19,7 +19,7 @@ function linkAction (){
     navMenu.classList.remove('show')
 }
 
-navLink.forEach(n=>n.addEventListener('click', linkAction))  // chỗ này có thể bị lỗi, clip phút thứ 16:15
+navLink.forEach(n=>n.addEventListener('click', linkAction()))  // chỗ này có thể bị lỗi, clip phút thứ 16:15
 
 
 /*===== SCROLL SECTIONS ACTIVE LINK =====*/
@@ -106,7 +106,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
   
   
   
-  let perPage = 4;  // mỗi trang chỉ được có 4 sản phẩm 
+  let perPage = 6;  // mỗi trang chỉ được có 4 sản phẩm 
   let currentPage = 1;
   let start = 0;
   let end = perPage;

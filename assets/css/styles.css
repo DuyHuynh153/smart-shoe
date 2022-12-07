@@ -96,17 +96,7 @@ img {
   text-align: center;
   letter-spacing: .1rem;
 }
-.section-title::after {
-  content: "";
-  position: absolute;
-  width: 56px;
-  height: .2rem;
-  top: -1rem;
-  left: 0;
-  right: 0;
-  margin:auto;
-  background-color: var(--dark-color);
-}
+/*  */
 
 /*===== LAYOUT =====*/
 .bd-grid{
@@ -190,6 +180,7 @@ img {
 }
 .nav__user{
     cursor: default;
+    margin-left: 2rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -233,16 +224,14 @@ img {
   display: flex;
   flex-wrap: nowrap;
 }
-.nav__user{
-  margin-left: 2rem;
-}
+
 .show {
   left: 0;
 }
 /*Active link*/
-.active {
+/* .active {
   position: relative;
-}
+} */
 /* dưới này là làm mình biết trang hiện tại là trang nào */
 /* .active::before {
   content: "";
@@ -258,7 +247,7 @@ img {
 /*Change color header*/
 .scroll-header {
   background-color: var(--white-color);
-  box-shadow: 0 2px 4px rbga(0,0,0,.1);
+  /* box-shadow: 0 2px 4px rbga(0,0,0,.1); */
 }
 
 /*===== HOME =====*/
@@ -340,10 +329,9 @@ img {
 }
 
 /*===== FEATURED =====*/
-.featured__container {
-  row-gap: 2rem;
-  /* grid-template-columns: repeat(auto-fit,minmax(220px,1fr)) ; */
-}
+/* .featured__container {
+  row-gap: 0;
+} */
 .sneaker {
   position: relative;
   display: flex;
@@ -397,7 +385,7 @@ img {
 }
 
 /*===== COLLECTION =====*/
-.collection__container {
+/* .collection__container {
   row-gap: 2rem;
   justify-content: center;
 }
@@ -431,13 +419,13 @@ img {
 }
 
 /*===== WOMEN SNEAKERS =====*/
-.women__container {
+/* .women__container {
   row-gap: 2rem;
   grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-}
+}  */
 
 /*===== OFFER =====*/
-.offer__container {
+/* .offer__container {
   grid-template-columns: 55% 45%;
   column-gap: 0;
   background-color: var(--dark-color-lighten);
@@ -457,10 +445,10 @@ img {
 }
 .offer__img {
   width: 150px;
-}
+} */
 
 /*===== NEW COLLECTION  =====*/
-.new__container {
+/* .new__container {
   row-gap: 2rem;
 
 }
@@ -517,9 +505,9 @@ img {
 }
 .new__sneaker-card:hover .new__sneaker-overlay{
   bottom:0;
-}
+} */
 /*===== NEWSLETTER =====*/
-.newletter__container {
+/* .newletter__container {
   background-color: var(--dark-color);
   color: var(--white-color);
   padding: 2rem .5rem;
@@ -542,7 +530,6 @@ img {
   padding: .5rem .2rem;
 }
 .newletter__input {
-  /* outline: none; */
   border: none;
   width: 90%;
   font-size: var(--normal-font-size);
@@ -552,7 +539,7 @@ img {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   font-weight: var(--font-semi-bold);
-}
+} */
 
 /*===== FOOTER =====*/
 .footer__container {
@@ -888,160 +875,148 @@ thanh sidenav của trang quản trị */
 } 
 
 
-/* 
-.log-out {
-  display: none;
-} */
-/* The popup form - hidden by default */
-.form-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  
-  z-index: 9;
+
+
+.shop-featured__element {
+  display: block;
+  justify-content: starts;
+}
+.shop-featured__item  {
+  display: inline-block;
+  justify-content: left;
+  width: 100%;
+}
+.shop-description__name {
+  position: relative;
+ 
+  left: 400px;
+  top: -100px;
+}
+.shop-description__price {
+  position: relative;
+ 
+  left: 500px;
+  top: -100px;
 }
 
-/* Add styles to the form container */
-.form-container {
-  text-align: center;
-  max-width: 70%;
-  max-height: 70%;
-  padding: 10px;
-  background-color: white;
-  margin: 0 auto;
+.soLuongSp {
+  margin-left: 8px;
+  padding: 4px;
+  width: 100px;
 }
-/* Full-width input fields */
-.form-container input[type=text], .form-container input[type=number] {
+
+.thanhToan {
+  position: relative;
+}
+.thanhTien {
+  position: absolute;
+  top: 0;
+  right: 150px;
+}
+.thanhToan__btn{
+  padding: 16px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  background-color: rgb(245, 82, 0);
+  border:none;
+  position: absolute;
+  border-radius: 8px;
+  top: 50px;
+  right: 150px;
+}
+.thanhToan__btn:hover {
+  opacity: .8;
+  cursor: pointer;
+
+}
+
+
+/* form thanh toán */
+.module {
+  display: none; /* Hidden by default */ 
+  position: fixed; /* Stay in place */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+ /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+  padding-top:60px;
+}
+.module-content {
+  
+  border: 10px solid rgb(208, 52, 52);
+  width: 40%; 
+}
+.mudule-close {
+  /* Position it in the top right corner outside of the modal */
+
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: rgb(255, 255, 255);
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.module-close:hover {
+  color: red;
+}
+
+
+
+.module-content {
+  border: 3px solid black;
   width: 40%;
+  margin: auto;
+  background-color: rgb(236, 236, 234);
+}
+.form-container {
   
-  padding: 10px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
+  padding: 2px 16px;
+  position: relative;
 }
 
-/* When the inputs get focus, do something */
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
+.thongtin {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid rgb(0, 0, 0);
+  
 }
-
-/* Set a style for the submit/login button */
-.form-container .btn {
+.sign-in-btn {
   background-color: #04AA6D;
   color: white;
-  padding: 16px 20px;
+  padding: 14px 20px;
+  margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 50%;
-  margin-bottom:10px;
+  /* width: 80%; */
+}  
+button:hover {
   opacity: 0.8;
 }
 
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
+.thanhToan_Huy{
+  display: flex;
+  justify-content: space-between;
+}
+.sign-in-btn {
+  padding: 14px 30px;
+}
+.cancelbtn {
+  color:white;
+  padding: 14px 30px;
+  background-color: #f44336;
 }
 
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
-.delete:hover{
-  background-color: lightcoral;
-  border-color: red;
-}
-
-.container__preview{
-  height: 350px;
-  width: 430px;
-  position: relative;
-  margin: 0 auto;
-}
-.container__preview .wrapper{
-  margin: 0 auto;
-  position: relative;
-  height: 300px;
-  width: 100%;
-  border-radius: 10px;
-  background: #fff;
-  border: 2px dashed #c2cdda;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
-.wrapper.active{
-  border: none;
-}
-.wrapper .image{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.wrapper img{
+.imgcontainer__form {
+  text-align: center;
+  margin: 24px 0 12px 0;
   
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
 }
-.wrapper .icon{
-  font-size: 100px;
-  color: #9658fe;
-}
-.wrapper .text{
-  font-size: 20px;
-  font-weight: 500;
-  color: #5B5B7B;
-}
-.wrapper #cancel-btn i{
-  position: absolute;
-  font-size: 20px;
-  right: 15px;
-  top: 15px;
-  color: #FF1493;
-  cursor: pointer;
-  display: none;
-}
-.wrapper.active:hover #cancel-btn i{
-  display: block;
-}
-.wrapper #cancel-btn i:hover{
-  color: #FF1493;
-}
-.wrapper .file-name{
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  padding: 8px 0;
-  font-size: 18px;
-  color: #fff;
-  display: none;
-  background: linear-gradient(135deg,#00008B 0%,#00BFFF 100%);
-}
-.wrapper.active:hover .file-name{
-  display: block;
-}
-.container__preview #custom-btn{
-  position: relative;
-  margin-top: 30px;
-  display: block;
-  width: 100%;
-  height: 50px;
-  border: none;
-  outline: none;
-  border-radius: 25px;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-  background: linear-gradient(135deg,#00008B 0%,#00BFFF 100%);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+.imgcontainer__form > img{
+  width: 20%;
+  border-radius: 50%;
 }
