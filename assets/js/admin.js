@@ -2,20 +2,20 @@
 function createProduct() {
   if (localStorage.getItem('product') === null) {
     var product = [
-      { id: 1, brand: "Adidas", image: "new1.png", title: "Adidas Yeezy", price: "3.000.000 VND" },
-      { id: 2, brand: "Nike", image: "nike7.png", title: "Nike Jordan 1", price: "2.990.000 VND" },
-      { id: 3, brand: "Nike", image: "nike8.png", title: "Nike Jordan 2", price: "5.000.000 VND" },
-      { id: 4, brand: "Vans", image: "vans1.png", title: "Vans Old Skool", price: "3.000.000 VND" },
-      { id: 5, brand: "Nike", image: "nike10.png", title: "Nike Jordan 3", price: "3.000.000 VND" },
-      { id: 6, brand: "Adidas", image: "new2.png", title: "Adidas Yeezy 27", price: "3.000.000 VND" },
-      { id: 7, brand: "Adidas", image: "new3.png", title: "Adidas Yeezy 50", price: "4.000.000 VND" },
-      { id: 8, brand: "Nike", image: "nike1.png", title: "Nike Pegasus ", price: "1.000.000 VND" },
-      { id: 9, brand: "Nike", image: "nike11.png", title: "Nike React", price: "4.000.000 VND" },
-      { id: 10, brand: "Nike", image: "nike6.png", title: "Nike Air Max", price: "4.000.000 VND" },
-      { id: 11, brand: "Nike", image: "nike2.png", title: "Nike Roshe", price: "4.000.000 VND" },
-      { id: 12, brand: "Nike", image: "nike4.png", title: "Nike Pegasus 1", price: "4.000.000 VND" },
-      { id: 13, brand: "Vans", image: "vans2.png", title: "Vans Old Skool", price: "4.000.000 VND" },
-      { id: 14, brand: "Puma", image: "puma5.png", title: "Puma Suede", price: "4.000.000 VND" },
+      { id: 1, brand: "Adidas", image: "new1.png", title: "Adidas Yeezy", price: "3000000" },
+      { id: 2, brand: "Nike", image: "nike7.png", title: "Nike Jordan 1", price: "2990000" },
+      { id: 3, brand: "Nike", image: "nike8.png", title: "Nike Jordan 2", price: "5000000" },
+      { id: 4, brand: "Vans", image: "vans1.png", title: "Vans Old Skool", price: "3000000" },
+      { id: 5, brand: "Nike", image: "nike10.png", title: "Nike Jordan 3", price: "3000000" },
+      { id: 6, brand: "Adidas", image: "new2.png", title: "Adidas Yeezy 27", price: "3000000" },
+      { id: 7, brand: "Adidas", image: "new3.png", title: "Adidas Yeezy 50", price: "4000000" },
+      { id: 8, brand: "Nike", image: "nike1.png", title: "Nike Pegasus ", price: "1000000" },
+      { id: 9, brand: "Nike", image: "nike11.png", title: "Nike React", price: "4000000" },
+      { id: 10, brand: "Nike", image: "nike6.png", title: "Nike Air Max", price: "4000000" },
+      { id: 11, brand: "Nike", image: "nike2.png", title: "Nike Roshe", price: "4000000" },
+      { id: 12, brand: "Nike", image: "nike4.png", title: "Nike Pegasus 1", price: "4000000" },
+      { id: 13, brand: "Vans", image: "vans2.png", title: "Vans Old Skool", price: "4000000" },
+      { id: 14, brand: "Puma", image: "puma5.png", title: "Puma Suede", price: "4000000" },
     ];
     localStorage.setItem('product', JSON.stringify(product));
   }
@@ -84,8 +84,8 @@ function showProductList() {
   // STT| TÊN SP| HÃNG| GIÁ|HÌNH|XÓA|SỬA
   var tr = '<tr><th>STT</th><th>Tên sản phẩm</th><th>Hãng</th><th>Giá</th><th>Hình</th><th>Xóa</th><th>Sửa</th></tr><br />';
   for (var i = 0; i < product.length; i++) {
-    
-    tr += '<tr><td>' + (i + 1) + '</td><td>' + product[i].title + '</td><td>' + product[i].brand + '</td><td>' + product[i].price + '</td><td><img src="' + imageURL + product[i].image + '" height = 200px width = 100px></img></td><td><button class="delete" onClick="deleteProduct(\'' + product[i].id + '\')"><i class="fa fa-trash"></i></button></td><td><button class="update" onClick="openForm(\'' + product[i].id + '\')"><i class="fa  fa-pencil"></i></button></td></tr>';
+    var price = Number(product[i].price).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })
+    tr += '<tr><td>' + (i + 1) + '</td><td>' + product[i].title + '</td><td>' + product[i].brand + '</td><td>' + price + '</td><td><img src="' + imageURL + product[i].image + '" height = 200px width = 100px></img></td><td><button class="delete" onClick="deleteProduct(\'' + product[i].id + '\')"><i class="fa fa-trash"></i></button></td><td><button class="update" onClick="openForm(\'' + product[i].id + '\')"><i class="fa  fa-pencil"></i></button></td></tr>';
   }
   document.getElementById('productList').innerHTML = tr;
   
@@ -138,7 +138,7 @@ function updateProduct(productID) {
 
   var newImage = '';
   var newName = document.getElementById('newName').value;
-  var newPrice = Number(document.getElementById('newPrice').value.replace( /^\D+/g, ''));
+  var newPrice = Number(document.getElementById('newPrice').value);
   
   if(document.getElementById('newImg').files[0] == undefined){
     newImage = "noimage.png";
@@ -152,7 +152,7 @@ function updateProduct(productID) {
     brand:newBrand,
     image:newImage,
     title: newName,
-    price:newPrice.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })
+    price:newPrice
   }
   var productArray = JSON.parse(localStorage.getItem('product'));
   for (var i = 0; i < productArray.length; i++) {
@@ -172,7 +172,7 @@ function openForm(productID) {
       document.getElementById('productID').value = productArray[i].id
       $('#newBrand').val(productArray[i].brand).change();
         document.getElementById('newName').value = productArray[i].title;
-        document.getElementById('newPrice').value = productArray[i].price;
+        document.getElementById('newPrice').value = Number(productArray[i].price);
     }
   }
 }
