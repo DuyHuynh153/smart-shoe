@@ -57,31 +57,29 @@ window.onscroll = ()=> {
     else nav.classList.remove('scroll-header');
 }
 
-/*sản phẩm, sau thay thành localstorage */
 const imageURL = "./assets/img/"
 const product = [
-  { id: 1,brand:"Adidas", image: "adidas1.png", title: "Adidas Yeezy",price:"3.000.000 VND" },
-  { id: 2, brand:"Nike",image: "nike7.png", title: "Nike Jordan 1" ,price:"2.990.000 VND"},
-  { id: 3,brand:"Nike", image: "nike8.png", title: "Nike Jordan 2" ,price:"1.990.000 VND"},
-  {  id: 4,brand:"Vans", image: "vans1.png", title: "Vans Old Skool"  ,price:"3.654.000 VND"},
-  { id: 5,brand:"Nike", image: "nike10.png", title: "Nike Jordan 3" ,price:"2.545.000 VND"},
-  {  id: 6,brand:"Adidas", image: "adidas2.png", title: "Adidas Yeezy 27"  ,price:"3.500.000 VND"},
-  {  id: 7,brand:"Adidas", image: "adidas3.png", title: "Adidas Yeezy 50",price:"4.289.000 VND"  },
-  { id: 8,brand:"Nike", image: "nike1.png", title: "Nike Pegasus " ,price:"1.090.000 VND" },
-  {  id: 9,brand:"Nike", image: "nike9.png", title: "Nike React" ,price:"4.000.000 VND" },
-  {  id: 10,brand:"Nike", image: "nike6.png", title: "Nike Air Max" ,price:"4.323.000 VND" },
-  {  id: 11,brand:"Nike", image: "nike2.png", title: "Nike Roshe" ,price:"7.566.000 VND" },
-  {  id: 12,brand:"Nike", image: "nike4.png", title: "Nike Pegasus 1" ,price:"4.000.000 VND" },
-  {  id: 13,brand:"Vans", image: "vans2.png", title: "Vans Old Skool" ,price:"2.123.000 VND" },
-  {  id: 14,brand:"Puma", image: "puma1.png", title: "Puma Suede" ,price:"5.334.000 VND" },
-  {  id: 14,brand:"Puma", image: "puma2.png", title: "Puma Suede" ,price:"5.999.000 VND" },
-  {  id: 14,brand:"Puma", image: "puma3.png", title: "Puma Suede" ,price:"4.232.000 VND" },
-  {  id: 14,brand:"Puma", image: "adidas4.png", title: "Puma Suede" ,price:"4.000.000 VND" },
-  {  id: 14,brand:"Puma", image: "adidas5.png", title: "Puma Suede" ,price:"2.200.000 VND" },
-  {  id: 14,brand:"Puma", image: "adidas6.png", title: "Puma Suede" ,price:"8.300.000 VND" },
+  { id: 1,brand:"Adidas", image: "adidas1.png", title: "Adidas Yeezy",price:"3000000 " },
+  { id: 2, brand:"Nike",image: "nike7.png", title: "Nike Jordan 1" ,price:"2990.000 "},
+  { id: 3,brand:"Nike", image: "nike8.png", title: "Nike Jordan 2" ,price:"1990000 "},
+  {  id: 4,brand:"Vans", image: "vans1.png", title: "Vans Old Skool"  ,price:"3654000 "},
+  { id: 5,brand:"Nike", image: "nike10.png", title: "Nike Jordan 3" ,price:"2545000 "},
+  {  id: 6,brand:"Adidas", image: "adidas2.png", title: "Adidas Yeezy 27"  ,price:"3500000 "},
+  {  id: 7,brand:"Adidas", image: "adidas3.png", title: "Adidas Yeezy 50",price:"4289000 "  },
+  { id: 8,brand:"Nike", image: "nike1.png", title: "Nike Pegasus " ,price:"1090000 " },
+  {  id: 9,brand:"Nike", image: "nike9.png", title: "Nike React" ,price:"4000000 " },
+  {  id: 10,brand:"Nike", image: "nike6.png", title: "Nike Air Max" ,price:"4323000 " },
+  {  id: 11,brand:"Nike", image: "nike2.png", title: "Nike Roshe" ,price:"7566000 " },
+  {  id: 12,brand:"Nike", image: "nike4.png", title: "Nike Pegasus 1" ,price:"4000000 " },
+  {  id: 13,brand:"Vans", image: "vans2.png", title: "Vans Old Skool" ,price:"2123000 " },
+  {  id: 14,brand:"Puma", image: "puma1.png", title: "Puma Suede" ,price:"5334000 " },
+  {  id: 14,brand:"Puma", image: "puma2.png", title: "Puma Suede" ,price:"5999000 " },
+  {  id: 14,brand:"Puma", image: "puma3.png", title: "Puma Suede" ,price:"4232000 " },
+  {  id: 14,brand:"Puma", image: "adidas4.png", title: "Puma Suede" ,price:"4000000 " },
+  {  id: 14,brand:"Puma", image: "adidas5.png", title: "Puma Suede" ,price:"2200000 " },
+  {  id: 14,brand:"Puma", image: "adidas6.png", title: "Puma Suede" ,price:"8300000 " },
 ];
 
-localStorage.setItem("product",JSON.stringify(product));
 const brand =["Adidas","Nike","Puma",'Vans'];
   
   
@@ -151,6 +149,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
     const content = array.map((item, index) => {
       if (index >= start && index < end) {
         // html += `<article onclick="document.getElementById("modal${index}").styles.display="block""  class="sneaker">`;  // sự kiện onlick article hiển thị thông tin chi tiết
+        var priceVND = Number(item.price).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })
         html += `<article  onclick="infoProduct(${index})" class="sneaker">`;
         html+= `<div class="modal" id="modal${index}" style="display:none">
         <form class="modal__container">
@@ -171,7 +170,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
         html += '<div class="sneaker__sale">Sale</div>';
         html += '<img src="'+imageURL+item.image+'" alt="" class="sneaker__img">';
         html += '<span class="sneaker__name">'+item.title+'</span>';
-        html += '<span class="sneaker__preci">'+item.price+'</span>';
+        html += '<span class="sneaker__preci">'+priceVND+'</span>';
         html += `<a type="button" href="" onclick="checkGioHang(${index})" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>`;
         html += '</article> ';
         return html;
@@ -179,7 +178,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
     //     <div class="sneaker__sale">Sale</div>
     //     <img src="featured1.png" alt="" class="sneaker__img">
     //     <span class="sneaker__name">Nike Jordan</span>
-    //     <span class="sneaker__preci">3.000.000 VND</span>
+    //     <span class="sneaker__preci">3.000.000 </span>
     //     <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
     // </article>
       }
@@ -206,7 +205,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
   //   //     <div class="sneaker__sale">Sale</div>
   //   //     <img src="featured1.png" alt="" class="sneaker__img">
   //   //     <span class="sneaker__name">Nike Jordan</span>
-  //   //     <span class="sneaker__preci">3.000.000 VND</span>
+  //   //     <span class="sneaker__preci">3.000.000 </span>
   //   //     <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
   //   // </article>
   //     }
