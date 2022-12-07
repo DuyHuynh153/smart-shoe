@@ -47,10 +47,36 @@ localStorage.setItem('dangnhap',JSON.stringify(userArray1));
     }
 });
 
-function logout() {
+function hide() {
+  if(localStorage.getItem('dangnhap')==null)
+  {
+    var x = document.getElementById("nav__user");
+    x.style.display = "none";
+    var x = document.getElementById("log-out");
+    x.style.display = "none";
+    var x = document.getElementById("sign-in");
+    x.style.display = "block";
+    var x = document.getElementById("sign-up");
+    x.style.display = "block";
+    var x = document.getElementById("nav-shop-market");
+    x.style.display = "none";
+  }
   if(localStorage.getItem('dangnhap')!=null)
   {
-    localStorage.removeItem("dangnhap");
-  window.location="./login.html";
+    userArray = JSON.parse(localStorage.getItem('dangnhap'));
+    document.getElementById("nav__user").innerHTML=userArray[0].username1;
+    var x = document.getElementById("log-out");
+    x.style.display = "block";
+    var x = document.getElementById("sign-in");
+    x.style.display = "none";
+    var x = document.getElementById("sign-up");
+    x.style.display = "none";
+    var x = document.getElementById("nav-shop-market");
+    x.style.display = "block";
   }
+}
+
+function logout() {
+    localStorage.removeItem("dangnhap");
+    localStorage.removeItem("giohang");
 }

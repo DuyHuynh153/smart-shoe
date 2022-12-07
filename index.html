@@ -18,12 +18,34 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Smart Shoe</title>
+
+    <style>
+        .slide-1 {
+            
+            background-image: url("./assets/img/logo1.png");
+            
+            
+          }
+          .slide-2 {
+            background-image: url("./assets/img/logo2.png");
+          }
+          .slide-3 {
+            background-image: url("./assets/img/logo3.png");
+          }
+    </style>
 </head>
 
 <body>
 
+
+    
+
     <!--===== HEADER =====-->
     <header class="l-header" id="header">
+
+        
+
+
         <nav class="nav bd-grid no-wrap">
             <div class="nav__toggle" id="nav-toggle">
                 <i class='bx bx-grid-alt bx-rotate-90'></i>
@@ -49,7 +71,7 @@
                     </li>
                     <li class="nav__item sign-up"><a id="sign-up" href="./signup.html" class="nav__link ">Đăng Ký</a>
                     </li>
-                    <li class="nav__item sign-in" onclick="logout()"><a href="./login.html">Đăng Xuất</a>
+                    <li class="nav__item sign-in" onclick="logout()"><a id="log-out" href="./index.html">Đăng Xuất</a>
                     </li>
                 </ul>
             </div>
@@ -61,7 +83,7 @@
                     </a>
                 </form>
                 <!-- <a type="submit"  href="./shop.html" class="nav-shop-market"><i class='bx bx-shopping-bag'></i></a> -->
-                <a href="./login.html" id="nav__user" class="nav__user"><i class="fa-solid fa-user"></i></a>
+                <div  id="nav__user" class="nav__user"><i class="fa-solid fa-user"></i></a>
             </div>
         </nav>
 
@@ -70,21 +92,72 @@
     <main class="l-main">
         <!--===== HOME =====-->
         <section class="home" id="home">
+            
+            
             <div class="home__sneaker">
                 <div class="home__shape"></div>
                 <img src="./assets/img/imghome.png" alt="" class="home__img">
+
+                
+                
             </div>
             <div class="home__data">
-                <span class="home__new">New In</span>
+                <span class="home__new">Mẫu Mới</span>
                 <h1 class="home__title">YEEZY BOOST <br> SPLY - 350</h1>
-                <p class="home__description">Explore the new collection of Sneaker</p>
-                <a href="#" class="button">Explore now </a>
+                <p class="home__description">Khám Phá Bộ Sưu Tập Mới Của Sneaker</p>
+                <a href="#" class="button">Khám Phá Ngay </a>
+                
+
+                <div class="slider-container ">
+                    <div class="menu">
+                      <label for="slide-dot-1"></label>
+                      <label for="slide-dot-2"></label>
+                      <label for="slide-dot-3"></label> 
+                    </div>
+                    
+                    <input id="slide-dot-1" type="radio" name="slides" checked>
+                      <div class="slide slide-1"></div>
+                    
+                    <input id="slide-dot-2" type="radio" name="slides">
+                      <div class="slide slide-2"></div>
+                    
+                    <input id="slide-dot-3" type="radio" name="slides">
+                      <div class="slide slide-3"></div>
+                </div>
             </div>
+            
+            
+            
+                
+                
+           
         </section>
 
 
         <!--===== FEATURED =====-->
         <section class="featured section" id="featured">
+            <!-- <div class="modal" id="modal">
+                <form class="modal__container">
+                    <div class="img-logo">
+                        <img src="./assets/img/adidas1.png" alt="">
+                    </div>
+                    <div class="img-desc">
+                        <h3 class="img-title">Adidas Yeezy</h3>
+                        <p>Sản phẩm có nguồn gốc xuất xứ từ Châu Âu <br></p>
+                        <p>Có từ vật liệu cao cấp </p>
+                        <h2 style="font: weight 500px; ;" class="size">Size: <span style="font: size 20px;">38 đến
+                                43</span> </h2>
+    
+                    </div>
+                    <div class="modal-close">
+                        <i onclick="document.getElementById('modal').style.display='none'" class="fa-solid fa-x"></i>
+                    </div>
+    
+                </form>
+            </div> -->
+
+
+
             <h2 class="section-title">Các Sản Phẩm</h2>
 
             <form id="searchForm" class="searchForm">
@@ -98,10 +171,17 @@
                     function handleForm(event) { event.preventDefault(); }
                     form.addEventListener('submit', handleForm);
                 </script>
+                
             </form>
 
+           
+            
+
+            
+            
 
             <div class="featured__container bd-grid" id="featured__container">
+                
                 <!-- <article class="sneaker">
                         <div class="sneaker__sale">Sale</div>
                         <img src="./assets/img/featured1.png" alt="" class="sneaker__img">
@@ -121,25 +201,25 @@
                     </article> -->
             </div>
             <!-- modal hiển thị thông tin chi tiết -->
-            <!-- <div class="modal" id="modal">
-                <form class="modal__container">
-                    <div class="img-logo">
-                        <img src="./assets/img/new1.png" alt="">
-                    </div>
-                    <div class="img-desc">
-                        <h3 class="img-title">Adidas Yeezy</h3>
-                        <p>Sản phẩm có nguồn gốc xuất xứ từ Châu Âu <br></p>
-                        <p>Có từ vật liệu cao cấp </p>
-                        <h2 style="font: weight 500px; ;" class="size">Size: <span style="font: size 20px;">38 đến
-                                43</span> </h2>
+                <!-- <div class="modal" id="modal">
+                    <form class="modal__container">
+                        <div class="img-logo">
+                            <img src="./assets/img/adidas1.png" alt="">
+                        </div>
+                        <div class="img-desc">
+                            <h3 class="img-title">Adidas Yeezy</h3>
+                            <p>Sản phẩm có nguồn gốc xuất xứ từ Châu Âu <br></p>
+                            <p>Có từ vật liệu cao cấp </p>
+                            <h2 style="font: weight 500px; ;" class="size">Size: <span style="font: size 20px;">38 đến
+                                    43</span> </h2>
 
-                    </div>
-                    <div class="modal-close">
-                        <i onclick="document.getElementById('modal').style.display='none'" class="fa-solid fa-x"></i>
-                    </div>
+                        </div>
+                        <div class="modal-close">
+                            <i onclick="document.getElementById('modal').style.display='none'" class="fa-solid fa-x"></i>
+                        </div>
 
-                </form>
-            </div> -->
+                    </form>
+                </div> -->
         </section>
 
 
@@ -348,6 +428,12 @@
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/login.js"></script>
     <script src="scripts\jquery-3.6.1.js"></script>
+    <script>
+        window.onload=function()
+{
+	hide();
+}
+    </script>
 
 
 </body>

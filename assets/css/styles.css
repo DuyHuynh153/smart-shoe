@@ -12,7 +12,9 @@
   --dark-color:#141414;
   --dark-color-light:#8A8A8A;
   --dark-color-lighten:#f2f2f2;
-  --white-color:#fff;
+  /* --dark-color-lighten:#048ef822; */
+
+  --white-color:rgb(255, 255, 255);
 
   /*===== Font and typography =====*/
   --body-font: 'Roboto',san-serif;
@@ -80,6 +82,8 @@ img {
   display: block;
 }
 
+
+
 /*===== CLASS CSS ===== */
 .section{
   padding: 5rem 0 2rem;
@@ -125,6 +129,58 @@ img {
   z-index:var(--z-fixed);
   background-color: var(--dark-color-lighten);
 }
+
+.slider-container{
+  height: 40vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden; 
+  text-align: center;
+}
+
+.menu {
+  position: absolute;
+  left: 0;
+  z-index: 900;
+  width: 100%;
+  bottom: 0;
+}
+
+.menu label {
+  cursor: pointer;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50px;
+  margin: 0 .2em 1em;
+  transition: all .3s ease;
+  /* &:hover {
+    background: red;
+  } */
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 10;
+  padding: 8em 1em 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  transition: left 0s .75s;
+}
+
+[id^="slide"]:checked + .slide {
+  left: 0;
+  z-index: 100;
+  transition: left .65s ease-out;
+}
+
+
+
 /*===== NAV =====*/
 .nav {
   height: var(--header-height);
@@ -133,7 +189,7 @@ img {
   align-items: center;
 }
 .nav__user{
-  /* display: none; */
+    cursor: default;
 }
 
 @media screen and (max-width: 768px) {
@@ -206,7 +262,9 @@ img {
 
 /*===== HOME =====*/
 .home {
-  background-color: var(--dark-color-lighten);
+  /* background-color: var(--dark-color-lighten); */
+  background-color: rgba(255, 255, 255, .8);
+  
   overflow: hidden;
 }
 .home__container {
@@ -214,21 +272,26 @@ img {
 }
 .home__sneaker {
   position: relative;
+  top:50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(255, 255, 255,0.1);
+  /* background-image: url("./assets/img/logo1.png"),rgba(255, 255, 255, .01); */
 }
+
 .home__shape {
-  width: 220px;
-  height: 220px;
-  background-color: var(--dark-color);
+  margin-top: .5rem;
+  width: 300px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 1);
   border-radius: 50%;
 }
 .home__img {
   position: absolute;
-  top: 1.5rem;
+  top: 2rem;
   max-width: initial;
-  width: 275px;
+  width: 350px;
   transform: var(--rotate-img);
 }
 .home__new  {
@@ -261,9 +324,10 @@ img {
 }
 .button-light {
   display: inline-flex;
+  white-space: nowrap;
   color: var(--dark-color);
   font-weight: var(--font-semi-bold);
-  align-items: center;
+  align-items: end;
 }
 .button-icon {
   font-size: 2rem;
@@ -277,7 +341,7 @@ img {
 /*===== FEATURED =====*/
 .featured__container {
   row-gap: 2rem;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr)) ;
+  /* grid-template-columns: repeat(auto-fit,minmax(220px,1fr)) ; */
 }
 .sneaker {
   position: relative;
@@ -305,7 +369,7 @@ img {
   letter-spacing:.1rem ;
 }
 .sneaker__img {
-  width: 240px;
+  width: 260px;
   height: 140px;
   margin-top:var(--mb-3);
   margin-bottom: var(--mb-6);
@@ -534,6 +598,9 @@ img {
   .section {
     padding: 7rem 0;
   }
+ 
+  
+  
   /* .section-title {
     width: 70px;
   }
@@ -582,7 +649,8 @@ img {
   .bd-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;  
+    justify-content: start;  
+    
   }
   .sneaker {
     width: 250px;
@@ -736,7 +804,10 @@ tr:nth-child(even) {
 
 .modal{
   margin: auto;
-  display: none;
+  position: relative;
+  top:-600px;
+  left: -600px;
+  /* display: none; */
   
 
 }
@@ -747,7 +818,7 @@ tr:nth-child(even) {
   left:40%;
   /* top:60vh;
   left: 40%; */
-  width: 500px;
+  width: 500px; 
   height: auto;
   display: flex;
   flex-direction: row;
@@ -814,6 +885,12 @@ thanh sidenav của trang quản trị */
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 } 
+
+
+/* 
+.log-out {
+  display: none;
+} */
 /* The popup form - hidden by default */
 .form-popup {
   display: none;

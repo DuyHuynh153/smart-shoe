@@ -13,21 +13,56 @@
 <body>
 
 
-    <a href="./index.html">lick here</a>
+    <a href="./index.html">click here</a>
 
     <form action="">
         <label for="" id="lb1" >username: </label>
-        <input value="lamduy5" type="text" name="" id="username"><br>
+        <input  type="text" name="" id="username"><br>
         <label for="" id="lb1" >email: </label>
-        <input value="huynhlamduy" type="text" name="" id="email"><br>
+        <input  type="text" name="" id="email"><br>
         <label for="" id="lb1" >password: </label>
-        <input value="0005" type="text" name="" id="password"><br>
+        <input  type="text" name="" id="password"><br>
         
+
+        <button type="button" id="push-here" onclick="here(1)" >click here you !!</button><br>
+        <button type="button" id="push-here-pass" onclick="here(2)" >click here to pass</button>
         
     </form>
 
 
     <script>
+        var person = {
+            hoten:"nam",
+            tuoi:14
+        }
+
+        function here(check) {
+            console.log(person);
+            var select = document.getElementById("push-here");
+            var select = document.getElementById("push-here");
+
+            let arr =[];
+            console.log(check);
+            
+            if (check == 1 ){
+                arr.push(person);
+                console.log(arr);
+            }
+            else if (check == 2){
+                console.log(arr);
+
+                localStorage.setItem("student",JSON.stringify(arr));
+            }
+           
+
+        }
+           
+        
+        
+    </script>
+
+
+    <!-- <script>
 
 
         const product = [
@@ -62,7 +97,7 @@
         
 
 
-    </script>
+    </script> -->
 
     <!-- <script>
         const product = [

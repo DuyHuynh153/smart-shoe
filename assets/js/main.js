@@ -58,12 +58,33 @@ window.onscroll = ()=> {
 }
 
 const imageURL = "./assets/img/"
+const product = [
+  { id: 1,brand:"Adidas", image: "adidas1.png", title: "Adidas Yeezy",price:"3.000.000 VND" },
+  { id: 2, brand:"Nike",image: "nike7.png", title: "Nike Jordan 1" ,price:"2.990.000 VND"},
+  { id: 3,brand:"Nike", image: "nike8.png", title: "Nike Jordan 2" ,price:"1.990.000 VND"},
+  {  id: 4,brand:"Vans", image: "vans1.png", title: "Vans Old Skool"  ,price:"3.654.000 VND"},
+  { id: 5,brand:"Nike", image: "nike10.png", title: "Nike Jordan 3" ,price:"2.545.000 VND"},
+  {  id: 6,brand:"Adidas", image: "adidas2.png", title: "Adidas Yeezy 27"  ,price:"3.500.000 VND"},
+  {  id: 7,brand:"Adidas", image: "adidas3.png", title: "Adidas Yeezy 50",price:"4.289.000 VND"  },
+  { id: 8,brand:"Nike", image: "nike1.png", title: "Nike Pegasus " ,price:"1.090.000 VND" },
+  {  id: 9,brand:"Nike", image: "nike9.png", title: "Nike React" ,price:"4.000.000 VND" },
+  {  id: 10,brand:"Nike", image: "nike6.png", title: "Nike Air Max" ,price:"4.323.000 VND" },
+  {  id: 11,brand:"Nike", image: "nike2.png", title: "Nike Roshe" ,price:"7.566.000 VND" },
+  {  id: 12,brand:"Nike", image: "nike4.png", title: "Nike Pegasus 1" ,price:"4.000.000 VND" },
+  {  id: 13,brand:"Vans", image: "vans2.png", title: "Vans Old Skool" ,price:"2.123.000 VND" },
+  {  id: 14,brand:"Puma", image: "puma1.png", title: "Puma Suede" ,price:"5.334.000 VND" },
+  {  id: 14,brand:"Puma", image: "puma2.png", title: "Puma Suede" ,price:"5.999.000 VND" },
+  {  id: 14,brand:"Puma", image: "puma3.png", title: "Puma Suede" ,price:"4.232.000 VND" },
+  {  id: 14,brand:"Puma", image: "adidas4.png", title: "Puma Suede" ,price:"4.000.000 VND" },
+  {  id: 14,brand:"Puma", image: "adidas5.png", title: "Puma Suede" ,price:"2.200.000 VND" },
+  {  id: 14,brand:"Puma", image: "adidas6.png", title: "Puma Suede" ,price:"8.300.000 VND" },
+];
 
 const brand =["Adidas","Nike","Puma",'Vans'];
   
   
   
-  let perPage = 4;
+  let perPage = 4;  // mỗi trang chỉ được có 4 sản phẩm 
   let currentPage = 1;
   let start = 0;
   let end = perPage;
@@ -127,14 +148,30 @@ const brand =["Adidas","Nike","Puma",'Vans'];
    
     const content = array.map((item, index) => {
       if (index >= start && index < end) {
-        // html += '<article onclick="document.getElementById(\'modal\').style.display=\'block\'"  class="sneaker">';  // sự kiện onlick article hiển thị thông tin chi tiết
-        html += '<article   class="sneaker">';
+        // html += `<article onclick="document.getElementById("modal${index}").styles.display="block""  class="sneaker">`;  // sự kiện onlick article hiển thị thông tin chi tiết
+        html += `<article  onclick="infoProduct(${index})" class="sneaker">`;
+        html+= `<div class="modal" id="modal${index}" style="display:none">
+        <form class="modal__container">
+            <div class="img-logo">
+                <img src="./assets/img/${item.image}" alt="">
+            </div>
+            <div class="img-desc">
+                <h3 class="img-title">${item.title}</h3>
+                <p>Sản phẩm có nguồn gốc xuất xứ từ Châu Âu <br></p>
+                <p>Có từ vật liệu cao cấp </p>
+                <h2 style="font: weight 500px; ;" class="size">Size: <span style="font: size 20px;">38 đến
+                        43</span> </h2>
+
+            </div>
+
+        </form>
+    </div>`;
         html += '<div class="sneaker__sale">Sale</div>';
         html += '<img src="'+imageURL+item.image+'" alt="" class="sneaker__img">';
         html += '<span class="sneaker__name">'+item.title+'</span>';
         html += '<span class="sneaker__preci">'+item.price+'</span>';
-        html += `<a href="" onclick="checkGioHang(${index})" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>`;
-        html += '</article>';
+        html += `<a type="button" href="" onclick="checkGioHang(${index})" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>`;
+        html += '</article> ';
         return html;
     //     <article onclick="infor()" class="sneaker">
     //     <div class="sneaker__sale">Sale</div>
@@ -147,6 +184,33 @@ const brand =["Adidas","Nike","Puma",'Vans'];
     });
     document.getElementById('featured__container').innerHTML = html;
   }
+
+  // click vào sản phẩm để xem thông tin chi tiết
+  // function infoProduct(array) {
+  //   html = '';
+   
+  //   const content = array.map((item, index) => {
+  //     if (index >= start && index < end) {
+  //       html += '<article onclick="document.getElementById(\'modal\').style.display=\'block\'"  class="sneaker">';  // sự kiện onlick article hiển thị thông tin chi tiết
+  //       // html += '<article   class="sneaker">';
+  //       html += '<div class="sneaker__sale">Sale</div>';
+  //       html += '<img src="'+imageURL+item.image+'" alt="" class="sneaker__img">';
+  //       html += '<span class="sneaker__name">'+item.title+'</span>';
+  //       html += '<span class="sneaker__preci">'+item.price+'</span>';
+  //       html += `<a type="button" href="" onclick="checkGioHang(${index})" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>`;
+  //       html += '</article> ';
+  //       return html;
+  //   //     <article onclick="infor()" class="sneaker">
+  //   //     <div class="sneaker__sale">Sale</div>
+  //   //     <img src="featured1.png" alt="" class="sneaker__img">
+  //   //     <span class="sneaker__name">Nike Jordan</span>
+  //   //     <span class="sneaker__preci">3.000.000 VND</span>
+  //   //     <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
+  //   // </article>
+  //     }
+  //   });
+  //   document.getElementById('featured__container').innerHTML = html;
+  // }
 
 
   
@@ -165,49 +229,61 @@ const brand =["Adidas","Nike","Puma",'Vans'];
   //         }
   //     }
   // }
-    
+
     // vòng for đã tìm đc index sản phẩm cần cho vào giỏ hàng
+
+    if(localStorage.getItem('dangnhap')==null)
+    {
+      alert("Phai dang nhap moi duoc mua hang! ");
+      return 0;
+    }
+
     for (let i=0;i<a.length;i++){
 
       if (index == i ){
+        if(localStorage.getItem('giohang')!=null){		
+          var gHang = JSON.parse(localStorage.getItem('giohang'));
+          console.log(gHang);
+          let temp = a[i];
+        alert("san pham " + a[index].title + " đã được thêm vào giỏ hàng");
+        gHang.push(temp);
+          localStorage.setItem('giohang',JSON.stringify(gHang));
+          break;
+        }	
         let temp = a[i];
         alert("san pham " + a[index].title + " đã được thêm vào giỏ hàng");
         chuoi.push(temp);
         // localStorage.setItem("giohang",JSON.stringify(chuoi));
-        
+        localStorage.setItem("giohang",JSON.stringify(chuoi));
         // alert("san pham " + index + " đã được thêm vào giỏ hàng");
 
          
       }
 
     }
-    // var checkShop = document.getElementById("nav-shop-market");
-    // if (checkShop.onclick)
-    // kiểm tra có nhấn vào giỏ hàng chưa
-    // var clickShop = document.getElementById("nav-shop-market")
    
-    localStorage.setItem("giohang",JSON.stringify(chuoi));
-    // return chuoi;
    
   }
  
-  // chuoiBackup.push( JSON.parse(localStorage.getItem("chuoi")));
   
-  function addToCart(index){
-    window.location.href = "shop.html";
-    html ='';
-    html += `<article onclick="infor()" class="sneaker">
-    <div class="sneaker__sale">Sale</div>
-    <img src=${productArrFiltered[index].image} alt="" class="sneaker__img">
-    <span class="sneaker__name">Nike Jordan</span>
-    <span class="sneaker__preci">3.000.000 VND</span>
-    <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-</article>`;
+  // thông tin từng sản phẩm khi click vào
+  
+  function infoProduct (index){
+    for (let i=0;i<product.length;i++){
 
-document.getElementById('featured__container').innerHTML = html;
+      if (index == i ){
+        let x = document.getElementById("modal"+i);
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+         
+      }
+      
 
+    }
 
-    
   }
   
   //khởi tạo nút số trang
