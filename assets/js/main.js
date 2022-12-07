@@ -80,6 +80,28 @@ const product = [
   {  id: 14,brand:"Puma", image: "adidas6.png", title: "Puma Suede" ,price:"8300000 " },
 ];
 
+function createProduct() {
+  if (localStorage.getItem('product') === null) {
+    var product = [
+      { id: 1, brand: "Adidas", image: "new1.png", title: "Adidas Yeezy", price: "3000000" },
+      { id: 2, brand: "Nike", image: "nike7.png", title: "Nike Jordan 1", price: "2990000" },
+      { id: 3, brand: "Nike", image: "nike8.png", title: "Nike Jordan 2", price: "5000000" },
+      { id: 4, brand: "Vans", image: "vans1.png", title: "Vans Old Skool", price: "3000000" },
+      { id: 5, brand: "Nike", image: "nike10.png", title: "Nike Jordan 3", price: "3000000" },
+      { id: 6, brand: "Adidas", image: "new2.png", title: "Adidas Yeezy 27", price: "3000000" },
+      { id: 7, brand: "Adidas", image: "new3.png", title: "Adidas Yeezy 50", price: "4000000" },
+      { id: 8, brand: "Nike", image: "nike1.png", title: "Nike Pegasus ", price: "1000000" },
+      { id: 9, brand: "Nike", image: "nike11.png", title: "Nike React", price: "4000000" },
+      { id: 10, brand: "Nike", image: "nike6.png", title: "Nike Air Max", price: "4000000" },
+      { id: 11, brand: "Nike", image: "nike2.png", title: "Nike Roshe", price: "4000000" },
+      { id: 12, brand: "Nike", image: "nike4.png", title: "Nike Pegasus 1", price: "4000000" },
+      { id: 13, brand: "Vans", image: "vans2.png", title: "Vans Old Skool", price: "4000000" },
+      { id: 14, brand: "Puma", image: "puma5.png", title: "Puma Suede", price: "4000000" },
+    ];
+    localStorage.setItem('product', JSON.stringify(product));
+  }
+}
+
 const brand =["Adidas","Nike","Puma",'Vans'];
   
   
@@ -170,7 +192,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
         html += '<div class="sneaker__sale">Sale</div>';
         html += '<img src="'+imageURL+item.image+'" alt="" class="sneaker__img">';
         html += '<span class="sneaker__name">'+item.title+'</span>';
-        html += '<span class="sneaker__preci">'+priceVND+'</span>';
+        html += '<span class="sneaker__preci">'+priceVND  +'</span>';
         html += `<a type="button" href="" onclick="checkGioHang(${index})" class="button-light"><br>Thêm vào giỏ hàng <i class="bx bx-right-arrow-alt button-icon"></i></a>`;
         html += '</article> ';
         return html;
@@ -388,5 +410,6 @@ html += `<li class="brands" onclick ="brandChange('`+arr[i]+`');document.getElem
   initBrandMenu(brand);
   initBrandOption(brand);
   initChangePage(productArrFiltered);
+  createProduct();
   
   

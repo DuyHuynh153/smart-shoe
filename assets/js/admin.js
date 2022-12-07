@@ -112,7 +112,7 @@ function showUserList() {
     return false;
   }
   var acc = JSON.parse(localStorage.getItem('taikhoan'));
-  // STT| TÊN SP| HÃNG| GIÁ|HÌNH|NÚT XÓA
+ 
   var tr = '<tr><th>STT</th><th>Tên tài khoản</th><th>Mật khẩu</th><th>Nút Xóa</th></tr><br />';
   for (var i = 0; i < acc.length; i++) {
     tr += '<tr><td>' + (i + 1) + '</td><td>' + acc[i].username + '</td><td>' + acc[i].password + '</td><td><button class="delete" onClick="deleteUser(i)"><i class="fa fa-trash"></i></button></td></tr>';

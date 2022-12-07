@@ -217,6 +217,7 @@ img {
 .nav__item {
   margin-bottom: var(--mb-4);
   position: relative;
+  list-style: none;
 }
 
 .nav__logo{
