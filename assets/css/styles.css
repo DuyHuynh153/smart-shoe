@@ -96,17 +96,7 @@ img {
   text-align: center;
   letter-spacing: .1rem;
 }
-.section-title::after {
-  content: "";
-  position: absolute;
-  width: 56px;
-  height: .2rem;
-  top: -1rem;
-  left: 0;
-  right: 0;
-  margin:auto;
-  background-color: var(--dark-color);
-}
+/*  */
 
 /*===== LAYOUT =====*/
 .bd-grid{
@@ -190,6 +180,7 @@ img {
 }
 .nav__user{
     cursor: default;
+    margin-left: 2rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -232,16 +223,14 @@ img {
   display: flex;
   flex-wrap: nowrap;
 }
-.nav__user{
-  margin-left: 2rem;
-}
+
 .show {
   left: 0;
 }
 /*Active link*/
-.active {
+/* .active {
   position: relative;
-}
+} */
 /* dưới này là làm mình biết trang hiện tại là trang nào */
 /* .active::before {
   content: "";
@@ -257,7 +246,7 @@ img {
 /*Change color header*/
 .scroll-header {
   background-color: var(--white-color);
-  box-shadow: 0 2px 4px rbga(0,0,0,.1);
+  /* box-shadow: 0 2px 4px rbga(0,0,0,.1); */
 }
 
 /*===== HOME =====*/
@@ -339,10 +328,9 @@ img {
 }
 
 /*===== FEATURED =====*/
-.featured__container {
-  row-gap: 2rem;
-  /* grid-template-columns: repeat(auto-fit,minmax(220px,1fr)) ; */
-}
+/* .featured__container {
+  row-gap: 0;
+} */
 .sneaker {
   position: relative;
   display: flex;
@@ -396,7 +384,7 @@ img {
 }
 
 /*===== COLLECTION =====*/
-.collection__container {
+/* .collection__container {
   row-gap: 2rem;
   justify-content: center;
 }
@@ -430,13 +418,13 @@ img {
 }
 
 /*===== WOMEN SNEAKERS =====*/
-.women__container {
+/* .women__container {
   row-gap: 2rem;
   grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-}
+}  */
 
 /*===== OFFER =====*/
-.offer__container {
+/* .offer__container {
   grid-template-columns: 55% 45%;
   column-gap: 0;
   background-color: var(--dark-color-lighten);
@@ -456,10 +444,10 @@ img {
 }
 .offer__img {
   width: 150px;
-}
+} */
 
 /*===== NEW COLLECTION  =====*/
-.new__container {
+/* .new__container {
   row-gap: 2rem;
 
 }
@@ -516,9 +504,9 @@ img {
 }
 .new__sneaker-card:hover .new__sneaker-overlay{
   bottom:0;
-}
+} */
 /*===== NEWSLETTER =====*/
-.newletter__container {
+/* .newletter__container {
   background-color: var(--dark-color);
   color: var(--white-color);
   padding: 2rem .5rem;
@@ -541,7 +529,6 @@ img {
   padding: .5rem .2rem;
 }
 .newletter__input {
-  /* outline: none; */
   border: none;
   width: 90%;
   font-size: var(--normal-font-size);
@@ -551,7 +538,7 @@ img {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   font-weight: var(--font-semi-bold);
-}
+} */
 
 /*===== FOOTER =====*/
 .footer__container {
@@ -886,7 +873,58 @@ thanh sidenav của trang quản trị */
   .sidenav a {font-size: 18px;}
 }
 
-/* 
-.log-out {
-  display: none;
-} */
+
+
+.shop-featured__element {
+  display: block;
+  justify-content: starts;
+}
+.shop-featured__item  {
+  display: inline-block;
+  justify-content: left;
+  width: 100%;
+}
+.shop-description__name {
+  position: relative;
+ 
+  left: 400px;
+  top: -100px;
+}
+.shop-description__price {
+  position: relative;
+ 
+  left: 500px;
+  top: -100px;
+}
+
+.soLuongSp {
+  margin-left: 8px;
+  padding: 4px;
+  width: 100px;
+}
+
+.thanhToan {
+  position: relative;
+}
+.thanhTien {
+  position: absolute;
+  top: 0;
+  right: 150px;
+}
+.thanhToan__btn{
+  padding: 16px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  background-color: rgb(245, 82, 0);
+  border:none;
+  position: absolute;
+  border-radius: 8px;
+  top: 50px;
+  right: 150px;
+}
+.thanhToan__btn:hover {
+  opacity: .8;
+  cursor: pointer;
+
+}

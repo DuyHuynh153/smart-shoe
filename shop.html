@@ -44,58 +44,30 @@
         </header>
 
         <main class="l-main">
-            <section class="featured section" id="shop">
-                <h2 class="section-title">All Product</h2>
-                <div class="feartured__container bd-grid" id="feartured__container">
-                    <!-- <article class="sneaker">
-                        <img src="./assets/img/featured1.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article>
-
-                    <article class="sneaker">
-                        <img src="./assets/img/featured2.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Free</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br> Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article>
-
-                    <article class="sneaker">
-                        <img src="./assets/img/featured3.png" alt="" class="sneaker__img">
-                        <span class="sneaker__name">Nike Jordan</span>
-                        <span class="sneaker__preci">3.000.000 VND</span>
-                        <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                    </article> -->
+            <section class="featured shop-featured__element " id="shop">
+                <h2 class="section-title">Các sản phẩm đã đặt</h2>
+                <div class="feartured__container" id="feartured__container">
+                    
                 </div>
             </section>
+            <div class="thanhToan">
+                <div class="thanhTien" id="thanhTien"> Thành Tiền: </div>
+                <button type="submit" class="thanhToan__btn" >Thanh toán</button>
+            </div>
         </main>
 
-        <!--===== FOOTER =====-->
+        <!-- <form action="">
+            
+            <input type="number" name="" id="soLuong" placeholder="Số lượng">
+        </form> -->
+
+        
         
 
         <!--===== MAIN JS =====-->
         <script src="./assets/js/main.js"></script>
         <script src="./assets/js/shop.js"></script>
-        <!-- <script>
-            let json = JSON.parse(localStorage.getItem("chuoi"));
-            let obj = {
-                id: 1,
-                brand: json.brand,
-                 image:json.image,
-                 title:json.title,
-                price: json.price
-            }
-            var html=   `<article onclick="infor()" class="sneaker">
-                <div class="sneaker__sale">Sale</div>
-                <img src="./assets/img/featured1.png" alt="" class="sneaker__img">
-                <span class="sneaker__name">Nike Jordan</span>
-                <span class="sneaker__preci">3.000.000 VND</span>
-                <a href="" class="button-light"><br>Thêm vào giỏ hàng <i class='bx bx-right-arrow-alt button-icon'></i></a>
-            </article>`;
-
-            document.getElementById("featured__container").innerHTML = html;
-        </script> -->
+        
 
     </body>
 </html>

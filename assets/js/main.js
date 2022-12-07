@@ -19,7 +19,7 @@ function linkAction (){
     navMenu.classList.remove('show')
 }
 
-navLink.forEach(n=>n.addEventListener('click', linkAction))  // chỗ này có thể bị lỗi, clip phút thứ 16:15
+navLink.forEach(n=>n.addEventListener('click', linkAction()))  // chỗ này có thể bị lỗi, clip phút thứ 16:15
 
 
 /*===== SCROLL SECTIONS ACTIVE LINK =====*/
