@@ -52,9 +52,42 @@
             </section>
             <div class="thanhToan">
                 <div class="thanhTien" id="thanhTien"> Thành Tiền: </div>
-                <button type="submit" class="thanhToan__btn" >Thanh toán</button>
+                <button type="submit" class="thanhToan__btn " onclick="document.getElementById('id01').style.display='block'" >Thanh toán</button>
             </div>
         </main>
+
+        <div id="id01" class="module">
+        
+            <!-- close X -->
+        <div onclick="document.getElementById('id01').style.display='none'"
+            class="module-close" title="Close Modal">&times;</div>
+                
+        <form  method="post" class="module-content">
+            <!-- <div class="imgcontainer__form ">
+                <img  src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
+            </div> -->
+        
+            <div class="form-container">
+                <label for="hoten"><b>Họ và Tên</b></label>
+                <input type="text" placeholder="Enter Email" name="email"class="thongtin" required>
+                <label for="email"><b>Địa chỉ</b></l    abel>
+                <input type="text" placeholder="Enter Email" name="email" class="thongtin" required>
+                
+                <label style="margin-top:8px" for="psw"><b>Tổng Tiền</b></label>
+                <label style="margin-top:8px"type="password" id="tongTienThanhToan" name="tongtien" value="" required></label>
+                
+                <div class="thanhToan_Huy">
+                    <button id="thanhToanXong"  type="button" class="sign-in-btn">Thanh Toán</button>
+                    <button type="button" class="cancelbtn" onclick="document.getElementById('id01').style.display='none'">Hủy</button>
+                </div>
+        
+                
+                
+            </div>
+        
+           
+        </form>
+    </div>
 
         <!-- <form action="">
             

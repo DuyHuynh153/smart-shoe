@@ -84,7 +84,7 @@ const brand =["Adidas","Nike","Puma",'Vans'];
   
   
   
-  let perPage = 4;  // mỗi trang chỉ được có 4 sản phẩm 
+  let perPage = 6;  // mỗi trang chỉ được có 4 sản phẩm 
   let currentPage = 1;
   let start = 0;
   let end = perPage;
