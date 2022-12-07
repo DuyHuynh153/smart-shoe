@@ -57,26 +57,8 @@ window.onscroll = ()=> {
     else nav.classList.remove('scroll-header');
 }
 
-/*sản phẩm, sau thay thành localstorage */
 const imageURL = "./assets/img/"
-const product = [
-  { id: 1,brand:"Adidas", image: "new1.png", title: "Adidas Yeezy",price:"3.000.000 VND" },
-  { id: 2, brand:"Nike",image: "nike7.png", title: "Nike Jordan 1" ,price:"2.990.000 VND"},
-  { id: 3,brand:"Nike", image: "nike8.png", title: "Nike Jordan 2" ,price:"5.000.000 VND"},
-  {  id: 4,brand:"Vans", image: "vans1.png", title: "Vans Old Skool"  ,price:"3.000.000 VND"},
-  { id: 5,brand:"Nike", image: "nike10.png", title: "Nike Jordan 3" ,price:"3.000.000 VND"},
-  {  id: 6,brand:"Adidas", image: "new2.png", title: "Adidas Yeezy 27"  ,price:"3.000.000 VND"},
-  {  id: 7,brand:"Adidas", image: "new3.png", title: "Adidas Yeezy 50",price:"4.000.000 VND"  },
-  { id: 8,brand:"Nike", image: "nike1.png", title: "Nike Pegasus " ,price:"1.000.000 VND" },
-  {  id: 9,brand:"Nike", image: "nike11.png", title: "Nike React" ,price:"4.000.000 VND" },
-  {  id: 10,brand:"Nike", image: "nike6.png", title: "Nike Air Max" ,price:"4.000.000 VND" },
-  {  id: 11,brand:"Nike", image: "nike2.png", title: "Nike Roshe" ,price:"4.000.000 VND" },
-  {  id: 12,brand:"Nike", image: "nike4.png", title: "Nike Pegasus 1" ,price:"4.000.000 VND" },
-  {  id: 13,brand:"Vans", image: "vans2.png", title: "Vans Old Skool" ,price:"4.000.000 VND" },
-  {  id: 14,brand:"Puma", image: "puma5.png", title: "Puma Suede" ,price:"4.000.000 VND" },
-];
 
-localStorage.setItem("product",JSON.stringify(product));
 const brand =["Adidas","Nike","Puma",'Vans'];
   
   

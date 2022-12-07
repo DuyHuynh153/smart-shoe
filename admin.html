@@ -40,19 +40,76 @@
  <button type="button" class="collapsible">Thêm sản phẩm</button>
  <div class = "collapsibleDiv">
  <div id ="addproduct" class ="addproduct">
- <label>Thêm sản phẩm</label>
  <form id = "product" class ="form-container">
     <label>Tên sản phẩm</label>
     <input type ="text"id="name" required></input>
     <label>Giá</label>
-    <input id ="price" type ="text" required></input>
-    <label for="img">Chọn ảnh:</label>
-    <input type="file" id="imgData" name="img" accept="image/*" onchange="getImgName(this)">
+    <input id ="price" type ="text" required></input><br>
     <label>Chọn hãng</label>
     <select id="selectBrand" class ="selectBrand">
-        
+  
     </select><br>
-    <button  onclick="addProduct()" id="add" class="btn">Thêm sản phẩm</button>
+    <!-- <label for="img">Chọn ảnh:</label>
+     <input type="file" id="imgData" name="img" accept="image/*" >   -->
+    <div class="container__preview">
+      <div class="wrapper">
+         <div class="image">
+            <img src="" alt="">
+         </div>
+         <div class="content">
+            <div class="icon">
+               
+               <div id="cancel-btn">
+                 <i class="fas fa-times"></i>
+                </div>
+              </div>
+      
+              <button type="button" onclick="defaultBtnActive()" id="custom-btn">Chọn Hình Ảnh</button>
+              <input id="imgButton" type="file" hidden>
+            </div>
+                <div class="file-name">
+                  Tên File
+                </div>
+              </div>
+            </div>
+  
+    <script>
+      const wrapper = document.querySelector(".wrapper");
+const fileName = document.querySelector(".file-name");
+const imgButton = document.querySelector("#imgButton");
+const customBtn = document.querySelector("#custom-btn");
+const cancelBtn = document.querySelector("#cancel-btn i");
+const img = document.querySelector("img");
+let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+function defaultBtnActive(){
+  imgButton.click();
+}
+imgButton.addEventListener("change", function(){
+  let valueStore = "";
+  const file = this.files[0];
+  if(file){
+    const reader = new FileReader();
+    reader.onload = function(){
+      const result = reader.result;
+      img.src = result;
+      wrapper.classList.add("active");
+    }
+    cancelBtn.addEventListener("click", function(){
+      imgButton.value = null;
+      alert("xoá")
+      img.src = "";
+      wrapper.classList.remove("active");
+    })
+    reader.readAsDataURL(file);
+  }
+  if(this.value){
+    valueStore = this.value.match(regExp);
+    fileName.textContent = valueStore;
+  }
+});
+    </script> 
+    
+    <button type ="button" onclick="addProduct()" id="add" class="btn">Thêm sản phẩm</button>
   </form>
 </div>
 </div>
@@ -76,7 +133,7 @@
   <form class="form-container">
     <h1>Sửa sản phẩm</h1>
     <label for ="id">Mã Sản phẩm</label>
-    <input type="text"  name="sp" id ="productID" class="productID" disabled size ="50">
+    <input type="text"  name="sp" id ="productID" class="productID" disabled size ="50"><br>
     <label for ="Brand">Hãng</label>
     <select id="newBrand" name="Brand">
         
@@ -88,10 +145,10 @@
     <input type="file" id="newImg" name="img" accept="image/*"><br>
 
     <label for="sp"><b>Tên sản phẩm</b></label>
-    <input type="text" placeholder="Nhập tên sản phẩm" name="sp" id ="newName" required>
+    <input type="text" placeholder="Nhập tên sản phẩm" name="sp" id ="newName" ><br>
 
     <label for="price"><b>Giá sản phẩm</b></label>
-    <input type="text" placeholder="Nhập giá sản phẩm" name="newPrice" id ="newPrice" required>
+    <input type="text" placeholder="Nhập giá sản phẩm" name="newPrice" id ="newPrice" >
 
     <button type="button" onclick="updateProduct(document.getElementById('productID').value)" class="btn">Xác Nhận</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Huỷ</button>

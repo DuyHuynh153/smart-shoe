@@ -36,32 +36,27 @@ function initBrandOption(arr) {
 function addProduct() {
   {
     var img ='';
-    if(document.getElementById('newImg').value == ''){
+    if(document.getElementById('imgButton').files[0] == undefined){
       img = "noimage.png";
-    }else{
-  
-      var imgPath = document.getElementById("newImg").value;
-       img = imgPath.replace("C:\\fakepath\\", "");
+    }else
+    {
+      img = document.getElementById('imgButton').files[0].name;
     }
 
     var title = document.getElementById("name").value;
     var price = Number(document.getElementById("price").value);
-    var priceVND = price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
 
     var brand = document.getElementById("selectBrand").value;
 
     var sanPham = JSON.parse(localStorage.getItem('product'));
-    var product = { id: sanPham.length + 1, brand: brand, image: img, title: title, price: priceVND };
+    var product = { id: sanPham.length + 1, brand: brand, image: img, title: title, price: price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' }) };
     sanPham.push(product);
 
     localStorage.setItem('product', JSON.stringify(sanPham));
     showProductList();
+    alert("Đã thêm sản phẩm");
 
   }
-}
-function getImgName(input){
-  let file = input.files[0];
-  return file.name;
 }
 
 //xóa sản phẩm
@@ -89,6 +84,7 @@ function showProductList() {
   // STT| TÊN SP| HÃNG| GIÁ|HÌNH|XÓA|SỬA
   var tr = '<tr><th>STT</th><th>Tên sản phẩm</th><th>Hãng</th><th>Giá</th><th>Hình</th><th>Xóa</th><th>Sửa</th></tr><br />';
   for (var i = 0; i < product.length; i++) {
+    
     tr += '<tr><td>' + (i + 1) + '</td><td>' + product[i].title + '</td><td>' + product[i].brand + '</td><td>' + product[i].price + '</td><td><img src="' + imageURL + product[i].image + '" height = 200px width = 100px></img></td><td><button class="delete" onClick="deleteProduct(\'' + product[i].id + '\')"><i class="fa fa-trash"></i></button></td><td><button class="update" onClick="openForm(\'' + product[i].id + '\')"><i class="fa  fa-pencil"></i></button></td></tr>';
   }
   document.getElementById('productList').innerHTML = tr;
@@ -139,16 +135,16 @@ function deleteUser(i) {
 
 //Sửa sản phẩm
 function updateProduct(productID) {
+
   var newImage = '';
   var newName = document.getElementById('newName').value;
   var newPrice = Number(document.getElementById('newPrice').value.replace( /^\D+/g, ''));
-  var newPriceVND = newPrice.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
-  if(document.getElementById('newImg').value == ''){
+  
+  if(document.getElementById('newImg').files[0] == undefined){
     newImage = "noimage.png";
   }else{
 
-    var img = document.getElementById("newImg").value;
-     newImage = img.replace("C:\\fakepath\\", "");
+     newImage = document.getElementById('newImg').files[0].name;
   }
     var newBrand = document.getElementById('newBrand').value;
   let newProduct ={
@@ -156,7 +152,7 @@ function updateProduct(productID) {
     brand:newBrand,
     image:newImage,
     title: newName,
-    price:newPriceVND
+    price:newPrice.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })
   }
   var productArray = JSON.parse(localStorage.getItem('product'));
   for (var i = 0; i < productArray.length; i++) {
