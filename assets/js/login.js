@@ -26,7 +26,7 @@ btnLogin.addEventListener("click", (e) => {
         if(userArray[0].username==username.value && userArray[0].password==password.value)
     {
       alert("admin");
-      window.location="index.html";
+      window.location="admin.html";
       break;
     }
     alert("dang nhap thanh cong");
@@ -73,14 +73,6 @@ function hide() {
     x.style.display = "none";
     var x = document.getElementById("nav-shop-market");
     x.style.display = "block";
-    if(userArray.username != "admin"){
-    var x = document.getElementById("admin");
-    x.style.display = "none";
-    }
-    if(userArray.username == "admin"){
-      var x = document.getElementById("admin");
-    x.style.display = "block";
-    }
   }
 }
 
